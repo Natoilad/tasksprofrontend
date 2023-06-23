@@ -5,7 +5,7 @@ export const Conteiner = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 20px;
-  height: 400px;
+  /* height: 400px; */
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
