@@ -6,10 +6,10 @@ const AuthPage = () => {
   const { id } = useParams();
 
   return (
-    <div>
+    <>
       {id === 'login' && <LogInForm />}
       {id === 'register' && <RegisterForm />}
-    </div>
+    </>
   );
 };
 
