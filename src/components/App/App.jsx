@@ -1,3 +1,4 @@
+import Board from 'components/Board/Board';
 import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
 import React from 'react';
@@ -14,6 +15,7 @@ export const App = () => {
       <Route path="/" element={<Navigate to="welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
       <Route path="/auth/:id" element={<AuthPage />} />
+      <Route path="/home" element={<Board />} />
     </Routes>
   );
 };
