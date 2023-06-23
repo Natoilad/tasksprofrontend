@@ -10,7 +10,7 @@ import {
   NavLink,
   LinkWrap,
 } from './RegisterForm.styled';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   name: Yup.string()
