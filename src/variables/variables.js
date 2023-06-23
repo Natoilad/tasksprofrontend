@@ -1,0 +1,14 @@
+export const white100 = 'rgba(255, 255, 255, 1)';
+export const white80 = 'rgba(255, 255, 255, 0,8)';
+export const white50 = 'rgba(255, 255, 255, 0,5)';
+export const white30 = 'rgba(255, 255, 255, 0,3)';
+export const white10 = 'rgba(255, 255, 255, 0,1)';
+export const dark1 = 'rgba(22, 22, 22, 1)';
+export const dack2 = 'rgba(18, 18, 18, 1)';
+export const darkModal = 'rgba(21, 21, 21, 1)';
+export const darkGray = 'rgba(31, 31, 31, 1)';
+export const highPriority = 'rgba(190, 219, 176, 1)';
+export const mediumPriority = 'rgba(224, 156, 181, 1)';
+export const lowPriority = 'rgba(143, 161, 208, 1)';
+export const violetAccentColor = 'rgba(82, 85, 188, 1)';
+export const violetAccentSecondColor = 'rgba(236, 237, 253, 0,4)';
