@@ -2,6 +2,7 @@ import Card from 'components/Card/Card';
 import HeaderColumn from 'components/HeaderColumn/HeaderColumn';
 import { Btn, Conteiner, ScrollBlock, CardList } from './Column.styled';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+
 const options = {
   scrollbars: {
     scrollbars: { autoHide: 'scroll' },

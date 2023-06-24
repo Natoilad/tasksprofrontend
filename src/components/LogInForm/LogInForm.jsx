@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { authLogin } from 'redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
 
 import {
   Form,
@@ -10,7 +12,6 @@ import {
   NavLink,
   LinkWrap,
 } from './LogInForm.styled';
-// import { useParams } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   email: Yup.string().email().required('Required'),
@@ -21,25 +22,35 @@ const schema = Yup.object().shape({
 });
 
 const LogInForm = () => {
-  // const { id } = useParams();
+  const dispatch = useDispatch();
+  const onFormSubmit = (values, { resetForm }) => {
+    const user = {
+      email: values.email,
+      password: values.password,
+    };
+
+    dispatch(authLogin(user));
+    console.log(`Successfully ${values.email} login!`);
+    resetForm();
+  };
 
   return (
     <Section>
       <Wrap>
         <LinkWrap>
           <NavLink to="/auth/register">Registration</NavLink>
-          <NavLink to="/auth/login">Log In</NavLink>
+          <NavLink to="/auth/login" className="active">
+            Log In
+          </NavLink>
         </LinkWrap>
 
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={schema}
-          onSubmit={values => {
-            console.log(values);
-          }}
+          onSubmit={onFormSubmit}
         >
           {({ errors, touched }) => (
-            <Form autocomplete="off">
+            <Form autoComplete="off">
               <Field name="email" type="email" placeholder="Enter your email" />
               {/* {errors.email && touched.email ? <div>{errors.email}</div> : null} */}
 
@@ -48,7 +59,7 @@ const LogInForm = () => {
                 <div>{errors.password}</div>
               ) : null} */}
 
-              <Button type="submit">Register Now</Button>
+              <Button type="submit">Log In Now</Button>
             </Form>
           )}
           {/* <ErrorMessage component="div" name="name" /> */}
