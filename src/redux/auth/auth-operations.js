@@ -3,15 +3,19 @@ import {
   currentUser,
   loginUser,
   logoutUser,
-  signUpUser,
+  registerUser,
   token,
-} from 'service/userApi';
+} from 'service/auth-service';
 
-export const signUpThunk = createAsyncThunk(
-  'auth/singUp',
+export const authRegister = createAsyncThunk(
+  'users/register',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await signUpUser(credentials);
+      const data = await registerUser(credentials);
+      // if (data.) {
+      //   console.log(data);
+      // }
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -19,12 +23,13 @@ export const signUpThunk = createAsyncThunk(
   }
 );
 
-export const loginThunk = createAsyncThunk(
-  'auth/login',
+export const authLogin = createAsyncThunk(
+  'users/login',
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await loginUser(credentials);
       token.set(data.token);
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -32,8 +37,8 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-export const logoutThunk = createAsyncThunk(
-  'auth/logout',
+export const authLogout = createAsyncThunk(
+  'users/logout',
   async (_, { rejectWithValue }) => {
     try {
       await logoutUser();
@@ -44,8 +49,8 @@ export const logoutThunk = createAsyncThunk(
   }
 );
 
-export const refreshUserThunk = createAsyncThunk(
-  'auth/refreshUser',
+export const authRefresh = createAsyncThunk(
+  'users/current',
   async (_, { rejectWithValue, getState }) => {
     try {
       const sessionToken = getState().auth.token;

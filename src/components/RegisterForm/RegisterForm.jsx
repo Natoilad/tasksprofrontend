@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { authRegister } from 'redux/auth/auth-operations';
 
 import {
   Form,
@@ -10,7 +12,6 @@ import {
   NavLink,
   LinkWrap,
 } from './RegisterForm.styled';
-// import { useParams } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -25,25 +26,36 @@ const schema = Yup.object().shape({
 });
 
 const RegisterForm = () => {
-  // const { id } = useParams();
+  const dispatch = useDispatch();
+  const onFormSubmit = (values, { resetForm }) => {
+    const user = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    dispatch(authRegister(user));
+    console.log(`Successfully ${values.email} register!`);
+    resetForm();
+  };
 
   return (
     <Section>
       <Wrap>
         <LinkWrap>
-          <NavLink to="/auth/register">Registration</NavLink>
+          <NavLink to="/auth/register" className="active">
+            Registration
+          </NavLink>
           <NavLink to="/auth/login">Log In</NavLink>
         </LinkWrap>
 
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={schema}
-          onSubmit={values => {
-            console.log(values);
-          }}
+          onSubmit={onFormSubmit}
         >
           {({ errors, touched }) => (
-            <Form autocomplete="off">
+            <Form autoComplete="off">
               <Field
                 id="name"
                 type="text"
@@ -73,6 +85,19 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
+// const handleSubmit = e => {
+//   e.preventDefault();
+//   const form = e.currentTarget;
+//   dispatch(
+//     userRegister({
+//       name: form.elements.name.value,
+//       email: form.elements.email.value,
+//       password: form.elements.password.value,
+//     })
+//   );
+//   form.reset();
+// };
 
 // <Formik
 //   initialValues={{ name: '', number: '' }}

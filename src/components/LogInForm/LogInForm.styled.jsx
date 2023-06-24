@@ -40,7 +40,7 @@ export const NavLink = styled(Link)`
   letter-spacing: -0.36px;
   cursor: pointer;
 
-  &:active {
+  &.active {
     color: #ffffff;
   }
 `;

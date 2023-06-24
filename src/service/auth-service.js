@@ -1,4 +1,8 @@
-import { backendAPI } from 'redux/BaseHttp/BaseHttp';
+import axios from 'axios';
+
+export const backendAPI = axios.create({
+  baseURL: 'https://tasksprobackend.onrender.com/',
+});
 
 export const token = {
   set: token => {
@@ -9,14 +13,13 @@ export const token = {
   },
 };
 
-export const signUpUser = async credentials => {
-  const { data } = await backendAPI.post('users/signup', credentials);
+export const registerUser = async credentials => {
+  const { data } = await backendAPI.post('users/register', credentials);
   return data;
 };
 
 export const loginUser = async credentials => {
   const { data } = await backendAPI.post('users/login', credentials);
-  console.log(data);
   return data;
 };
 

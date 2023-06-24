@@ -1,9 +1,11 @@
+import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+
 import Board from 'components/Board/Board';
 import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
-import React from 'react';
-// import { lazy } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { PublicRoute } from 'components/Routs/PublicRoute';
+import { PrivateRoute } from 'components/Routs/PrivateRoute';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -14,8 +16,17 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Navigate to="welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
-      <Route path="/auth/:id" element={<AuthPage />} />
-      <Route path="/home" element={<Board />} />
+      <Route
+        path="/auth/:id"
+        element={<PublicRoute redirectTo="/home" component={<AuthPage />} />}
+      />
+
+      <Route
+        path="/home"
+        element={
+          <PrivateRoute redirectTo="/auth/login" component={<Board />} />
+        }
+      />
     </Routes>
   );
 };
