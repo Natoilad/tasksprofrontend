@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Board from 'components/Board/Board';
@@ -30,7 +30,3 @@ export const App = () => {
     </Routes>
   );
 };
-
-/* <Route path="/">
-        {isLoggedIn ? <Redirect to="/home" /> : element={<AuthPage />}}
-      </Route> */

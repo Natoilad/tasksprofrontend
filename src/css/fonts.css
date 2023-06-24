@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Regular';
+  src: url('../fonts/Poppins-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Medium';
+  src: url('../fonts/Poppins-Medium.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SemiBold';
+  src: url('../fonts/Poppins-SemiBold.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* use */
+/* 
+import React from 'react';
+import './fonts.css';
+
+function MyComponent() {
+  return (
+    <div style={{ fontFamily: 'MyFont' }}>
+      Привіт, це мій шрифт!
+    </div>
+  );
+}
+
+export default MyComponent; */
