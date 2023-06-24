@@ -64,7 +64,7 @@ export const Button = styled(Link)`
   font-size: 14px;
   line-height: calc(14 / 21);
   letter-spacing: -0.02px;
-  border: none;
+  text-decoration: none;
   cursor: pointer;
   border-radius: 8px;
   display: flex;
