@@ -13,6 +13,10 @@ import { useState } from 'react';
 const Card = ({ title, id }) => {
   const [priority, setPriority] = useState('without');
 
+  const handlechange = evt => {
+    setPriority('medium');
+  };
+
   return (
     <Conteiner>
       <Title>task name</Title>
@@ -26,7 +30,13 @@ const Card = ({ title, id }) => {
         <PriorDeadLinWrapper>
           <Label>
             priority
-            <PriorityBtn type="button">{priority}</PriorityBtn>
+            <PriorityBtn
+              priority={priority}
+              onClick={handlechange}
+              type="button"
+            >
+              {priority}
+            </PriorityBtn>
           </Label>
           <Label>
             defadline

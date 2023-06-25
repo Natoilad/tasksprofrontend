@@ -23,7 +23,9 @@ export const App = () => {
 
       <Route
         path="/home"
-        element={<PublicRoute redirectTo="/auth/login" component={<Board />} />}
+        element={
+          <PrivateRoute redirectTo="/auth/login" component={<Board />} />
+        }
       />
     </Routes>
   );

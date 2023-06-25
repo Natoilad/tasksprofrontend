@@ -59,12 +59,26 @@ export const SettingsBlock = styled.div`
   padding-bottom: 20px;
 
   &::before {
-    top: 0;
+    ${props => {
+      switch (props.priority) {
+        case 'without':
+          return `top: 0;
     position: absolute;
     content: '';
     width: 100%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);`;
+        case 'medium':
+          return `top: 0;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #E09CB5;`;
+        default:
+          return;
+      }
+    }}
   }
 `;
 
@@ -95,7 +109,10 @@ export const PriorityBtn = styled.button`
   letter-spacing: -0.2px;
 
   &::before {
-    top: 50%;
+    ${props => {
+      switch (props.priority) {
+        case 'without':
+          return `top: 50%;
     left: -12px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -103,7 +120,21 @@ export const PriorityBtn = styled.button`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);`;
+        case 'medium':
+          return `top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E09CB5;`;
+        default:
+          return;
+      }
+    }}
   }
 `;
 
