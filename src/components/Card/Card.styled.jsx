@@ -28,6 +28,7 @@ export const Title = styled.p`
   color: #fff;
   font-size: 14px;
   font-weight: 600;
+  font-family: 'Poppins';
   letter-spacing: -0.28px;
 `;
 
@@ -45,6 +46,7 @@ export const Descriptions = styled.p`
   whitespace: nowrap;
   font-size: 12px;
   line-height: 16px;
+  font-family: 'Poppins';
   letter-spacing: -0.24px;
 `;
 
@@ -71,12 +73,38 @@ export const PriorDeadLinWrapper = styled.div`
   gap: 14px;
 `;
 
-export const Priority = styled.span`
-  color: #fff;
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 8px;
+  font-family: 'Poppins';
+  letter-spacing: -0.16px;
 `;
 
-export const DeadLine = styled.span`
+export const PriorityBtn = styled.button`
+  position: relative;
+  margin-top: 4px;
+  margin-left: 16px;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
   color: #fff;
+  font-size: 10px;
+  font-family: 'Poppins';
+  letter-spacing: -0.2px;
+
+  &::before {
+    top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+  }
 `;
 
 export const BtnWrapper = styled.div``;

@@ -32,6 +32,7 @@ export const Btn = styled.button`
   background: #bedbb0;
   color: #161616;
   font-size: 14px;
+  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
 `;

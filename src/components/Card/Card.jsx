@@ -4,13 +4,15 @@ import {
   Descriptions,
   SettingsBlock,
   PriorDeadLinWrapper,
-  DeadLine,
-  Priority,
+  Label,
   BtnWrapper,
   Button,
+  PriorityBtn,
 } from './Card.styled';
-
+import { useState } from 'react';
 const Card = ({ title, id }) => {
+  const [priority, setPriority] = useState('without');
+
   return (
     <Conteiner>
       <Title>task name</Title>
@@ -22,8 +24,14 @@ const Card = ({ title, id }) => {
       </Descriptions>
       <SettingsBlock>
         <PriorDeadLinWrapper>
-          <Priority>-priority- </Priority>
-          <DeadLine>-deadline- </DeadLine>
+          <Label>
+            priority
+            <PriorityBtn type="button">{priority}</PriorityBtn>
+          </Label>
+          <Label>
+            defadline
+            <input style={{ marginTop: '4px' }} type="date" />
+          </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
           <Button>1</Button>
