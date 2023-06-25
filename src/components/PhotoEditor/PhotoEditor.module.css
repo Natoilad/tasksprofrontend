@@ -1,0 +1,73 @@
+.box {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #1f2125;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.box_setting_btn {
+  display: flex;
+  padding: 25px 0;
+  column-gap: 10px;
+}
+
+.slider_box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn_replace {
+  width: 100%;
+  background-color: #fffd54;
+  color: #131519;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.box_main_btn {
+  display: flex;
+  padding: 25px 0;
+}
+.btn_save {
+  padding: 10px 20px;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 32px;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: #39d885;
+}
+
+.btn_cancel {
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 32px;
+  color: #ffffff;
+  border: 1px solid #35373a;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.input_scale {
+  cursor: pointer;
+}
+.input_scale_title {
+  color: '#fff';
+}
