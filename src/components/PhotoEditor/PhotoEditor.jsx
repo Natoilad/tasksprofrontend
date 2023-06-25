@@ -33,7 +33,7 @@ export const PhotoEditor = ({ setIsShowEditor, uploadImg, setPhotos }) => {
 
   return (
     <div className={styles.box}>
-      <h2>Edit Image</h2>
+      <h2 className={styles.input_scale_title}>Edit Image</h2>
       {uploadImg && (
         <AvatarEditor
           ref={canvasRef}
