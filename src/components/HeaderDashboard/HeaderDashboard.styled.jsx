@@ -12,6 +12,7 @@ export const BoardName = styled.h4`
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+  font-family: 'Poppins';
   letter-spacing: -0.28px;
 `;
 
@@ -22,6 +23,7 @@ export const FilterBtn = styled.button`
   border: none;
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
+    font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
   transition: all 0.5s ease-in-out;
