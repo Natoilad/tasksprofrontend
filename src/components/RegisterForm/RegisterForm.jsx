@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { authRegister } from 'redux/auth/auth-operations';
@@ -15,13 +15,26 @@ import {
 
 const schema = Yup.object().shape({
   name: Yup.string()
+    .matches(/^[A-Za-z0-9]+$/, 'Only alphanumeric characters are allowed')
     .min(2, 'Too Short!')
     .max(32, 'Too Long!')
     .required('Required'),
-  email: Yup.string().email().required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .matches(
+      /^[A-Za-z0-9@.]+$/,
+      'Only alphanumeric characters, @, and . are allowed'
+    )
+    .matches(/^[^@]*@[^@]*\.[^@]*$/, 'Invalid email format')
+    .required('Required'),
   password: Yup.string()
+    .matches(
+      /^[A-Za-z0-9!@#$%^&*()_+=\-[\]{}|\\:;"'<>,.?/~`]+$/,
+      'Only alphanumeric characters and special symbols are allowed'
+    )
     .min(8, 'Too Short!')
     .max(64, 'Too Long!')
+    .matches(/^\S*$/, 'Password cannot contain spaces')
     .required('Required'),
 });
 
@@ -62,17 +75,22 @@ const RegisterForm = () => {
                 name="name"
                 placeholder="Enter your name"
               />
-              {/* {errors.firstName && touched.firstName ? (
+              {/* <ErrorMessage name="name" component={Field} /> */}
+              {errors.firstName && touched.firstName ? (
                 <div>{errors.firstName}</div>
-              ) : null} */}
+              ) : null}
 
               <Field name="email" type="email" placeholder="Enter your email" />
-              {/* {errors.email && touched.email ? <div>{errors.email}</div> : null} */}
+              {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
-              <Field name="password" placeholder="Create a password" />
-              {/* {errors.password && touched.password ? (
+              <Field
+                name="password"
+                type="password"
+                placeholder="Create a password"
+              />
+              {errors.password && touched.password ? (
                 <div>{errors.password}</div>
-              ) : null} */}
+              ) : null}
 
               <Button type="submit">Register Now</Button>
             </Form>
@@ -143,3 +161,28 @@ export default RegisterForm;
 //     <Button type="submit">Submit</Button>
 //   </Form>
 // </Formik>;
+
+// const validationSchema = Yup.object().shape({
+//   name: Yup.string()
+//     .matches(/^[A-Za-z0-9]+$/, 'Only alphanumeric characters are allowed')
+//     .min(2, 'Too Short!')
+//     .max(32, 'Too Long!')
+//     .required('Required'),
+//   email: Yup.string()
+//     .email('Invalid email')
+//     .matches(
+//       /^[A-Za-z0-9@.]+$/,
+//       'Only alphanumeric characters, @, and . are allowed'
+//     )
+//     .matches(/^[^@]*@[^@]*\.[^@]*$/, 'Invalid email format')
+//     .required('Required'),
+//   password: Yup.string()
+//     .matches(
+//       /^[A-Za-z0-9!@#$%^&*()_+=\-[\]{}|\\:;"'<>,.?/~`]+$/,
+//       'Only alphanumeric characters and special symbols are allowed'
+//     )
+//     .min(8, 'Too Short!')
+//     .max(64, 'Too Long!')
+//     .matches(/^[^\s]+$/, 'Password cannot contain spaces')
+//     .required('Required'),
+// });
