@@ -49,17 +49,38 @@ export const authLogout = createAsyncThunk(
   }
 );
 
+// export const authRefresh = createAsyncThunk(
+//   'auth/current',
+//   async (_, { rejectWithValue, getState }) => {
+//     try {
+//       const sessionToken = getState().auth.token;
+//       if (!sessionToken) {
+//         return rejectWithValue('Please Login');
+//       }
+//       token.set(sessionToken);
+//       const data = await currentUser();
+//       return data.data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const authRefresh = createAsyncThunk(
   'auth/current',
   async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedToken = state.auth.token;
+    console.log(persistedToken);
+    if (persistedToken === null) {
+      return rejectWithValue('Sorry!Unable to fetch user');
+    }
     try {
-      const sessionToken = getState().auth.token;
-      if (!sessionToken) {
-        return rejectWithValue('Please Login');
-      }
-      token.set(sessionToken);
+      token.set(persistedToken);
       const data = await currentUser();
-      return data.data;
+      console.log(persistedToken);
+      console.log(token);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -4,12 +4,16 @@ export const backendAPI = axios.create({
   baseURL: 'https://tasksprobackend.onrender.com/',
 });
 
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
 export const token = {
   set: token => {
-    backendAPI.defaults.headers.Authorization = `Bearer ${token}`;
+    backendAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unSet: token => {
-    backendAPI.defaults.headers.Authorization = '';
+    backendAPI.defaults.headers.common.Authorization = '';
   },
 };
 
