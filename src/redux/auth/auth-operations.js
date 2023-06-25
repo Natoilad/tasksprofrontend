@@ -8,7 +8,7 @@ import {
 } from 'service/auth-service';
 
 export const authRegister = createAsyncThunk(
-  'users/register',
+  'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await registerUser(credentials);
@@ -24,7 +24,7 @@ export const authRegister = createAsyncThunk(
 );
 
 export const authLogin = createAsyncThunk(
-  'users/login',
+  'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await loginUser(credentials);
@@ -38,7 +38,7 @@ export const authLogin = createAsyncThunk(
 );
 
 export const authLogout = createAsyncThunk(
-  'users/logout',
+  'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
       await logoutUser();
@@ -50,7 +50,7 @@ export const authLogout = createAsyncThunk(
 );
 
 export const authRefresh = createAsyncThunk(
-  'users/current',
+  'auth/current',
   async (_, { rejectWithValue, getState }) => {
     try {
       const sessionToken = getState().auth.token;

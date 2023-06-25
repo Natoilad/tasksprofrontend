@@ -14,20 +14,20 @@ export const token = {
 };
 
 export const registerUser = async credentials => {
-  const { data } = await backendAPI.post('users/register', credentials);
+  const { data } = await backendAPI.post('auth/register', credentials);
   return data;
 };
 
 export const loginUser = async credentials => {
-  const { data } = await backendAPI.post('users/login', credentials);
+  const { data } = await backendAPI.post('auth/login', credentials);
   return data;
 };
 
 export const logoutUser = async () => {
-  return backendAPI.post('users/logout');
+  return backendAPI.post('auth/logout');
 };
 
 export const currentUser = async () => {
-  const data = await backendAPI.get('users/current');
+  const data = await backendAPI.get('auth/current');
   return data;
 };
