@@ -49,8 +49,10 @@ const authSlice = createSlice({
       })
       .addCase(authLogout.pending, handleIfPending)
       .addCase(authLogout.rejected, handleIfReject)
-      .addCase(authLogout.fulfilled, () => {
-        return initialState;
+      .addCase(authLogout.fulfilled, state => {
+        state.token = '';
+        state.user = null;
+        state.isLoggedIn = false;
       })
       .addCase(authRefresh.pending, (state, { payload }) => {
         state.isRefreshing = true;
