@@ -31,7 +31,7 @@ const Column = ({ title, id }) => {
         </CardList>
       </ScrollBlock>
 
-      <Btn>Add card</Btn>
+      <Btn>Add another card</Btn>
     </Conteiner>
   );
 };
