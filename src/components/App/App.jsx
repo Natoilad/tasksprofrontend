@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from 'components/Board/Board';
+// import Board from 'components/Board/Board';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
@@ -9,6 +9,7 @@ import { useAuth } from 'hooks/authHooks';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from 'redux/auth/auth-operations';
+import HomePage from 'pages/Home';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -36,7 +37,7 @@ export const App = () => {
       <Route
         path="/home"
         element={
-          <PrivateRoute redirectTo="/auth/login" component={<Board />} />
+          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
         }
       />
     </Routes>
