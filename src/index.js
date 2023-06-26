@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { store, persistR } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-
+import 'overlayscrollbars/overlayscrollbars.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
