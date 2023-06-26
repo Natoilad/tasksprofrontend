@@ -11,7 +11,7 @@ import { useAuth } from 'hooks/authHooks';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from 'redux/auth/auth-operations';
-import { Loader } from 'components/Loader/Loader';
+import { LoaderHomePage } from 'components/Loader/LoaderHomePage/Loader';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -26,7 +26,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader />
+    <LoaderHomePage />
   ) : (
     <Routes>
       <Route path="/" element={<Navigate to="welcome" />} />

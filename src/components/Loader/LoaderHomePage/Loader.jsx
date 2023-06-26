@@ -1,7 +1,7 @@
-import { Wrap } from './Loader.styled';
+import { Wrap } from '../LoaderHomePage/Loader.styled';
 import { Spiner } from './Spiner';
 
-export const Loader = () => {
+export const LoaderHomePage = () => {
   return (
     <Wrap>
       <Spiner />

@@ -2,13 +2,13 @@ import { useParams } from 'react-router-dom';
 import LogInForm from '../components/LogInForm/LogInForm';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
 import { useAuth } from 'hooks/authHooks';
-import { Loader } from 'components/Loader/Loader';
+import { LoaderWelcomePage } from 'components/Loader/LoaderWelcomePage/Loader';
 
 const AuthPage = () => {
   const { id } = useParams();
   const { isLoading } = useAuth();
   return isLoading ? (
-    <Loader />
+    <LoaderWelcomePage />
   ) : (
     <>
       {id === 'login' && <LogInForm />}
