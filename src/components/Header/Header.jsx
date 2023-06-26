@@ -35,7 +35,7 @@ export const Header = () => {
 
   return (
     <HeaderComponent>
-      <HeaderBox className="container">
+      <HeaderBox>
         <svg width="24" height="24">
           <use href={icon + '#icon-burger-menu'}></use>
         </svg>
