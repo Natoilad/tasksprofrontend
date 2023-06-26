@@ -1,20 +1,14 @@
-@import-normalize;
+@import '~node_modules/modern-normalize/modern-normalize.css';
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #1f1f1f;
-  box-sizing: border-box;
+  /* font-family: 'Roboto', sans-serif; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* color */
+/* color:#BEDBB0 */
+/* color:#5255BC */
+/* textcolor: fff */
+/* darkthem:161616 */
 
 /* Стилі для обнуленя верхніх відступів у елементів */
 h1,
@@ -63,7 +57,7 @@ img {
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }

@@ -4,8 +4,6 @@ export const Conteiner = styled.div`
   width: 335px;
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
-  /* height: 400px; */
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
@@ -19,6 +17,7 @@ export const CardList = styled.ul`
   list-style: none;
   padding: 0px;
   margin: 0px;
+  height: 400px;
 `;
 
 export const Btn = styled.button`
@@ -32,6 +31,7 @@ export const Btn = styled.button`
   background: #bedbb0;
   color: #161616;
   font-size: 14px;
+  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
 `;

@@ -1,5 +1,7 @@
-import { Formik } from 'formik';
+import {  Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { authRegister } from 'redux/auth/auth-operations';
 
 import {
   Form,
@@ -10,57 +12,85 @@ import {
   NavLink,
   LinkWrap,
 } from './RegisterForm.styled';
-// import { useParams } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   name: Yup.string()
+    .matches(/^[A-Za-z0-9]+$/, 'Only alphanumeric characters are allowed')
     .min(2, 'Too Short!')
     .max(32, 'Too Long!')
     .required('Required'),
-  email: Yup.string().email().required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .matches(
+      /^[A-Za-z0-9@.]+$/,
+      'Only alphanumeric characters, @, and . are allowed'
+    )
+    .matches(/^[^@]*@[^@]*\.[^@]*$/, 'Invalid email format')
+    .required('Required'),
   password: Yup.string()
+    .matches(
+      /^[A-Za-z0-9!@#$%^&*()_+=\-[\]{}|\\:;"'<>,.?/~`]+$/,
+      'Only alphanumeric characters and special symbols are allowed'
+    )
     .min(8, 'Too Short!')
     .max(64, 'Too Long!')
+    .matches(/^\S*$/, 'Password cannot contain spaces')
     .required('Required'),
 });
 
 const RegisterForm = () => {
-  // const { id } = useParams();
+  const dispatch = useDispatch();
+  const onFormSubmit = (values, { resetForm }) => {
+    const user = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    dispatch(authRegister(user));
+    console.log(`Successfully ${values.email} register!`);
+    resetForm();
+  };
 
   return (
     <Section>
       <Wrap>
         <LinkWrap>
-          <NavLink to="/auth/register">Registration</NavLink>
+          <NavLink to="/auth/register" className="active">
+            Registration
+          </NavLink>
           <NavLink to="/auth/login">Log In</NavLink>
         </LinkWrap>
 
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={schema}
-          onSubmit={values => {
-            console.log(values);
-          }}
+          onSubmit={onFormSubmit}
         >
           {({ errors, touched }) => (
-            <Form autocomplete="off">
+            <Form autoComplete="off">
               <Field
                 id="name"
                 type="text"
                 name="name"
                 placeholder="Enter your name"
               />
-              {/* {errors.firstName && touched.firstName ? (
+              {/* <ErrorMessage name="name" component={Field} /> */}
+              {errors.firstName && touched.firstName ? (
                 <div>{errors.firstName}</div>
-              ) : null} */}
+              ) : null}
 
               <Field name="email" type="email" placeholder="Enter your email" />
-              {/* {errors.email && touched.email ? <div>{errors.email}</div> : null} */}
+              {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
-              <Field name="password" placeholder="Create a password" />
-              {/* {errors.password && touched.password ? (
+              <Field
+                name="password"
+                type="password"
+                placeholder="Create a password"
+              />
+              {errors.password && touched.password ? (
                 <div>{errors.password}</div>
-              ) : null} */}
+              ) : null}
 
               <Button type="submit">Register Now</Button>
             </Form>
@@ -73,6 +103,19 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
+// const handleSubmit = e => {
+//   e.preventDefault();
+//   const form = e.currentTarget;
+//   dispatch(
+//     userRegister({
+//       name: form.elements.name.value,
+//       email: form.elements.email.value,
+//       password: form.elements.password.value,
+//     })
+//   );
+//   form.reset();
+// };
 
 // <Formik
 //   initialValues={{ name: '', number: '' }}
@@ -118,3 +161,28 @@ export default RegisterForm;
 //     <Button type="submit">Submit</Button>
 //   </Form>
 // </Formik>;
+
+// const validationSchema = Yup.object().shape({
+//   name: Yup.string()
+//     .matches(/^[A-Za-z0-9]+$/, 'Only alphanumeric characters are allowed')
+//     .min(2, 'Too Short!')
+//     .max(32, 'Too Long!')
+//     .required('Required'),
+//   email: Yup.string()
+//     .email('Invalid email')
+//     .matches(
+//       /^[A-Za-z0-9@.]+$/,
+//       'Only alphanumeric characters, @, and . are allowed'
+//     )
+//     .matches(/^[^@]*@[^@]*\.[^@]*$/, 'Invalid email format')
+//     .required('Required'),
+//   password: Yup.string()
+//     .matches(
+//       /^[A-Za-z0-9!@#$%^&*()_+=\-[\]{}|\\:;"'<>,.?/~`]+$/,
+//       'Only alphanumeric characters and special symbols are allowed'
+//     )
+//     .min(8, 'Too Short!')
+//     .max(64, 'Too Long!')
+//     .matches(/^[^\s]+$/, 'Password cannot contain spaces')
+//     .required('Required'),
+// });

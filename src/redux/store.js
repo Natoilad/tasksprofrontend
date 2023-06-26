@@ -12,10 +12,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { authReducer } from './user/userSlice';
+import { authReducer } from './auth/auth-slice';
 
 const persistConfig = {
-  key: 'token',
+  key: 'auth',
   storage,
   whiteList: ['token'],
 };
