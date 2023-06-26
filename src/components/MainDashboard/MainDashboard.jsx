@@ -1,7 +1,11 @@
 import Column from 'components/Column/Column';
-import { Btn, Conteiner } from './MainDashboard.styled,';
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import * as React from 'react';
+import {
+  Btn,
+  Conteiner,
+  ScrollBlock,
+  ColumnList,
+} from './MainDashboard.styled,';
+// import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import ContainerModal from 'components/Modals/ContainerModal';
 import { useState } from 'react';
 import Card from 'components/Card/Card';
@@ -12,7 +16,7 @@ const MainDashboard = () => {
   const handleOpen = () => setOpen(true);
 
   return (
-    <OverlayScrollbarsComponent
+    <ScrollBlock
       element="div"
       options={{
         overflow: {
@@ -26,10 +30,20 @@ const MainDashboard = () => {
       }}
     >
       <Conteiner>
-        <Column title="Name of column" id="1" />
-        <Column title="Name of column" id="1" />
-        <Column title="Name of column" id="1" />
-        <Column title="Name of column" id="1" />
+        <ColumnList>
+          <li>
+            <Column title="Name of column" id="1" />
+          </li>
+          <li>
+            <Column title="Name of column" id="1" />
+          </li>
+          <li>
+            <Column title="Name of column" id="1" />
+          </li>
+          <li>
+            <Column title="Name of column" id="1" />
+          </li>
+        </ColumnList>
         <Btn onClick={handleOpen}>Add another column</Btn>
         {open && (
           <ContainerModal
@@ -39,7 +53,7 @@ const MainDashboard = () => {
           />
         )}
       </Conteiner>
-    </OverlayScrollbarsComponent>
+    </ScrollBlock>
   );
 };
 export default MainDashboard;
