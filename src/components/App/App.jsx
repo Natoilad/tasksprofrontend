@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
-
 import Board from 'components/Board/Board';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
 import { PublicRoute } from 'components/Routs/PublicRoute';
