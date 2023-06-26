@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import GlobalStyles from './index.css';
 import { darkFirst, lightFirst, violetAccent } from 'variables/variables';
+import 'overlayscrollbars/overlayscrollbars.css';
 
 const GlobalStyle = createGlobalStyle`
   ${GlobalStyles}

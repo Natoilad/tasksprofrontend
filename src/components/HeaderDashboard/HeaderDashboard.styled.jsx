@@ -1,10 +1,27 @@
 import styled from '@emotion/styled';
 
 export const Header = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 14px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (min-width: 768px) {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 `;
 
 export const BoardName = styled.h4`
