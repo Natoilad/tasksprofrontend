@@ -4,6 +4,7 @@ import {
   selectUsers,
   selectIsRefreshing,
   selectToken,
+  selectIsLoading,
 } from 'redux/auth/auth-selectors';
 
 export const useAuth = () => {
@@ -11,11 +12,13 @@ export const useAuth = () => {
   const user = useSelector(selectUsers);
   const isRefreshing = useSelector(selectIsRefreshing);
   const token = useSelector(selectToken);
+  const isLoading = useSelector(selectIsLoading);
 
   return {
     isLoggedIn,
     user,
     isRefreshing,
     token,
+    isLoading,
   };
 };
