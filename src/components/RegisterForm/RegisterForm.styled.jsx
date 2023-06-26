@@ -19,7 +19,7 @@ export const Section = styled.section`
 
 export const Wrap = styled.div`
   width: 335px;
-  height: 363px;
+  min-height: 363px;
 
   border-radius: 8px;
   background: #151515;
@@ -60,16 +60,17 @@ export const Field = styled(Input)`
   background: #1f1f1f;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: #fff;
+  margin-bottom: 14px;
 
   &::placeholder {
     padding: 14px 0 14px 18px;
   }
-  &:not(:last-child) {
-    margin-bottom: 14px;
-  }
-  &:nth-child(3) {
-    margin-bottom: 24px;
-  }
+  // &:not(:last-child) {
+  //   margin-bottom: 14px;
+  // }
+  // &:nth-child(3) {
+  //   margin-bottom: 24px;
+  // }
 `;
 
 export const Button = styled.button`
@@ -81,10 +82,23 @@ export const Button = styled.button`
   border-radius: 8px;
   background: #bedbb0;
   color: #161616;
+  margin-bottom: 24px;
+  margin-top: 10px;
 
   text-align: center;
   font-size: 14px;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.28px;
+`;
+
+export const ErrorWrap = styled.div`
+  color: #ff6600;
+  margin-bottom: 8px;
+
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
 `;

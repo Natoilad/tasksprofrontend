@@ -3,13 +3,15 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
+import HomePage from 'pages/Home';
+
 import { PublicRoute } from 'components/Routs/PublicRoute';
 import { PrivateRoute } from 'components/Routs/PrivateRoute';
 import { useAuth } from 'hooks/authHooks';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from 'redux/auth/auth-operations';
-import HomePage from 'pages/Home';
+import { LoaderHomePage } from 'components/Loader/LoaderHomePage/Loader';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -24,11 +26,12 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>refresh</div>
+    <LoaderHomePage />
   ) : (
     <Routes>
       <Route path="/" element={<Navigate to="welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
+
       <Route
         path="/auth/:id"
         element={<PublicRoute redirectTo="/home" component={<AuthPage />} />}

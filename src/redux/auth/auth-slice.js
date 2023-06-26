@@ -55,18 +55,22 @@ const authSlice = createSlice({
         state.token = null;
         state.isRefreshing = false;
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
       .addCase(authRefresh.pending, (state, { payload }) => {
         state.isRefreshing = true;
+        state.isLoading = true;
       })
       .addCase(authRefresh.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addCase(authRefresh.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.token = payload.token;
+        state.isLoading = false;
       });
   },
 });
