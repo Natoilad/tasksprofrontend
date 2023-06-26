@@ -5,13 +5,26 @@ import AuthPage from 'pages/AuthPage';
 import WelcomePage from 'pages/WelcomePage';
 import { PublicRoute } from 'components/Routs/PublicRoute';
 import { PrivateRoute } from 'components/Routs/PrivateRoute';
+import { useAuth } from 'hooks/authHooks';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { authRefresh } from 'redux/auth/auth-operations';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
 // const AuthPage = lazy(() => import('../pages/AuthPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(authRefresh());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <div>refresh</div>
+  ) : (
     <Routes>
       <Route path="/" element={<Navigate to="welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
