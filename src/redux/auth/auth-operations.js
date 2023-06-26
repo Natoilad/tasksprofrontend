@@ -12,10 +12,13 @@ export const authRegister = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await registerUser(credentials);
-      // if (data.) {
-      //   console.log(data);
-      // }
-      console.log(data);
+      const { email, password } = credentials;
+
+      if (data.status === 'success') {
+        const loginData = await loginUser({ email, password });
+        token.set(loginData.token);
+        return loginData;
+      }
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

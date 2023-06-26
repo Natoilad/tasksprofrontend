@@ -34,9 +34,10 @@ const authSlice = createSlice({
       .addCase(authRegister.rejected, handleIfReject)
       .addCase(authRegister.fulfilled, (state, { payload }) => {
         state.user = payload.user;
-        // state.isLoggedIn = true;
+        state.isLoggedIn = true;
         state.isLoading = false;
         state.error = null;
+        state.token = payload.token;
       })
       .addCase(authLogin.pending, handleIfPending)
       .addCase(authLogin.rejected, handleIfReject)
@@ -67,7 +68,6 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.token = payload.token;
       });
-      
   },
 });
 
