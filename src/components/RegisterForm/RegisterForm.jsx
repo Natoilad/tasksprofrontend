@@ -1,4 +1,4 @@
-import { ErrorMessage, Formik } from 'formik';
+import {  Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { authRegister } from 'redux/auth/auth-operations';
