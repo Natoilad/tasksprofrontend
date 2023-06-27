@@ -7,6 +7,7 @@ import {
   ThemeDropdown,
   AvatarBox,
   UserInfoBox,
+  BurgerMenuBtn,
 } from './Header.styled';
 
 import icon from '../../images/sprite.svg';
@@ -36,9 +37,11 @@ export const Header = () => {
   return (
     <HeaderComponent>
       <HeaderBox>
-        <svg width="24" height="24">
-          <use href={icon + '#icon-burger-menu'}></use>
-        </svg>
+        <BurgerMenuBtn>
+          <svg width="24" height="24">
+            <use href={icon + '#icon-burger-menu'}></use>
+          </svg>
+        </BurgerMenuBtn>
         <UserBox>
           <ThemeDropdown ref={themeListRef}>
             <button onClick={handleOpen}>
