@@ -54,7 +54,11 @@ const LogInForm = () => {
               <Field name="email" type="email" placeholder="Enter your email" />
               {/* {errors.email && touched.email ? <div>{errors.email}</div> : null} */}
 
-              <Field name="password" placeholder="Create a password" />
+              <Field
+                name="password"
+                type="password"
+                placeholder="Create a password"
+              />
               {/* {errors.password && touched.password ? (
                 <div>{errors.password}</div>
               ) : null} */}
