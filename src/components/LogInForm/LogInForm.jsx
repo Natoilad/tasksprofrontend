@@ -67,16 +67,23 @@ const LogInForm = () => {
               {errors.email && touched.email ? (
                 <ErrorWrap>{errors.email}</ErrorWrap>
               ) : null}
+              <PasswordWrap>
+                <FieldPassword
+                  name="password"
+                  type={passwordShown ? 'text' : 'password'}
+                  placeholder="Create a password"
+                />
 
-              <Field
-                name="password"
-                type="password"
-                placeholder="Create a password"
-              />
-              {/* {errors.password && touched.password ? (
-                <div>{errors.password}</div>
-              ) : null} */}
+                <EyeButton onClick={togglePassword}>
+                  <svg width="18" height="18">
+                    <use href={sprite + '#icon-eye'}></use>
+                  </svg>
+                </EyeButton>
 
+                {errors.password && touched.password ? (
+                  <ErrorWrap>{errors.password}</ErrorWrap>
+                ) : null}
+              </PasswordWrap>
               <Button type="submit">Log In Now</Button>
             </Form>
           )}
