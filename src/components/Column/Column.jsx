@@ -1,6 +1,17 @@
 import Card from 'components/Card/Card';
+import icon from '../../images/sprite.svg';
 import HeaderColumn from 'components/HeaderColumn/HeaderColumn';
-import { Btn, Conteiner, ScrollBlock, CardList } from './Column.styled';
+import {
+  Btn,
+  Conteiner,
+  ScrollBlock,
+  CardList,
+  IconPlus,
+} from './Column.styled';
+import ContainerModal from 'components/Modals/ContainerModal';
+import { useState } from 'react';
+import CardModal from 'components/Modals/CardModal/CardModal';
+
 const options = {
   scrollbars: {
     scrollbars: { autoHide: 'scroll' },
@@ -11,6 +22,10 @@ const options = {
 };
 
 const Column = ({ title, id }) => {
+ const [open, setOpen] = useState(false);
+ const handleClose = () => setOpen(false);
+ const handleOpen = () => setOpen(true);
+
   return (
     <Conteiner>
       <HeaderColumn title={title} />
@@ -31,7 +46,25 @@ const Column = ({ title, id }) => {
         </CardList>
       </ScrollBlock>
 
-      <Btn>Add card</Btn>
+      <Btn onClick={handleOpen}>
+        <IconPlus>
+          <use href={icon + '#icon-plus'}></use>
+        </IconPlus>
+        Add another card
+      </Btn>
+      {open && (
+        <ContainerModal
+          handleClose={handleClose}
+          open={open}
+          component={
+            <CardModal
+              title={'Add card'}
+              butName={'Add'}
+              handleClose={handleClose}
+            />
+          }
+        />
+      )}
     </Conteiner>
   );
 };

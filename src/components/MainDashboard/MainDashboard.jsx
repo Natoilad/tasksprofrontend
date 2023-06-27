@@ -8,7 +8,7 @@ import {
 // import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import ContainerModal from 'components/Modals/ContainerModal';
 import { useState } from 'react';
-import Card from 'components/Card/Card';
+import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 
 const MainDashboard = () => {
   const [open, setOpen] = useState(false);
@@ -49,7 +49,9 @@ const MainDashboard = () => {
           <ContainerModal
             handleClose={handleClose}
             open={open}
-            component={<Card />}
+            component={
+              <ColumnModal title={'Add column'} butName={"Add"} handleClose={handleClose} />
+            }
           />
         )}
       </Conteiner>
