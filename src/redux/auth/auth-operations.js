@@ -69,9 +69,9 @@ export const authRefresh = createAsyncThunk(
     console.log(state);
     const persistedToken = state.auth.token;
     console.log(persistedToken);
-    // if (persistedToken === null) {
-    //   return rejectWithValue('Sorry!Unable to fetch user');
-    // }
+    if (persistedToken === null) {
+      return rejectWithValue('Sorry!Unable to fetch user');
+    }
     try {
       token.set(persistedToken);
       const data = await currentUser();

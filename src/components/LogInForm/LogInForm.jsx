@@ -87,7 +87,6 @@ const LogInForm = () => {
               <Button type="submit">Log In Now</Button>
             </Form>
           )}
-          {/* <ErrorMessage component="div" name="name" /> */}
         </Formik>
       </Wrap>
     </Section>
