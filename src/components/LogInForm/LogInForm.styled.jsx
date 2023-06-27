@@ -19,7 +19,7 @@ export const Section = styled.section`
 
 export const Wrap = styled.div`
   width: 335px;
-  height: 300px;
+  min-height: 300px;
 
   border-radius: 8px;
   background: #151515;
@@ -60,16 +60,29 @@ export const Field = styled(Input)`
   background: #1f1f1f;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: #fff;
+  margin-bottom: 14px;
+  padding: 14px 0 14px 18px;
 
-  &::placeholder {
-    padding: 14px 0 14px 18px;
-  }
-  &:not(:last-child) {
-    margin-bottom: 14px;
-  }
-  &:nth-child(2) {
-    margin-bottom: 24px;
-  }
+  // &:not(:last-child) {
+  //   margin-bottom: 14px;
+  // }
+  // &:nth-child(2) {
+  //   margin-bottom: 24px;
+  // }
+`;
+export const FieldPassword = styled(Input)`
+  position: relative;
+  width: 279px;
+  height: 49px;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  opacity: 0.4000000059604645;
+  background: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  color: #fff;
+  margin-bottom: 14px;
+
+  padding: 14px 0 14px 18px;
 `;
 
 export const Button = styled.button`
@@ -77,6 +90,7 @@ export const Button = styled.button`
   height: 49px;
   padding: 0;
   cursor: pointer;
+  border: none;
 
   border-radius: 8px;
   background: #bedbb0;
@@ -85,6 +99,36 @@ export const Button = styled.button`
   text-align: center;
   font-size: 14px;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.28px;
+  margin-top: 10px;
+  margin-bottom: 24px;
+`;
+
+export const PasswordWrap = styled.div`
+  position: relative;
+`;
+
+export const EyeButton = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 12px;
+
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  display: flex;
+
+  justify-content: center;
+`;
+
+export const ErrorWrap = styled.div`
+  color: #ff6600;
+  margin-bottom: 8px;
+
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
 `;

@@ -69,7 +69,6 @@ const authSlice = createSlice({
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.token = payload.token;
         state.isLoading = false;
       });
   },
