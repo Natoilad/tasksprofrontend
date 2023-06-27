@@ -7,6 +7,9 @@ import {
   token,
 } from 'service/auth-service';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const authRegister = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
@@ -17,6 +20,8 @@ export const authRegister = createAsyncThunk(
       if (data.status === 'success') {
         const loginData = await loginUser({ email, password });
         token.set(loginData.token);
+
+        toast.success('Registration successful!');
         return loginData;
       }
       return data;
@@ -32,8 +37,11 @@ export const authLogin = createAsyncThunk(
     try {
       const data = await loginUser(credentials);
       token.set(data.token);
+
+      toast.success('Login successful!');
       return data;
     } catch (error) {
+      toast.error('Login failed!');
       return rejectWithValue(error.message);
     }
   }
@@ -45,6 +53,7 @@ export const authLogout = createAsyncThunk(
     try {
       await logoutUser();
       token.unSet();
+      toast.success('Logout successful!');
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -55,10 +64,12 @@ export const authRefresh = createAsyncThunk(
   'auth/current',
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
+    console.log(state);
     const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return rejectWithValue('Sorry!Unable to fetch user');
-    }
+    console.log(persistedToken);
+    // if (persistedToken === null) {
+    //   return rejectWithValue('Sorry!Unable to fetch user');
+    // }
     try {
       token.set(persistedToken);
       const data = await currentUser();
