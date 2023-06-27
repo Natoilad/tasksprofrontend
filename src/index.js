@@ -10,6 +10,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import GlobalStyles from './index.css';
 import { darkFirst, lightFirst, violetAccent } from 'variables/variables';
 import 'overlayscrollbars/overlayscrollbars.css';
+import { ToastContainer } from 'react-toastify';
 
 const GlobalStyle = createGlobalStyle`
   ${GlobalStyles}
@@ -38,6 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </BrowserRouter>
         </PersistGate>
       </Provider>
+      <ToastContainer />
     </ThemeProvider>
   </React.StrictMode>
 );
