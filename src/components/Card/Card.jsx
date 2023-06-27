@@ -12,6 +12,7 @@ import {
   PriorityBtn,
 } from './Card.styled';
 import { useState } from 'react';
+
 const Card = ({ title, id }) => {
   const [priority, setPriority] = useState('without');
 

@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import 'variables/variables';
+import { white100 } from 'variables/variables';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 export const Conteiner = styled.div`
   width: 335px;
@@ -25,6 +27,7 @@ export const Btn = styled.button`
   border: none;
   padding: 14px 0px;
   display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -34,4 +37,12 @@ export const Btn = styled.button`
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
+`;
+
+export const IconPlus = styled.svg`
+  width: 28px;
+  height: 28px;
+  /* background-color: #fff; */
+  fill: ${white100};
+  stroke: beige;
 `;

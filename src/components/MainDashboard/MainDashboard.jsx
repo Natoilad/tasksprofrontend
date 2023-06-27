@@ -50,7 +50,7 @@ const MainDashboard = () => {
             handleClose={handleClose}
             open={open}
             component={
-              <ColumnModal title={'Add column'} handleClose={handleClose} />
+              <ColumnModal title={'Add column'} butName={"Add"} handleClose={handleClose} />
             }
           />
         )}

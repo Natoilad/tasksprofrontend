@@ -10,7 +10,7 @@ import {
   IconPlus,
 } from './ColumnModal.styled';
 
-const ColumnModal = ({ handleClose, title }) => {
+const ColumnModal = ({ handleClose, title, butName }) => {
   return (
     <Wrap>
       <Form>
@@ -20,7 +20,7 @@ const ColumnModal = ({ handleClose, title }) => {
           <IconPlus>
             <use href={icon + '#icon-plus'}></use>
           </IconPlus>
-          Add
+          {butName}
         </Button>
         <CloseBtn onClick={handleClose}>
           <CloseIcon>
