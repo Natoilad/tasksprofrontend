@@ -26,7 +26,8 @@ export const authRegister = createAsyncThunk(
       }
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      console.log(error.response.data.message);
+      return rejectWithValue(error.data.message);
     }
   }
 );
@@ -42,6 +43,7 @@ export const authLogin = createAsyncThunk(
       return data;
     } catch (error) {
       toast.error('Login failed!');
+
       return rejectWithValue(error.message);
     }
   }
@@ -67,9 +69,9 @@ export const authRefresh = createAsyncThunk(
     console.log(state);
     const persistedToken = state.auth.token;
     console.log(persistedToken);
-    // if (persistedToken === null) {
-    //   return rejectWithValue('Sorry!Unable to fetch user');
-    // }
+    if (persistedToken === null) {
+      return rejectWithValue('Sorry!Unable to fetch user');
+    }
     try {
       token.set(persistedToken);
       const data = await currentUser();
@@ -79,20 +81,3 @@ export const authRefresh = createAsyncThunk(
     }
   }
 );
-
-// export const authRefresh = createAsyncThunk(
-//   'auth/current',
-//   async (_, { rejectWithValue, getState }) => {
-//     try {
-//       const sessionToken = getState().auth.token;
-//       if (!sessionToken) {
-//         return rejectWithValue('Please Login');
-//       }
-//       token.set(sessionToken);
-//       const data = await currentUser();
-//       return data.data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );

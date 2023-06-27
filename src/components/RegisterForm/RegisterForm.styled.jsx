@@ -62,9 +62,8 @@ export const Field = styled(Input)`
   color: #fff;
   margin-bottom: 14px;
 
-  &::placeholder {
-    padding: 14px 0 14px 18px;
-  }
+  padding: 14px 0 14px 18px;
+
   // &:not(:last-child) {
   //   margin-bottom: 14px;
   // }
@@ -73,11 +72,27 @@ export const Field = styled(Input)`
   // }
 `;
 
+export const FieldPassword = styled(Input)`
+  position: relative;
+  width: 279px;
+  height: 49px;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  opacity: 0.4000000059604645;
+  background: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  color: #fff;
+  margin-bottom: 14px;
+
+  padding: 14px 0 14px 18px;
+`;
+
 export const Button = styled.button`
   width: 287px;
   height: 49px;
   padding: 0;
   cursor: pointer;
+  border: none;
 
   border-radius: 8px;
   background: #bedbb0;
@@ -101,4 +116,21 @@ export const ErrorWrap = styled.div`
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
+`;
+
+export const PasswordWrap = styled.div`
+  position: relative;
+`;
+
+export const EyeButton = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 12px;
+
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  display: flex;
+
+  justify-content: center;
 `;

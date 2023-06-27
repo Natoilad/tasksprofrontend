@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { authRegister } from 'redux/auth/auth-operations';
+import { useState } from 'react';
 
 import {
   Form,
@@ -12,7 +13,11 @@ import {
   NavLink,
   LinkWrap,
   ErrorWrap,
+  EyeButton,
+  FieldPassword,
+  PasswordWrap,
 } from './RegisterForm.styled';
+import sprite from '../../images/sprite.svg';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -41,6 +46,8 @@ const schema = Yup.object().shape({
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [passwordShown, setPasswordShown] = useState(false);
+
   const onFormSubmit = (values, { resetForm }) => {
     const user = {
       name: values.name,
@@ -50,7 +57,12 @@ const RegisterForm = () => {
 
     dispatch(authRegister(user));
     console.log(`Successfully ${values.email} register!`);
+
     resetForm();
+  };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
 
   return (
@@ -80,25 +92,29 @@ const RegisterForm = () => {
               {errors.name && touched.name ? (
                 <ErrorWrap>{errors.name}</ErrorWrap>
               ) : null}
-
               <Field name="email" type="email" placeholder="Enter your email" />
               {errors.email && touched.email ? (
                 <ErrorWrap>{errors.email}</ErrorWrap>
               ) : null}
-
-              <Field
-                name="password"
-                type="password"
-                placeholder="Create a password"
-              />
-              {errors.password && touched.password ? (
-                <ErrorWrap>{errors.password}</ErrorWrap>
-              ) : null}
+              <PasswordWrap>
+                <FieldPassword
+                  name="password"
+                  type={passwordShown ? 'text' : 'password'}
+                  placeholder="Create a password"
+                />
+                <EyeButton onClick={togglePassword}>
+                  <svg width="18" height="18">
+                    <use href={sprite + '#icon-eye'}></use>
+                  </svg>
+                </EyeButton>
+                {errors.password && touched.password ? (
+                  <ErrorWrap>{errors.password}</ErrorWrap>
+                ) : null}
+              </PasswordWrap>
 
               <Button type="submit">Register Now</Button>
             </Form>
           )}
-          {/* <ErrorMessage component="div" name="name" /> */}
         </Formik>
       </Wrap>
     </Section>
