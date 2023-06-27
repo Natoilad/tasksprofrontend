@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
+import 'variables/variables';
+import { white50, white10 } from 'variables/variables';
 
 export const Conteiner = styled.div`
   position: relative;
   width: 291px;
-  padding: 0px 20px;
+  padding: 14px 20px;
   margin-left: 5px;
   display: flex;
   flex-direction: column;
@@ -30,6 +32,7 @@ export const Title = styled.p`
   font-weight: 600;
   font-family: 'Poppins';
   letter-spacing: -0.28px;
+  margin-bottom: 8px;
 `;
 
 export const Descriptions = styled.p`
@@ -48,6 +51,14 @@ export const Descriptions = styled.p`
   line-height: 16px;
   font-family: 'Poppins';
   letter-spacing: -0.24px;
+
+  &::after {
+    content: '';
+    /* display: block; */
+    width: 90%;
+    height: 1px;
+    background-color: ${white10};
+  }
 `;
 
 export const SettingsBlock = styled.div`
@@ -55,8 +66,8 @@ export const SettingsBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 14px;
+  /* padding-bottom: 14px; */
 
   &::before {
     ${props => {
@@ -138,6 +149,20 @@ export const PriorityBtn = styled.button`
   }
 `;
 
-export const BtnWrapper = styled.div``;
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+`;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+
+`;
+
+export const IconSvg = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: ${white50};
+`;

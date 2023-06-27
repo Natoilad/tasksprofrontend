@@ -1,13 +1,28 @@
-import { ColumnName, Conteiner, Btn } from './HeaderColumn.styled';
+import icon from '../../images/sprite.svg';
+import {
+  ColumnName,
+  Conteiner,
+  Btn,
+  IconEdit,
+  Wrap,
+} from './HeaderColumn.styled';
 
 const HeaderColumn = ({ title, id }) => {
   return (
     <Conteiner>
       <ColumnName>{title}</ColumnName>
-      <div>
-        <Btn>edit</Btn>
-        <Btn>delete</Btn>
-      </div>
+      <Wrap>
+        <Btn>
+          <IconEdit>
+            <use href={icon + '#icon-pencil'}></use>
+          </IconEdit>
+        </Btn>
+        <Btn>
+          <IconEdit>
+            <use href={icon + '#icon-trash'}></use>
+          </IconEdit>
+        </Btn>
+      </Wrap>
     </Conteiner>
   );
 };

@@ -49,7 +49,9 @@ const MainDashboard = () => {
           <ContainerModal
             handleClose={handleClose}
             open={open}
-            component={<ColumnModal handleClose={handleClose} />}
+            component={
+              <ColumnModal title={'Add column'} handleClose={handleClose} />
+            }
           />
         )}
       </Conteiner>

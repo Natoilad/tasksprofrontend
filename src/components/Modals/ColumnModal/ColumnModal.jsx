@@ -10,11 +10,11 @@ import {
   IconPlus,
 } from './ColumnModal.styled';
 
-const ColumnModal = ({ handleClose }) => {
+const ColumnModal = ({ handleClose, title }) => {
   return (
     <Wrap>
       <Form>
-        <Title>Add column</Title>
+        <Title>{title}</Title>
         <Field id="title" type="text" name="title" placeholder="Title" />
         <Button type="submit">
           <IconPlus>

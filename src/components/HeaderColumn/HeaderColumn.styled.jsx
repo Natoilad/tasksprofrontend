@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import 'variables/variables';
+import { white50 } from 'variables/variables';
 
 export const Conteiner = styled.div`
   display: flex;
@@ -20,4 +22,19 @@ export const ColumnName = styled.p`
   letter-spacing: -0.28px;
 `;
 
-export const Btn = styled.button``;
+export const Wrap = styled.div`
+  display: flex;
+  gap: 8px
+`;
+
+export const Btn = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+`;
+
+export const IconEdit = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: ${white50};
+`;

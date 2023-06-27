@@ -1,3 +1,4 @@
+import icon from '../../images/sprite.svg';
 import {
   Conteiner,
   Title,
@@ -6,6 +7,7 @@ import {
   PriorDeadLinWrapper,
   Label,
   BtnWrapper,
+  IconSvg,
   Button,
   PriorityBtn,
 } from './Card.styled';
@@ -22,9 +24,7 @@ const Card = ({ title, id }) => {
       <Title>task name</Title>
       <Descriptions>
         Create a visually stunning and eye-catching watch dial design that
-        embodies our brand's essence of sleek aesthetics and modern elegance.
-        Your design should be unique, innovative, and reflective of the latest
-        trends in watch design.
+        embodies our brand's
       </Descriptions>
       <SettingsBlock>
         <PriorDeadLinWrapper>
@@ -44,9 +44,21 @@ const Card = ({ title, id }) => {
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
+          <Button>
+            <IconSvg>
+              <use href={icon + '#icon-arrow-circle-broken-right'}></use>
+            </IconSvg>
+          </Button>
+          <Button>
+            <IconSvg>
+              <use href={icon + '#icon-pencil'}></use>
+            </IconSvg>
+          </Button>
+          <Button>
+            <IconSvg>
+              <use href={icon + '#icon-trash'}></use>
+            </IconSvg>
+          </Button>
         </BtnWrapper>
       </SettingsBlock>
     </Conteiner>
