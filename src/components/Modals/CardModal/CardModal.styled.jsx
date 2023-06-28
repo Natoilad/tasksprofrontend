@@ -4,6 +4,7 @@ import {
   white100,
   white50,
   highPriority,
+  darkModal,
 } from 'variables/variables';
 
 export const Wrap = styled.div`
@@ -25,7 +26,6 @@ export const CloseBtn = styled.button`
   right: 14px;
 `;
 
-
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
@@ -36,8 +36,8 @@ export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
   /* background-color: #fff; */
-  fill: ${white100};
-  stroke: beige;
+  fill: ${darkModal};
+  stroke: ${white100};
 `;
 
 export const Form = styled.form`
@@ -90,7 +90,7 @@ export const Description = styled.input`
 `;
 
 export const SettingsBlock = styled.div`
-    width: 100%;
+  width: 100%;
 `;
 
 export const Label = styled.label`
@@ -104,7 +104,7 @@ export const Label = styled.label`
 `;
 
 export const Priority = styled.div`
-margin-top: 4px;
+  margin-top: 4px;
   margin-bottom: 14px;
   display: flex;
   gap: 8px;

@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import 'variables/variables';
-import { highPriority, white100, darkFirst } from 'variables/variables';
+import {
+  highPriority,
+  white100,
+  darkFirst,
+  darkModal,
+} from 'variables/variables';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 export const Conteiner = styled.div`
   width: 335px;
@@ -44,6 +49,7 @@ export const Btn = styled.button`
 export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
-  fill: ${white100};
-  stroke: beige;
+  /* background-color: #fff; */
+  fill: ${darkModal};
+  stroke: ${white100};
 `;
