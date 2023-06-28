@@ -103,6 +103,12 @@ export const Button = styled.button`
   letter-spacing: -0.28px;
   margin-top: 10px;
   margin-bottom: 24px;
+  transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border: 1px solid #161616;
+    font-size: 16px;
+  }
 `;
 
 export const PasswordWrap = styled.div`
