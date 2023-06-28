@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-
+import 'variables/variables';
+import { white100, white80, highPriority } from 'variables/variables';
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,7 +27,7 @@ export const Header = styled.div`
 
 export const BoardName = styled.h4`
   display: flex;
-  color: #fff;
+  color: ${white100};
   font-size: 14px;
   font-weight: 500;
   font-family: 'Poppins';
@@ -38,7 +39,7 @@ export const FilterBtn = styled.button`
   background-color: transparent;
   padding: none;
   border: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${white80};
   font-size: 14px;
     font-family: 'Poppins';
   font-weight: 500;
@@ -46,5 +47,5 @@ export const FilterBtn = styled.button`
   transition: all 0.5s ease-in-out;
 
   &: hover, &: focus{
-    color: #bedbb0;
+    color: ${highPriority};
   }`;

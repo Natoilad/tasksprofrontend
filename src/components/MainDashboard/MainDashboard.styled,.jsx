@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import 'variables/variables';
+import { darkSecond, white100 } from 'variables/variables';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 export const Conteiner = styled.div`
   /* position: relative; */
@@ -37,9 +39,9 @@ export const Btn = styled.button`
   margin-left: 34px;
   border: none;
   border-radius: 8px;
-  background: #121212;
+  background: ${darkSecond};
   white-space: nowrap;
-  color: #fff;
+  color: ${white100};
   font-size: 14px;
   font-weight: 500;
   font-family: 'Poppins';
