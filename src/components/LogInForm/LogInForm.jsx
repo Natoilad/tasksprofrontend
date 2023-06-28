@@ -74,7 +74,7 @@ const LogInForm = () => {
                   placeholder="Create a password"
                 />
 
-                <EyeButton onClick={togglePassword}>
+                <EyeButton onClick={togglePassword} type="button">
                   <svg width="18" height="18">
                     <use href={sprite + '#icon-eye'}></use>
                   </svg>
