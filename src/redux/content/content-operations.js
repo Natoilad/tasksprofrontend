@@ -10,13 +10,9 @@ export const getBoards = createAsyncThunk(
       if (!tempToken) {
         return rejectWithValue('token is invalid');
       }
-
-      const exam = token.set(tempToken);
-      console.log(tempToken);
-      console.log(exam);
-
+      token.set(tempToken);
       const response = await BoardList();
-      console.log(response);
+      return response;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
