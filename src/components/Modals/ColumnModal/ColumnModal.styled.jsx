@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import { white100 } from 'variables/variables';
+import { darkModal, white100 } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
@@ -31,8 +31,8 @@ export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
   /* background-color: #fff; */
-  fill: ${white100};
-  stroke: beige;
+  fill: ${darkModal};
+  stroke: ${white100};
 `;
 
 export const Form = styled.form`

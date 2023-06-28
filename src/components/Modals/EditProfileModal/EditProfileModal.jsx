@@ -11,13 +11,13 @@ import { DropzoneBox } from 'components/DropzoneBox/DropzoneBox';
 import { useState } from 'react';
 import { PhotoEditor } from 'components/PhotoEditor/PhotoEditor';
 
-{
-  /* <ContainerModal
-handleClose={handleClose}
-open={true}
-component={<EditProfileModal />} импортировать и вставить єту функцию не забыть прописать функии handleClose
-/> */
-}
+// {
+//   /* <ContainerModal
+// handleClose={handleClose}
+// open={true}
+// component={<EditProfileModal />} импортировать и вставить єту функцию не забыть прописать функии handleClose
+// /> */
+// }
 
 const Form = styled(FormWrap)({
   display: ' flex',

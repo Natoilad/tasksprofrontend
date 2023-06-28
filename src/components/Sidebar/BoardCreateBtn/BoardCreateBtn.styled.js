@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import { highPriority, white10, white100 } from 'variables/variables';
+import {
+  darkSecond,
+  highPriority,
+  white10,
+  white100,
+} from 'variables/variables';
 
 export const CreateBoardBox = styled.button`
   min-width: 197px;
@@ -34,4 +39,5 @@ export const CreateBoardIcon = styled.svg`
   width: 40px;
   height: 36px;
   fill: ${highPriority};
+  stroke: ${darkSecond};
 `;
