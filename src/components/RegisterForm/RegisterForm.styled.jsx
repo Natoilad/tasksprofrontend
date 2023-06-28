@@ -61,6 +61,7 @@ export const Field = styled(Input)`
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: #fff;
   margin-bottom: 14px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   padding: 14px 0 14px 18px;
 
@@ -83,7 +84,7 @@ export const FieldPassword = styled(Input)`
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: #fff;
   margin-bottom: 14px;
-
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 14px 0 14px 18px;
 `;
 
@@ -105,6 +106,12 @@ export const Button = styled.button`
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
+  transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border: 1px solid #161616;
+    font-size: 16px;
+  }
 `;
 
 export const ErrorWrap = styled.div`
