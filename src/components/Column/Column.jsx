@@ -22,27 +22,21 @@ const options = {
 };
 
 const Column = ({ title, id }) => {
- const [open, setOpen] = useState(false);
- const handleClose = () => setOpen(false);
- const handleOpen = () => setOpen(true);
+  const tasks = ['1', '2', '3', '4', '5', '6'];
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
 
   return (
     <Conteiner>
       <HeaderColumn title={title} />
       <ScrollBlock defer element="div" options={options}>
         <CardList>
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
+          {tasks.map(item => (
+            <li>
+              <Card />
+            </li>
+          ))}
         </CardList>
       </ScrollBlock>
 

@@ -1,33 +1,82 @@
 import styled from '@emotion/styled';
 import 'variables/variables';
-import { white50, white10 } from 'variables/variables';
+import {
+  white50,
+  white30,
+  white10,
+  white100,
+  darkSecond,
+  lowPriority,
+  mediumPriority,
+  highPriority,
+} from 'variables/variables';
 
 export const Conteiner = styled.div`
   position: relative;
-  width: 291px;
+  width: 335px;
   padding: 14px 20px;
-  margin-left: 5px;
   display: flex;
   flex-direction: column;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background: #121212;
-
+  border-radius: 8px;
+  background: ${darkSecond};
   &::before {
-    top: 0;
-    left: -4px;
+    // top: 0;
+    // left: 0;
+    // content: '';
+    // position: absolute;
+    // height: 100%;
+    // width: 4px;
+    // border-radius: 4px 0px 0px 4px;
+    ${({ priority }) => {
+      switch (priority) {
+        case 'without':
+          return `top: 0;
+    left: 0;
     content: '';
     position: absolute;
     height: 100%;
     width: 4px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    background-color: red;
+    border-radius: 4px 0px 0px 4px;
+    background: ${white30}`;
+        case 'eazy':
+          return `
+      top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 4px 0px 0px 4px;
+    background: ${lowPriority}`;
+        case 'medium':
+          return `top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 4px 0px 0px 4px;
+    background: ${mediumPriority}`;
+        case 'hard':
+          return `
+      top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 4px 0px 0px 4px;
+    background: ${highPriority}`;
+        default:
+          return;
+      }
+    }}
   }
 `;
 
 export const Title = styled.p`
-  color: #fff;
+  display: flex;
+  color: ${white100};
   font-size: 14px;
   font-weight: 600;
   font-family: 'Poppins';
@@ -40,25 +89,16 @@ export const Descriptions = styled.p`
   display: flex;
   width: 290px;
   height: 38px;
-  margin-bottom: 14px;
   flex-direction: column;
   flex-shrink: 0;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${white50};
   text-overflow: ellipsis;
   whitespace: nowrap;
   font-size: 12px;
   line-height: 16px;
   font-family: 'Poppins';
   letter-spacing: -0.24px;
-
-  &::after {
-    content: '';
-    /* display: block; */
-    width: 90%;
-    height: 1px;
-    background-color: ${white10};
-  }
 `;
 
 export const SettingsBlock = styled.div`
@@ -66,31 +106,15 @@ export const SettingsBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
-  /* padding-bottom: 14px; */
+  margin-top: 28px;
 
   &::before {
-    ${props => {
-      switch (props.priority) {
-        case 'without':
-          return `top: 0;
+    top: -14px;
     position: absolute;
     content: '';
     width: 100%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);`;
-        case 'medium':
-          return `top: 0;
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: #E09CB5;`;
-        default:
-          return;
-      }
-    }}
-  }
+    background-color: ${white10};
 `;
 
 export const PriorDeadLinWrapper = styled.div`
@@ -101,7 +125,7 @@ export const PriorDeadLinWrapper = styled.div`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${white50};
   font-size: 8px;
   font-family: 'Poppins';
   letter-spacing: -0.16px;
@@ -114,7 +138,7 @@ export const PriorityBtn = styled.button`
   padding: 0px;
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: ${white100};
   font-size: 10px;
   font-family: 'Poppins';
   letter-spacing: -0.2px;
@@ -131,7 +155,17 @@ export const PriorityBtn = styled.button`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);`;
+    background: ${white30};`;
+        case 'eazy':
+          return `top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: ${lowPriority};`;
         case 'medium':
           return `top: 50%;
     left: -12px;
@@ -141,7 +175,17 @@ export const PriorityBtn = styled.button`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #E09CB5;`;
+    background: ${mediumPriority};`;
+        case 'hard':
+          return `top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: ${highPriority};`;
         default:
           return;
       }
@@ -149,6 +193,13 @@ export const PriorityBtn = styled.button`
   }
 `;
 
+export const DeadLine = styled.p`
+  margin-top: 4px;
+  color: ${white100};
+  font-size: 10px;
+  font-family: Poppins;
+  letter-spacing: -0.2px;
+`;
 export const BtnWrapper = styled.div`
   display: flex;
   gap: 8px;
@@ -158,7 +209,6 @@ export const Button = styled.button`
   background: none;
   border: none;
   padding: 0;
-
 `;
 
 export const IconSvg = styled.svg`

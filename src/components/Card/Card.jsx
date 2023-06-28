@@ -10,6 +10,7 @@ import {
   IconSvg,
   Button,
   PriorityBtn,
+  DeadLine,
 } from './Card.styled';
 import { useState } from 'react';
 
@@ -21,11 +22,11 @@ const Card = ({ title, id }) => {
   };
 
   return (
-    <Conteiner>
-      <Title>task name</Title>
+    <Conteiner priority={priority}>
+      <Title>Task name</Title>
       <Descriptions>
         Create a visually stunning and eye-catching watch dial design that
-        embodies our brand's
+        embodies our brand's...
       </Descriptions>
       <SettingsBlock>
         <PriorDeadLinWrapper>
@@ -41,7 +42,7 @@ const Card = ({ title, id }) => {
           </Label>
           <Label>
             defadline
-            <input style={{ marginTop: '4px' }} type="date" />
+            <DeadLine>10/06/2023</DeadLine>
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
