@@ -14,11 +14,12 @@ import {
   Priority,
   ButPiker,
   ChevronIcon,
+  Radio,
 } from './CardModal.styled';
 import React, { useState } from 'react';
 
 const CardModal = ({ handleClose, title, butName }) => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState('1');
   function chengeValue(event) {
     setValue(event.target.value);
   }
@@ -38,34 +39,34 @@ const CardModal = ({ handleClose, title, butName }) => {
           <Label>
             Label color
             <Priority>
-              <input
-                type="radio"
-                name="radio"
-                value="1"
-                checked={value === '1' ? true : false}
-                onChange={chengeValue}
-              />
-
-              <input
-                type="radio"
-                name="radio"
-                value="2"
+              <Radio
                 checked={value === '2' ? true : false}
+                type="radio"
+                name="easy"
+                value="2"
                 onChange={chengeValue}
               />
 
-              <input
+              <Radio
                 type="radio"
-                name="radio"
+                name="medium"
                 value="3"
                 checked={value === '3' ? true : false}
                 onChange={chengeValue}
               />
-              <input
+
+              <Radio
                 type="radio"
-                name="radio"
+                name="hard"
                 value="4"
                 checked={value === '4' ? true : false}
+                onChange={chengeValue}
+              />
+              <Radio
+                type="radio"
+                name="without"
+                value="1"
+                checked={value === '1' ? true : false}
                 onChange={chengeValue}
               />
             </Priority>
