@@ -22,7 +22,8 @@ const options = {
 };
 
 const Column = ({ title, id }) => {
-  const tasks = ['1', '2', '3', '4', '5', '6'];
+  console.log(id);
+  const tasks = ['1', '2', '3'];
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
