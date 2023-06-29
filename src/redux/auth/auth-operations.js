@@ -26,7 +26,6 @@ export const authRegister = createAsyncThunk(
       }
       return data;
     } catch (error) {
-      console.log(error.response.data.message);
       return rejectWithValue(error.data.message);
     }
   }
@@ -66,9 +65,7 @@ export const authRefresh = createAsyncThunk(
   'auth/current',
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
-    console.log(state);
     const persistedToken = state.auth.token;
-    console.log(persistedToken);
     if (persistedToken === null) {
       return rejectWithValue('Sorry!Unable to fetch user');
     }

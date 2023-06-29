@@ -8,7 +8,7 @@ import {
   Button,
 } from './WelcomePageComponent.styled';
 
-import icon from '../../images/icon.svg';
+import icon from '../../images/sprite.svg';
 
 export const WelcomePageComponent = () => {
   return (
