@@ -2,10 +2,11 @@ import styled from '@emotion/styled';
 import 'variables/variables';
 import { white50, highPriority } from 'variables/variables';
 export const Wrapper = styled.div`
-position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) }`;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 export const Text = styled.p`
   flex-direction: column;

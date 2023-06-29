@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from 'redux/auth/auth-operations';
 import { LoaderHomePage } from 'components/Loader/LoaderHomePage/Loader';
+import ScreensPage from 'components/ScreensPage/ScreensPage';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -41,7 +42,9 @@ export const App = () => {
         element={
           <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
         }
-      />
+      >
+        <Route path="/home/:boardName" element={<ScreensPage />} />
+      </Route>
     </Routes>
   );
 };

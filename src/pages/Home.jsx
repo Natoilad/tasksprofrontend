@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useEffect } from 'react';
 import { selectIsLoading, selectError } from 'redux/content/content-selectors';
 import { getBoards } from 'redux/content/content-operations';
 
 import { Box, HomeWrapper } from './PagesStyle.styled';
 
-const { default: Board } = require('components/Board/Board');
+import ScreensPage from 'components/ScreensPage/ScreensPage';
 const { Header } = require('components/Header/Header');
 const { SidebarMain } = require('components/Sidebar/SidebarMain/SidebarMain');
 
@@ -21,10 +22,10 @@ const HomePage = () => {
   return (
     <HomeWrapper>
       {isLoading && error}
-      <SidebarMain></SidebarMain>
+      <SidebarMain />
       <Box>
-        <Header></Header>
-        <Board></Board>
+        <Header />
+        <ScreensPage />
       </Box>
     </HomeWrapper>
   );

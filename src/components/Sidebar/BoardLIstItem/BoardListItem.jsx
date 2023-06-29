@@ -1,3 +1,5 @@
+// import { PropTypes } from 'prop-types';
+// import { useDispatch } from 'react-redux';
 import icon from '../../../images/sprite.svg';
 import {
   BoardHero,
@@ -8,14 +10,14 @@ import {
   BoardBtn,
 } from './BoardListItem.styled';
 
-export const BoardListItem = () => {
+export const BoardListItem = ({ board }) => {
   return (
-    <BoardItem>
+    <BoardItem to={`/home/${board.title}`}>
       <BoardHero>
         <BoardIcon>
-          <use href={icon + '#icon-puzzle-piece'}></use>
+          <use href={icon + `#${board.icon}`}></use>
         </BoardIcon>
-        <p>Project Example</p>
+        <p>{board.title}</p>
       </BoardHero>
       <BoardBtnBox>
         <BoardBtn>
