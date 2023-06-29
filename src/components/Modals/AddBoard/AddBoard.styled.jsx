@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import 'variables/variables';
+import { white50, white100 } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
@@ -62,7 +63,7 @@ export const Label = styled.label`
   width: 100%;
   display: flex;
   flex-direction: column;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
   font-size: 12px;
   font-family: 'Poppins';
   letter-spacing: -0.24px;
@@ -101,4 +102,19 @@ export const Button = styled.button`
 
 export const IconPlus = styled.svg`
   border-radius: 8px;
+`;
+
+export const IconSvg = styled.input`
+  display: none;
+  &:checked + label > svg {
+    stroke: ${white100};
+  }
+`;
+
+export const LabelSvg = styled.label`
+  cursor: pointer;
+`;
+
+export const SSvg = styled.svg`
+  stroke: ${white50};
 `;

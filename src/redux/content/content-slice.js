@@ -23,6 +23,7 @@ const handleIfReject = (state, { payload }) => {
 const contentSlice = createSlice({
   name: 'content',
   initialState: {
+    // background: [],
     boards: [
       {
         title: 'q2',
@@ -41,6 +42,7 @@ const contentSlice = createSlice({
       .addCase(getBoards.rejected, handleIfReject)
       .addCase(getBoards.fulfilled, (state, { payload }) => {
         state.boards = payload;
+        // state.background = payload;
       });
   },
 });

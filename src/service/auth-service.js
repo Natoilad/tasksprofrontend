@@ -28,6 +28,6 @@ export const logoutUser = async () => {
 };
 
 export const currentUser = async () => {
-  const data = await backendAPI.get('auth/current');
+  const { data } = await backendAPI.get('auth/current');
   return data;
 };
