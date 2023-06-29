@@ -34,7 +34,7 @@ const Column = ({ title, id }) => {
       <ScrollBlock defer element="div" options={options}>
         <CardList>
           {tasks.map(item => (
-            <li>
+            <li key={item}>
               <Card />
             </li>
           ))}
