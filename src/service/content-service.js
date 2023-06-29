@@ -9,3 +9,8 @@ export const BoardList = async () => {
   const { data } = await backendAPI.get('api/boards');
   return data;
 };
+
+export const BoardBackGrounds = async () => {
+  const { data } = await backendAPI.get('api/backgrounds');
+  return data;
+};

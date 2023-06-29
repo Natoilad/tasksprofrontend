@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BoardList } from 'service/content-service';
+import { BoardList, BoardBackGrounds } from 'service/content-service';
 import { token } from 'service/auth-service';
 
 export const getBoards = createAsyncThunk(
@@ -12,6 +12,19 @@ export const getBoards = createAsyncThunk(
       }
       token.set(tempToken);
       const response = await BoardList();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const getBackGrounds = createAsyncThunk(
+  'api/backgrounds',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await BoardBackGrounds();
+      console.log(response);
       return response;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
