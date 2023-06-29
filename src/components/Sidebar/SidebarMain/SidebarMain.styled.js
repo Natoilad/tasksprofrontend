@@ -3,9 +3,13 @@ import 'variables/variables';
 import { darkFirst, darkGray, white100, white50 } from 'variables/variables';
 
 export const SidebarWrapper = styled.section`
+  height: 100vh;
   width: 225px;
   background-color: ${darkFirst};
   padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     width: 260px;

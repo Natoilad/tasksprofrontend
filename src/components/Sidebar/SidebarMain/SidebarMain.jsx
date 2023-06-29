@@ -14,17 +14,22 @@ import { LogOutBtn } from '../LogOutBtn/LogOutBtn';
 export const SidebarMain = () => {
   return (
     <SidebarWrapper>
-      <LogoBox>
-        <SidebarIcon>
-          <use href={icon + '#icon-icondarklogo'}></use>
-        </SidebarIcon>
-        <SidebarHeader>Task Pro</SidebarHeader>
-      </LogoBox>
-      <SideListName>My boards</SideListName>
-      <BoardCreateBtn />
-      <BoardList />
-      <AskHelp></AskHelp>
-      <LogOutBtn></LogOutBtn>
+      <div>
+        <LogoBox>
+          <SidebarIcon>
+            <use href={icon + '#icon-icondarklogo'}></use>
+          </SidebarIcon>
+          <SidebarHeader>Task Pro</SidebarHeader>
+        </LogoBox>
+        <SideListName>My boards</SideListName>
+        <BoardCreateBtn />
+        <BoardList />
+      </div>
+
+      <div>
+        <AskHelp></AskHelp>
+        <LogOutBtn></LogOutBtn>
+      </div>
     </SidebarWrapper>
   );
 };

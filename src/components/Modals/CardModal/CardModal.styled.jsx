@@ -4,6 +4,10 @@ import {
   white100,
   white50,
   highPriority,
+  lowPriority,
+  mediumPriority,
+  white30,
+  darkModal,
 } from 'variables/variables';
 
 export const Wrap = styled.div`
@@ -25,7 +29,6 @@ export const CloseBtn = styled.button`
   right: 14px;
 `;
 
-
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
@@ -36,8 +39,8 @@ export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
   /* background-color: #fff; */
-  fill: ${white100};
-  stroke: beige;
+  fill: ${darkModal};
+  stroke: ${white100};
 `;
 
 export const Form = styled.form`
@@ -90,7 +93,7 @@ export const Description = styled.input`
 `;
 
 export const SettingsBlock = styled.div`
-    width: 100%;
+  width: 100%;
 `;
 
 export const Label = styled.label`
@@ -104,10 +107,86 @@ export const Label = styled.label`
 `;
 
 export const Priority = styled.div`
-margin-top: 4px;
+  margin-top: 4px;
   margin-bottom: 14px;
   display: flex;
   gap: 8px;
+`;
+
+export const Radio = styled.input`
+  position: relative;
+  visibility: hidden;
+  &::after {
+    visibility: visible;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    padding: 5px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    ${props => {
+      switch (props.name) {
+        case 'easy':
+          return `background-color: ${lowPriority};`;
+        case 'medium':
+          return `background-color: ${mediumPriority}`;
+        case 'hard':
+          return `background-color: ${highPriority} `;
+        case 'without':
+          return `background-color: ${white30}`;
+        default:
+          return `background-color:  black`;
+      }
+    }}
+  }
+  &:checked {
+    &::after {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      content: '';
+      border-radius: 50%;
+      display: block;
+      width: 6px;
+      height: 6px;
+      padding: 0;
+    }
+
+    &:checked {
+      &::before {
+        visibility: visible;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        content: '';
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        border: 2px solid;
+        background-color: transparent;
+        ${props => {
+          switch (props.name) {
+            case 'easy':
+              return `border-color: ${lowPriority};`;
+            case 'medium':
+              return `border-color: ${mediumPriority}`;
+            case 'hard':
+              return `border-color: ${highPriority}`;
+            case 'without':
+              return `border-color: ${white30}`;
+            default:
+              return `border-color:  black`;
+          }
+        }}
+      }
+    }
+  }
 `;
 
 export const ButPiker = styled.button`
@@ -141,6 +220,7 @@ export const Button = styled.button`
   align-items: center;
   gap: 8px;
 
+  border: none;
   border-radius: 8px;
   background: #bedbb0;
   color: #161616;
