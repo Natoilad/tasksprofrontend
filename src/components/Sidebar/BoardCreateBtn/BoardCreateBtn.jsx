@@ -1,13 +1,14 @@
 import { useState } from 'react';
-
-import ContainerModal from 'components/Modals/ContainerModal';
 import icon from '../../../images/sprite.svg';
 import {
   CreateBoardBox,
   CreateBoardIcon,
   TextBox,
 } from './BoardCreateBtn.styled';
-import { CreateBoardModal } from 'components/Modals/CreateBoardModal/CreateBoardModal';
+// import { CreateBoardModal } from 'components/Modals/CreateBoardModal/CreateBoardModal';
+import ContainerModal from 'components/Modals/ContainerModal';
+import AddBoard from 'components/Modals/AddBoard/AddBoard';
+
 
 export const BoardCreateBtn = () => {
   const [open, setOpen] = useState(false);
@@ -30,8 +31,9 @@ export const BoardCreateBtn = () => {
           handleClose={handleClose}
           open={open}
           component={
-            <CreateBoardModal
-              title={'New board'}
+
+            <AddBoard
+              title={'New Board'}
               butName={'Create'}
               handleClose={handleClose}
             />

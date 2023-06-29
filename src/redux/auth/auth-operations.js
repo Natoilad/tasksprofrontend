@@ -26,7 +26,6 @@ export const authRegister = createAsyncThunk(
       }
       return data;
     } catch (error) {
-      console.log(error.response.data.message);
       return rejectWithValue(error.data.message);
     }
   }
