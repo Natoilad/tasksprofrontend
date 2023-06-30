@@ -20,7 +20,7 @@ const AddBoard = ({ handleClose, title, butName }) => {
   const [value, setValue] = useState(1);
 
   const [bg, setBg] = useState([]);
-
+ console.log(bg);
   useEffect(() => {
     fetch('https://tasksprobackend.onrender.com/api/backgrounds')
       .then(response => response.json())
