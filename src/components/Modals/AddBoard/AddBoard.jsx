@@ -21,15 +21,16 @@ import {
   getBoards,
   getBackGrounds,
 } from 'redux/content/content-operations';
-import { selectBackground } from '../../../redux/content/content-selectors';
+import { useContent } from 'hooks/contentsHooks';
 
 const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
-  const [bgIcons, setBgIcons] = useState([]);
+  // const [bgIcons, setBgIcons] = useState([]);
   // const [bg, setBg] = useState([]);
   const dispatch = useDispatch();
 
-  const bgPicture = useSelector(selectBackground);
+  const { backgrounds } = useContent();
+  console.log(backgrounds);
 
   const hundleSubmit = evt => {
     evt.preventDefault();
@@ -45,19 +46,21 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
   //   dispatch(getBackGrounds());
   // }, []);
 
-  useEffect(() => {
-    dispatch(getBackGrounds())
-      .then(response => {
-        const bgIconsData = response[0].bgIcons(item => item[0].bgIcons);
-        console.log(bgIconsData);
-        setBgIcons(bgIconsData);
-      })
-      .catch(error => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getBackGrounds())
+  //     .then(response => {
+  //       const bgIconsData = response[0].bgIcons(item => item.bgIcons);
+  //       console.log(bgIconsData);
+  //       setBgIcons(bgIconsData);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, []);
 
   function chengeValue(event) {
     setValue(event.target.value);
   }
+
+  // const iconDataBg = response[0].bgIcons;
 
   return (
     <Wrap>

@@ -132,8 +132,8 @@ export const getBackGrounds = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await BoardBackGrounds();
-      console.log(response[0].bgIcons);
-      return response[0].bgIcons;
+      console.log(response);
+      return response;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
