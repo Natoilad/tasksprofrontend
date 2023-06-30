@@ -9,7 +9,6 @@ import {
 import ContainerModal from 'components/Modals/ContainerModal';
 import AddBoard from 'components/Modals/AddBoard/AddBoard';
 
-
 export const BoardCreateBtn = () => {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
@@ -31,7 +30,6 @@ export const BoardCreateBtn = () => {
           handleClose={handleClose}
           open={open}
           component={
-
             <AddBoard
               title={'New Board'}
               butName={'Create'}

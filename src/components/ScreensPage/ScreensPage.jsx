@@ -18,7 +18,7 @@ const ScreensPage = () => {
 
   if (!boardName && boards.length > 0) {
     navigate(`/home/${boards[0].title}`, { replace: true });
-    return
+    return;
   }
 
   return (
@@ -32,7 +32,6 @@ const ScreensPage = () => {
           <MainDashboard columns={board.columns} />
         </>
       )}
-      ;
     </>
 
     //  </Conteiner>

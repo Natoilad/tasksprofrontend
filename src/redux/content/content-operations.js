@@ -44,7 +44,7 @@ export const addBoards = createAsyncThunk(
 
 export const getBoardById = createAsyncThunk(
   'api/getBoardById',
-  async ({ id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
       const response = await GetById(id);
       return response;
@@ -56,7 +56,7 @@ export const getBoardById = createAsyncThunk(
 
 export const removeBoard = createAsyncThunk(
   'api/removeBoard',
-  async ({ id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
       const response = await Remove(id);
       return response;
