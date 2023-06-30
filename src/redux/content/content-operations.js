@@ -33,7 +33,7 @@ export const addBoards = createAsyncThunk(
   'api/addBoards',
   async (data, thunkAPI) => {
     try {
-      const response = await AddBoard();
+      const response = await AddBoard(data);
       console.log(response);
       return response;
     } catch (error) {
@@ -131,7 +131,7 @@ export const getBackGrounds = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await BoardBackGrounds();
-      console.log(response);
+      console.log(response.bgIcons);
       return response;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

@@ -16,21 +16,33 @@ import {
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { addBoards } from 'redux/content/content-operations';
-const AddBoard = ({ handleClose, title, butName }) => {
+import {
+  addBoards,
+  getBoards,
+  getBackGrounds,
+} from 'redux/content/content-operations';
+
+const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
   const dispatch = useDispatch();
   const hundleSubmit = evt => {
     evt.preventDefault();
-    dispatch(addBoards());
+    const task = {
+      title,
+      icon,
+      background,
+    };
+    dispatch(addBoards(task));
   };
   const [bg, setBg] = useState([]);
   console.log(bg);
   useEffect(() => {
-    fetch('https://tasksprobackend.onrender.com/api/backgrounds')
-      .then(response => response.json())
-      .then(data => setBg(data))
-      .catch(error => console.log(error));
+    dispatch(getBackGrounds());
+    console.log(getBackGrounds());
+    // fetch('https://tasksprobackend.onrender.com/api/backgrounds')
+    //   .then(response => response.json())
+    //   .then(data => setBg(data))
+    //   .catch(error => console.log(error));
   }, []);
 
   function chengeValue(event) {
@@ -41,7 +53,13 @@ const AddBoard = ({ handleClose, title, butName }) => {
     <Wrap>
       <Form onSubmit={hundleSubmit}>
         <Title>{title}</Title>
-        <Field id="title" type="text" name="title" placeholder="Title" />
+        <Field
+          id="title"
+          type="text"
+          required
+          name="title"
+          placeholder="Title"
+        />
 
         <Label>
           Icons

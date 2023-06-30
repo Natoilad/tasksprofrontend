@@ -7,10 +7,11 @@ import { backendAPI } from './auth-service';
 
 export const BoardList = async () => {
   const { data } = await backendAPI.get('api/boards');
+  console.log(data);
   return data;
 };
 
-export const AddBoard = async form => {
+export const AddBoard = async task => {
   const { data } = await backendAPI.post('api/boards', {
     title: 'newTestBoard',
     icon: 'icon_1',
@@ -65,5 +66,6 @@ export const RemoveCol = async (boardId, columnId) => {
 
 export const BoardBackGrounds = async () => {
   const { data } = await backendAPI.get('api/backgrounds');
-  return data;
+  console.log(data);
+  return data.bgIcons;
 };
