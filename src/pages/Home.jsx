@@ -7,7 +7,7 @@ import { getBoards } from 'redux/content/content-operations';
 import { Box, HomeWrapper } from './PagesStyle.styled';
 
 import ScreensPage from 'components/ScreensPage/ScreensPage';
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 const { Header } = require('components/Header/Header');
 const { SidebarMain } = require('components/Sidebar/SidebarMain/SidebarMain');
 
@@ -26,7 +26,7 @@ const HomePage = () => {
       <SidebarMain />
       <Box>
         <Header />
-        <div><Outlet/></div>
+        <ScreensPage/>
       </Box>
     </HomeWrapper>
   );

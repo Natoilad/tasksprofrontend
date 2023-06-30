@@ -33,15 +33,7 @@ const contentSlice = createSlice({
   name: 'content',
   initialState: {
     // background: [],
-    boards: [
-      {
-        title: 'q2',
-        icon: '12',
-        background: '',
-        owner: {},
-        columns: [],
-      },
-    ],
+    boards: [],
     isLoading: false,
     error: null,
   },

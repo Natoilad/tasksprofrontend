@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { authRefresh } from 'redux/auth/auth-operations';
 import { LoaderHomePage } from 'components/Loader/LoaderHomePage/Loader';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
+import { Suspense } from 'react';
 
 // const Welcome = lazy(() => import('../pages/WelcomePage'));
 
@@ -28,23 +29,26 @@ export const App = () => {
   return isRefreshing ? (
     <LoaderHomePage />
   ) : (
-    <Routes>
-      <Route path="/" element={<Navigate to="welcome" />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Navigate to="welcome" />} />
+        <Route path="/welcome" element={<WelcomePage />} />
 
-      <Route
-        path="/auth/:id"
-        element={<PublicRoute redirectTo="/home" component={<AuthPage />} />}
-      />
+        <Route
+          path="/auth/:id"
+          element={<PublicRoute redirectTo="/home" component={<AuthPage />} />}
+        />
 
-      <Route
-        path="/home"
-        element={
-          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
-        }
-      >
-        <Route path="/home/:boardName" element={<ScreensPage />} />
-      </Route>
-    </Routes>
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+          }
+        >
+          <Route path="/home/:boardName" element={<ScreensPage />} />
+        </Route>
+        <Route path="*" element={<WelcomePage />} />
+      </Routes>
+    </Suspense>
   );
 };
