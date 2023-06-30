@@ -9,10 +9,15 @@ import {
   BoardBtnBox,
   BoardBtn,
 } from './BoardListItem.styled';
-
+import { useDispatch } from 'react-redux';
+import { getBoardById } from 'redux/content/content-operations';
 export const BoardListItem = ({ board }) => {
+  const dispatch = useDispatch();
+  const handleSelectBoard = () => {
+    dispatch(getBoardById(board._id));
+  };
   return (
-    <BoardItem to={`/home/${board.title}`}>
+    <BoardItem onClick={handleSelectBoard} to={`/home/${board.title}`}>
       <BoardHero>
         <BoardIcon>
           <use href={icon + `#${board.icon}`}></use>
