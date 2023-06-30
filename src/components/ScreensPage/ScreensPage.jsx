@@ -21,10 +21,11 @@ const ScreensPage = () => {
 
   // const board = boards.find(board => board.title === boardName);
 
-  // if (!boardName && boards.length > 0) {
-  //   navigate(`/home/${boards[0].title}`, { replace: true });
-  //   return;
-  // }
+
+  if (!boardName && boards.length > 0) {
+    navigate(`/home/${boards[0].title}`, { replace: true });
+    return;
+  }
 
   return (
     // <Conteiner>
@@ -37,7 +38,6 @@ const ScreensPage = () => {
           <MainDashboard columns={board.columns} />
         </>
       )}
-      ;
     </>
 
     //  </Conteiner>

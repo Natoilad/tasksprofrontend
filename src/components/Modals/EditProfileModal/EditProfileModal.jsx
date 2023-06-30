@@ -1,4 +1,4 @@
-import { Container, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './EditProfileModal.module.css';
@@ -11,13 +11,11 @@ import { DropzoneBox } from 'components/DropzoneBox/DropzoneBox';
 import { useState } from 'react';
 import { PhotoEditor } from 'components/PhotoEditor/PhotoEditor';
 
-// {
-//   /* <ContainerModal
-// handleClose={handleClose}
-// open={true}
-// component={<EditProfileModal />} импортировать и вставить єту функцию не забыть прописать функии handleClose
-// /> */
-// }
+import {
+  Wrap,
+  // Button,
+  Title,
+} from './EditProfileModal.styled';
 
 const Form = styled(FormWrap)({
   display: ' flex',
@@ -68,76 +66,70 @@ export const EditProfileModal = ({ handleClose }) => {
   };
 
   return (
-    <div className={styles.box}>
-      <Container>
-        <h2 className={styles.title}>Edit profile</h2>
-        <div className={styles.btn_close}>
-          <StyledIconButton aria-label="close" onClick={handleClose}>
-            <CloseIcon />
-          </StyledIconButton>
-        </div>
+    <Wrap>
+      <Title>Edit profile</Title>
+      <div className={styles.btn_close}>
+        <StyledIconButton aria-label="close" onClick={handleClose}>
+          <CloseIcon />
+        </StyledIconButton>
+      </div>
 
-        <div>
-          <Formik
-            initialValues={{ name: '', email: '', password: '' }}
-            validationSchema={schema}
-            onSubmit={onFormSubmit}
-          >
-            {({ errors, touched }) => (
-              <Form autoComplete="off">
-                <div className={styles.box_icon_user}>
-                  <div className={styles.icon_dropzone}>
-                    {photos.dataURL ? (
-                      <img
-                        style={{ borderRadius: '4px' }}
-                        className={styles.icon_user}
-                        src={photos.dataURL}
-                        alt={photos.photoName}
-                      />
-                    ) : (
-                      <img
-                        className={styles.icon_user}
-                        src={userImg}
-                        alt="unknown user img"
-                      />
-                    )}
-
-                    <DropzoneBox
-                      setIsShowEditor={setIsShowEditor}
-                      setUploadImg={setUploadImg}
+      <div>
+        <Formik
+          initialValues={{ name: '', email: '', password: '' }}
+          validationSchema={schema}
+          onSubmit={onFormSubmit}
+        >
+          {({ errors, touched }) => (
+            <Form autoComplete="off">
+              <div className={styles.box_icon_user}>
+                <div className={styles.icon_dropzone}>
+                  {photos.dataURL ? (
+                    <img
+                      style={{ borderRadius: '4px' }}
+                      className={styles.icon_user}
+                      src={photos.dataURL}
+                      alt={photos.photoName}
                     />
-                    <div className={styles.box_add}>
-                      <AddIcon width="10px" height="10px" />
-                    </div>
+                  ) : (
+                    <img
+                      className={styles.icon_user}
+                      src={userImg}
+                      alt="unknown user img"
+                    />
+                  )}
+
+                  <DropzoneBox
+                    setIsShowEditor={setIsShowEditor}
+                    setUploadImg={setUploadImg}
+                  />
+                  <div className={styles.box_add}>
+                    <AddIcon width="10px" height="10px" />
                   </div>
                 </div>
-                <Field name="name" type="text" placeholder="Enter your Name" />
-                {errors.name && touched.name ? (
-                  <div className={styles.error}>{errors.name}</div>
-                ) : null}
-                <Field
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-                {errors.email && touched.email ? (
-                  <div className={styles.error}>{errors.email}</div>
-                ) : null}
+              </div>
+              <Field name="name" type="text" placeholder="Enter your Name" />
+              {errors.name && touched.name ? (
+                <div className={styles.error}>{errors.name}</div>
+              ) : null}
+              <Field name="email" type="email" placeholder="Enter your email" />
+              {errors.email && touched.email ? (
+                <div className={styles.error}>{errors.email}</div>
+              ) : null}
 
-                <Field name="password" placeholder="Create a password" />
-                {errors.password && touched.password ? (
-                  <div className={styles.error}>{errors.password}</div>
-                ) : null}
+              <Field name="password" placeholder="Create a password" />
+              {errors.password && touched.password ? (
+                <div className={styles.error}>{errors.password}</div>
+              ) : null}
 
-                <button className={styles.btn_submit} type="submit">
-                  Send
-                </button>
-              </Form>
-            )}
-          </Formik>
-        </div>
-      </Container>
-      {isShowEditor ? (
+              <button className={styles.btn_submit} type="submit">
+                Send
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+      {isShowEditor && (
         <PhotoEditor
           setIsShowEditor={setIsShowEditor}
           uploadImg={uploadImg}
@@ -146,9 +138,7 @@ export const EditProfileModal = ({ handleClose }) => {
           setPhotos={setPhotos}
           limit={2}
         />
-      ) : (
-        ''
       )}
-    </div>
+    </Wrap>
   );
 };
