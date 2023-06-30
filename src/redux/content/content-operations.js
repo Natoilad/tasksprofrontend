@@ -92,9 +92,10 @@ export const updateBoardEl = createAsyncThunk(
 
 export const addColumns = createAsyncThunk(
   'api/columns/addColumns',
-  async ({ boardId, data }, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const { id: boardId, value } = data;
     try {
-      const response = await AddColumn(boardId, data);
+      const response = await AddColumn(boardId, value);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

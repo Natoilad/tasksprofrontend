@@ -11,6 +11,7 @@ import { useState } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 
 const MainDashboard = ({ columns }) => {
+  // console.log(columns);
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
@@ -30,13 +31,15 @@ const MainDashboard = ({ columns }) => {
       }}
     >
       <Conteiner>
-        <ColumnList>
-          {columns.map(column => (
-            <li key={column._id}>
-              <Column title={column.title} id={column._id} />
-            </li>
-          ))}
-        </ColumnList>
+        {columns && (
+          <ColumnList>
+            {columns.map(column => (
+              <li key={column._id}>
+                <Column title={column.title} id={column._id} />
+              </li>
+            ))}
+          </ColumnList>
+        )}
         <Btn onClick={handleOpen}>Add another column</Btn>
         {open && (
           <ContainerModal

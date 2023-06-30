@@ -17,16 +17,23 @@ import {
   Radio,
 } from './CardModal.styled';
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { addTasks } from 'redux/tasks/tasks-operations';
 const CardModal = ({ handleClose, title, butName }) => {
   const [value, setValue] = useState('1');
+  const dispatch = useDispatch();
   function chengeValue(event) {
     setValue(event.target.value);
   }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(addTasks());
+  };
+
   return (
     <Wrap>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Title>{title}</Title>
         <Field id="title" type="text" name="title" placeholder="Title" />
         <Description

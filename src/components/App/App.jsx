@@ -43,7 +43,7 @@ export const App = () => {
           <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
         }
       >
-        <Route path="/home/:boardName" element={<ScreensPage />} />
+        <Route path="/home/:boardName" element={<HomePage />} />
       </Route>
     </Routes>
   );
