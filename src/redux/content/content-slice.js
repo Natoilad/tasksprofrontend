@@ -33,16 +33,7 @@ const handleIfReject = (state, { payload }) => {
 const contentSlice = createSlice({
   name: 'content',
   initialState: {
-    // background: [],
-    boards: [
-      {
-        title: 'q2',
-        icon: '12',
-        background: '',
-        owner: {},
-        columns: [],
-      },
-    ],
+    boards: [],
     currentBoard: {},
     isLoading: false,
     error: null,
