@@ -6,5 +6,6 @@ export const HomeWrapper = styled.div`
 `;
 
 export const Box = styled.div`
+  width: 100%;
   min-width: 1180px;
 `;
