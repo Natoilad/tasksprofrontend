@@ -5,8 +5,10 @@ import {
   CreateBoardIcon,
   TextBox,
 } from './BoardCreateBtn.styled';
+// import { CreateBoardModal } from 'components/Modals/CreateBoardModal/CreateBoardModal';
 import ContainerModal from 'components/Modals/ContainerModal';
 import AddBoard from 'components/Modals/AddBoard/AddBoard';
+
 
 export const BoardCreateBtn = () => {
   const [open, setOpen] = useState(false);
@@ -29,6 +31,7 @@ export const BoardCreateBtn = () => {
           handleClose={handleClose}
           open={open}
           component={
+
             <AddBoard
               title={'New Board'}
               butName={'Create'}

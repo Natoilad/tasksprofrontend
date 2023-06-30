@@ -17,7 +17,7 @@ export const SidebarMain = () => {
       <div>
         <LogoBox>
           <SidebarIcon>
-            <use href={icon + '#icon-icondarklogo'}></use>
+            <use href={icon + '#appIcon'}></use>
           </SidebarIcon>
           <SidebarHeader>Task Pro</SidebarHeader>
         </LogoBox>

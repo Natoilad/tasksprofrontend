@@ -4,7 +4,7 @@ import { darkGray, white50 } from 'variables/variables';
 
 export const BoardItem = styled(NavLink)`
   /* background-color: ${darkGray}; */
-
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
