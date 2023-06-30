@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectIsLoading, selectError } from 'redux/content/content-selectors';
 import { getBoards } from 'redux/content/content-operations';
-
+import { getTasks } from 'redux/tasks/tasks-operations';
 import { Box, HomeWrapper } from './PagesStyle.styled';
 
 import ScreensPage from 'components/ScreensPage/ScreensPage';
@@ -18,6 +18,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getBoards());
+    dispatch(getTasks());
   }, [dispatch]);
 
   return (

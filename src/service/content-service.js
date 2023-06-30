@@ -41,10 +41,10 @@ export const PatchUpdate = async (id, newData) => {
 };
 
 export const AddColumn = async (boardId, newData) => {
-  const { data } = await backendAPI.post(
-    `api/boards/${boardId}/columns`,
-    newData
-  );
+  console.log(boardId, newData);
+  const { data } = await backendAPI.post(`api/boards/${boardId}/columns`, {
+    title: newData,
+  });
   return data;
 };
 

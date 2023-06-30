@@ -1,6 +1,7 @@
 import {
   addBoards,
   addColumns,
+  getBoardById,
   getBoards,
   removeBoard,
   removeColumn,
@@ -32,8 +33,8 @@ const handleIfReject = (state, { payload }) => {
 const contentSlice = createSlice({
   name: 'content',
   initialState: {
-    // background: [],
     boards: [],
+    currentBoard: {},
     isLoading: false,
     error: null,
   },
@@ -49,6 +50,11 @@ const contentSlice = createSlice({
       .addCase(addBoards.rejected, handleIfReject)
       .addCase(addBoards.fulfilled, (state, { payload }) => {
         state.boards.push(payload);
+      })
+      .addCase(getBoardById.pending, handleIfPending)
+      .addCase(getBoardById.rejected, handleIfReject)
+      .addCase(getBoardById.fulfilled, (state, { payload }) => {
+        state.currentBoard = payload;
       })
       .addCase(removeBoard.pending, handleIfPending)
       .addCase(removeBoard.rejected, handleIfReject)
@@ -71,7 +77,7 @@ const contentSlice = createSlice({
       .addCase(addColumns.pending, handleIfPending)
       .addCase(addColumns.rejected, handleIfReject)
       .addCase(addColumns.fulfilled, (state, { payload }) => {
-        state.boards.columns.push(payload);
+        // state.boards.columns.push(payload);
       })
       .addCase(removeColumn.pending, handleIfPending)
       .addCase(removeColumn.rejected, handleIfReject)
