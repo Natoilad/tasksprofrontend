@@ -1,5 +1,5 @@
 // import { PropTypes } from 'prop-types';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { removeBoard } from 'redux/content/content-operations';
 import icon from '../../../images/sprite.svg';
 import {
