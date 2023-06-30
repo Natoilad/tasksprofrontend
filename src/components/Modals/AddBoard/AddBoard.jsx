@@ -15,16 +15,22 @@ import {
   SSvg,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addBoards,
   getBoards,
   getBackGrounds,
 } from 'redux/content/content-operations';
+import { selectBackground } from '../../../redux/content/content-selectors';
 
 const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
+  const [bgIcons, setBgIcons] = useState([]);
+  // const [bg, setBg] = useState([]);
   const dispatch = useDispatch();
+
+  const bgPicture = useSelector(selectBackground);
+
   const hundleSubmit = evt => {
     evt.preventDefault();
     const task = {
@@ -34,15 +40,19 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
     };
     dispatch(addBoards(task));
   };
-  const [bg, setBg] = useState([]);
-  console.log(bg);
+
+  // useEffect(() => {
+  //   dispatch(getBackGrounds());
+  // }, []);
+
   useEffect(() => {
-    dispatch(getBackGrounds());
-    console.log(getBackGrounds());
-    // fetch('https://tasksprobackend.onrender.com/api/backgrounds')
-    //   .then(response => response.json())
-    //   .then(data => setBg(data))
-    //   .catch(error => console.log(error));
+    dispatch(getBackGrounds())
+      .then(response => {
+        const bgIconsData = response[0].bgIcons(item => item[0].bgIcons);
+        console.log(bgIconsData);
+        setBgIcons(bgIconsData);
+      })
+      .catch(error => console.log(error));
   }, []);
 
   function chengeValue(event) {
@@ -186,31 +196,31 @@ input:checked + label > img {} */}
             <input
               type="radio"
               name="radio"
-              value="5"
-              checked={value === '5' ? true : false}
+              value="9"
+              checked={value === '9' ? true : false}
               onChange={chengeValue}
             />
 
             <input
               type="radio"
               name="radio"
-              value="6"
-              checked={value === '6' ? true : false}
+              value="10"
+              checked={value === '10' ? true : false}
               onChange={chengeValue}
             />
 
             <input
               type="radio"
               name="radio"
-              value="7"
-              checked={value === '7' ? true : false}
+              value="11"
+              checked={value === '11' ? true : false}
               onChange={chengeValue}
             />
             <input
               type="radio"
               name="radio"
-              value="8"
-              checked={value === '8' ? true : false}
+              value="12"
+              checked={value === '12' ? true : false}
               onChange={chengeValue}
             />
           </Priority>
