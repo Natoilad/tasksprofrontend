@@ -9,11 +9,22 @@ import {
   CloseBtn,
   IconPlus,
 } from './ColumnModal.styled';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentBoard } from 'redux/content/content-selectors';
+import { addColumns } from 'redux/content/content-operations';
 const ColumnModal = ({ handleClose, title, butName }) => {
+  const board = useSelector(selectCurrentBoard);
+  const dispatch = useDispatch();
+  const handleSumbit = evt => {
+    evt.preventDefault();
+    const value = evt.currentTarget.elements.title.value;
+    console.log(board, value);
+    const id = board._id;
+    dispatch(addColumns({ id, value }));
+  };
   return (
     <Wrap>
-      <Form>
+      <Form onSubmit={handleSumbit}>
         <Title>{title}</Title>
         <Field id="title" type="text" name="title" placeholder="Title" />
         <Button type="submit">
