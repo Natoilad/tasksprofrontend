@@ -1,4 +1,13 @@
-import { getBoards } from './content-operations';
+import {
+  addBoards,
+  addColumns,
+  getBoards,
+  removeBoard,
+  removeColumn,
+  updateBoard,
+  updateBoardEl,
+  updateColumn,
+} from './content-operations';
 const { createSlice } = require('@reduxjs/toolkit');
 
 // const initialState = {
@@ -43,6 +52,50 @@ const contentSlice = createSlice({
       .addCase(getBoards.fulfilled, (state, { payload }) => {
         state.boards = payload;
         // state.background = payload;
+      })
+      .addCase(addBoards.pending, handleIfPending)
+      .addCase(addBoards.rejected, handleIfReject)
+      .addCase(addBoards.fulfilled, (state, { payload }) => {
+        state.boards.push(payload);
+      })
+      .addCase(removeBoard.pending, handleIfPending)
+      .addCase(removeBoard.rejected, handleIfReject)
+      .addCase(removeBoard.fulfilled, (state, { payload }) => {
+        const index = state.boards.findIndex(board => board.id === payload.id);
+        state.contacts.splice(index, 1);
+      })
+      .addCase(updateBoard.pending, handleIfPending)
+      .addCase(updateBoard.rejected, handleIfReject)
+      .addCase(updateBoard.fulfilled, (state, { payload }) => {
+        const index = state.boards.findIndex(board => board.id === payload.id);
+        state.contacts.splice(index, 1, payload);
+      })
+      .addCase(updateBoardEl.pending, handleIfPending)
+      .addCase(updateBoardEl.rejected, handleIfReject)
+      .addCase(updateBoardEl.fulfilled, (state, { payload }) => {
+        // const index = state.boards.findIndex(board => board.id === payload.id);
+        // state.contacts.splice(index, 1, payload);
+      })
+      .addCase(addColumns.pending, handleIfPending)
+      .addCase(addColumns.rejected, handleIfReject)
+      .addCase(addColumns.fulfilled, (state, { payload }) => {
+        state.boards.columns.push(payload);
+      })
+      .addCase(removeColumn.pending, handleIfPending)
+      .addCase(removeColumn.rejected, handleIfReject)
+      .addCase(removeColumn.fulfilled, (state, { payload }) => {
+        const index = state.boards.columns.findIndex(
+          column => column.id === payload.id
+        );
+        state.columns.splice(index, 1);
+      })
+      .addCase(updateColumn.pending, handleIfPending)
+      .addCase(updateColumn.rejected, handleIfReject)
+      .addCase(updateColumn.fulfilled, (state, { payload }) => {
+        const index = state.boards.columns.findIndex(
+          column => column.id === payload.id
+        );
+        state.columns.splice(index, 1);
       });
   },
 });

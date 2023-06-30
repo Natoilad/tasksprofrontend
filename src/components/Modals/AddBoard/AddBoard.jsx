@@ -15,12 +15,17 @@ import {
   SSvg,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
-
+import { useDispatch } from 'react-redux';
+import { addBoards } from 'redux/content/content-operations';
 const AddBoard = ({ handleClose, title, butName }) => {
   const [value, setValue] = useState(1);
-
+  const dispatch = useDispatch();
+  const hundleSubmit = evt => {
+    evt.preventDefault();
+    dispatch(addBoards());
+  };
   const [bg, setBg] = useState([]);
- console.log(bg);
+  console.log(bg);
   useEffect(() => {
     fetch('https://tasksprobackend.onrender.com/api/backgrounds')
       .then(response => response.json())
@@ -34,7 +39,7 @@ const AddBoard = ({ handleClose, title, butName }) => {
 
   return (
     <Wrap>
-      <Form>
+      <Form onSubmit={hundleSubmit}>
         <Title>{title}</Title>
         <Field id="title" type="text" name="title" placeholder="Title" />
 
