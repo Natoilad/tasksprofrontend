@@ -11,9 +11,14 @@ import {
 } from './Header.styled';
 
 import icon from '../../images/sprite.svg';
+import { EditProfileModal } from 'components/Modals/EditProfileModal/EditProfileModal';
+import ContainerModal from 'components/Modals/ContainerModal';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  const [openModalEdit, setOpenModalEdit] = useState(false);
+  const handleCloseModalEdit = () => setOpenModalEdit(false);
+  const handleOpenModalEdit = () => setOpenModalEdit(true);
   const themeListRef = useRef(null);
 
   const handleOpen = () => {
@@ -34,7 +39,7 @@ export const Header = () => {
     };
   }, []);
 
-  return (
+  return (<>
     <HeaderComponent>
       <HeaderBox>
         <BurgerMenuBtn>
@@ -64,7 +69,7 @@ export const Header = () => {
               </ul>
             ) : null}
           </ThemeDropdown>
-          <UserInfoBox>
+          <UserInfoBox onClick={handleOpenModalEdit}>
             <p>Ivetta</p>
             <AvatarBox>
               <svg width="32" height="32">
@@ -75,5 +80,17 @@ export const Header = () => {
         </UserBox>
       </HeaderBox>
     </HeaderComponent>
+    {openModalEdit && (
+        <ContainerModal
+          handleClose={handleCloseModalEdit}
+          open={openModalEdit}
+          component={
+            <EditProfileModal
+              handleClose={handleCloseModalEdit}
+            />
+          }
+        />
+      )}
+    </>
   );
 };

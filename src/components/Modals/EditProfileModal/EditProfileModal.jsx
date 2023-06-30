@@ -1,4 +1,4 @@
-import { Container, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './EditProfileModal.module.css';
@@ -11,13 +11,13 @@ import { DropzoneBox } from 'components/DropzoneBox/DropzoneBox';
 import { useState } from 'react';
 import { PhotoEditor } from 'components/PhotoEditor/PhotoEditor';
 
-// {
-//   /* <ContainerModal
-// handleClose={handleClose}
-// open={true}
-// component={<EditProfileModal />} импортировать и вставить єту функцию не забыть прописать функии handleClose
-// /> */
-// }
+import {
+  Wrap,
+  Button,
+  Title,
+
+} from './EditProfileModal.styled';
+
 
 const Form = styled(FormWrap)({
   display: ' flex',
@@ -68,9 +68,9 @@ export const EditProfileModal = ({ handleClose }) => {
   };
 
   return (
-    <div className={styles.box}>
-      <Container>
-        <h2 className={styles.title}>Edit profile</h2>
+    <Wrap >
+
+        <Title >Edit profile</Title>
         <div className={styles.btn_close}>
           <StyledIconButton aria-label="close" onClick={handleClose}>
             <CloseIcon />
@@ -136,8 +136,7 @@ export const EditProfileModal = ({ handleClose }) => {
             )}
           </Formik>
         </div>
-      </Container>
-      {isShowEditor ? (
+      {isShowEditor && (
         <PhotoEditor
           setIsShowEditor={setIsShowEditor}
           uploadImg={uploadImg}
@@ -146,9 +145,7 @@ export const EditProfileModal = ({ handleClose }) => {
           setPhotos={setPhotos}
           limit={2}
         />
-      ) : (
-        ''
       )}
-    </div>
+    </Wrap>
   );
 };
