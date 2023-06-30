@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 import {
   white100,
-  white50,
   highPriority,
   darkModal,
   darkFirst,
 } from 'variables/variables';
-
-
 
 export const Wrap = styled.div`
   position: relative;
@@ -31,7 +28,6 @@ export const Title = styled.h4`
   letter-spacing: -0.36px;
   margin-right: auto;
 `;
-
 
 export const Button = styled.button`
   width: 100%;
