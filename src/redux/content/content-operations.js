@@ -9,7 +9,6 @@ import {
   AddColumn,
   UpdateCol,
   RemoveCol,
-  BoardBackGrounds,
 } from 'service/content-service';
 import { token } from 'service/auth-service';
 
