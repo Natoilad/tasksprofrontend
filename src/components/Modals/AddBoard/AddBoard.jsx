@@ -187,7 +187,7 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
               // checked={value === '10' ? true : false}
               onChange={chengeValue}
             />
-            <LabelBlockSvg for="block">
+            <LabelBlockSvg htmlFor="block">
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>

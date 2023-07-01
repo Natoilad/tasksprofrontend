@@ -11,8 +11,8 @@ import {
 import ContainerModal from 'components/Modals/ContainerModal';
 import { useState } from 'react';
 import CardModal from 'components/Modals/CardModal/CardModal';
-import { useSelector } from 'react-redux';
-import { selectTasks } from 'redux/tasks/tasks-selectors';
+// import { useSelector } from 'react-redux';
+// import { selectTasks } from 'redux/tasks/tasks-selectors';
 const options = {
   scrollbars: {
     scrollbars: { autoHide: 'scroll' },
@@ -22,17 +22,17 @@ const options = {
   },
 };
 
-const Column = ({ title, id }) => {
-  console.log(id);
-  const realTasks = useSelector(selectTasks);
-  console.log(realTasks);
+const Column = ({ boardId, title, id }) => {
+  // console.log(id);
+  // const realTasks = useSelector(selectTasks);
+  // console.log(realTasks);
   const tasks = ['1', '2', '3'];
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
   return (
     <Conteiner>
-      <HeaderColumn title={title} />
+      <HeaderColumn boardId={boardId} title={title} columnId={id} />
       <ScrollBlock defer element="div" options={options}>
         <CardList>
           {tasks.map(item => (
