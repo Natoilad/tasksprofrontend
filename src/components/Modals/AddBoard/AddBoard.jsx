@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import icon from '../../../images/sprite.svg';
+// import icon from '../../../images/sprite.svg';
 import {
   Form,
   Field,
@@ -26,22 +26,24 @@ import { useBg } from 'hooks/backgroundHooks';
 import { getBackGrounds } from 'redux/backgrounds/background-operations';
 import BgComponent from './bgComponent';
 
-const AddBoard = ({ handleClose, title, background, butName }) => {
+const AddBoard = ({ handleClose, title, background, icon, butName }) => {
   const [value, setValue] = useState(1);
 
   const dispatch = useDispatch();
 
   const { backgrounds } = useBg();
 
-  const hundleSubmit = evt => {
-    evt.preventDefault();
+  const hundleSubmit = event => {
+    event.preventDefault();
+    console.log(event.currentTarget.elements.title.value);
     const task = {
-      title,
-      icon,
-      background,
+      title: event.currentTarget.elements.title.value,
+      icon: 'icon-star',
+      background: '649f40cdcaf11c74bb2317b1',
     };
     dispatch(addBoards(task));
   };
+  
 
   useEffect(() => {
     dispatch(getBackGrounds());
@@ -49,6 +51,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
 
   function chengeValue(event) {
     setValue(event.target.value);
+    console.log(event.target.value);
   }
 
   return (
@@ -62,16 +65,16 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           name="title"
           placeholder="Title"
         />
-        <Label>
+        <Label id="my-radio-groupIcon">
           Icons
-          <Priority>
+          <Priority role="group" aria-labelledby="my-radio-groupIcon">
             <InputSvg
               id="project"
               type="radio"
               name="radio"
               value="1"
-              // checked={value === '1' ? true : false}
-              // onChange={chengeValue}
+              checked={value === '1' ? true : false}
+              onChange={chengeValue}
             />
             <LabelSvg htmlFor="project">
               <SSvg width="18" height="18">
@@ -173,9 +176,9 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           </Priority>
         </Label>
 
-        <Label>
+        <Label id="my-radio-groupImage">
           Background
-          <Bgpriority>
+          <Bgpriority role="group" aria-labelledby="my-radio-groupImage">
             <InputBlockSvg
               id="block"
               type="radio"
@@ -199,7 +202,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           </Bgpriority>
         </Label>
 
-        <Button type="submit">
+        <Button type="submit" onSubmit={hundleSubmit}>
           <IconPlus width="28" height="28">
             <use href={icon + '#icon-plus-black'}></use>
           </IconPlus>

@@ -11,13 +11,10 @@ export const BoardList = async () => {
 };
 
 export const AddBoard = async task => {
-  const { data } = await backendAPI.post('api/boards', {
-    title: 'newTestBoard',
-    icon: 'icon_1',
-    background: '3',
-    columns: [],
-  });
+  const { data } = await backendAPI.post('api/boards', task);
+  console.log(data);
   return data;
+  
 };
 
 export const GetById = async id => {
