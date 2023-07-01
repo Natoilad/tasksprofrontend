@@ -34,6 +34,7 @@ const contentSlice = createSlice({
   name: 'content',
   initialState: {
     boards: [],
+    backgrounds: [],
     currentBoard: {},
     isLoading: false,
     error: null,
@@ -44,12 +45,14 @@ const contentSlice = createSlice({
       .addCase(getBoards.rejected, handleIfReject)
       .addCase(getBoards.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        // state.background = payload;
+        state.backgrounds = payload;
       })
+
       .addCase(addBoards.pending, handleIfPending)
       .addCase(addBoards.rejected, handleIfReject)
       .addCase(addBoards.fulfilled, (state, { payload }) => {
         state.boards.push(payload);
+        state.backgrounds = payload;
       })
       .addCase(getBoardById.pending, handleIfPending)
       .addCase(getBoardById.rejected, handleIfReject)

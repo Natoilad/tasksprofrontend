@@ -13,35 +13,68 @@ import {
   LabelSvg,
   IconSvg,
   SSvg,
+  LabeImgBg,
+  Bgpriority,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { addBoards } from 'redux/content/content-operations';
-const AddBoard = ({ handleClose, title, butName }) => {
+import {
+  addBoards,
+  // getBoards,
+  getBackGrounds,
+} from 'redux/content/content-operations';
+import { useBg } from 'hooks/backgroundHooks';
+
+const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
+  // const [bgIcons, setBgIcons] = useState([]);
+  // const [bg, setBg] = useState([]);
   const dispatch = useDispatch();
+
+  const { backgrounds } = useBg();
+  console.log(backgrounds);
+
   const hundleSubmit = evt => {
     evt.preventDefault();
-    dispatch(addBoards());
+    const task = {
+      title,
+      icon,
+      background,
+    };
+    dispatch(addBoards(task));
   };
-  const [bg, setBg] = useState([]);
-  console.log(bg);
+
   useEffect(() => {
-    fetch('https://tasksprobackend.onrender.com/api/backgrounds')
-      .then(response => response.json())
-      .then(data => setBg(data))
-      .catch(error => console.log(error));
-  }, []);
+    dispatch(getBackGrounds());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getBackGrounds())
+  //     .then(response => {
+  //       const bgIconsData = response[0].bgIcons(item => item.bgIcons);
+  //       console.log(bgIconsData);
+  //       setBgIcons(bgIconsData);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, []);
 
   function chengeValue(event) {
     setValue(event.target.value);
   }
 
+  // const iconDataBg = response[0].bgIcons;
+
   return (
     <Wrap>
       <Form onSubmit={hundleSubmit}>
         <Title>{title}</Title>
-        <Field id="title" type="text" name="title" placeholder="Title" />
+        <Field
+          id="title"
+          type="text"
+          required
+          name="title"
+          placeholder="Title"
+        />
 
         <Label>
           Icons
@@ -164,38 +197,30 @@ input:checked + label > img {} */}
         </Label>
         <Label>
           Background
-          <Priority>
-            <input
-              type="radio"
-              name="radio"
-              value="5"
-              checked={value === '5' ? true : false}
-              onChange={chengeValue}
-            />
-
-            <input
-              type="radio"
-              name="radio"
-              value="6"
-              checked={value === '6' ? true : false}
-              onChange={chengeValue}
-            />
-
-            <input
-              type="radio"
-              name="radio"
-              value="7"
-              checked={value === '7' ? true : false}
-              onChange={chengeValue}
-            />
-            <input
-              type="radio"
-              name="radio"
-              value="8"
-              checked={value === '8' ? true : false}
-              onChange={chengeValue}
-            />
-          </Priority>
+          <Bgpriority>
+            {backgrounds.map(bg => {
+              return (
+                <>
+                  <LabeImgBg for={bg.bgIcons}>
+                    <img
+                      src={bg.bgIcons}
+                      width="28px"
+                      height="28px"
+                      alt="bgIcons"
+                    />
+                  </LabeImgBg>
+                  <IconSvg
+                    id={bg.bgIcons}
+                    type="radio"
+                    name="radio"
+                    value="7"
+                    // checked={value === '7' ? true : false}
+                    onChange={chengeValue}
+                  />
+                </>
+              );
+            })}
+          </Bgpriority>
         </Label>
 
         <Button type="submit">

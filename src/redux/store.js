@@ -13,6 +13,8 @@ import {
 import { authReducer } from './auth/auth-slice';
 import { contentReducer } from './content/content-slice';
 import { tasksReducer } from './tasks/tasks-slice';
+import { bgReducer } from './backgrounds/background-slice';
+
 const persistConfig = {
   key: 'auth',
   storage,
@@ -26,6 +28,7 @@ export const store = configureStore({
     auth: persistReducerUser,
     content: contentReducer,
     tasks: tasksReducer,
+    bg: bgReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -33,7 +33,7 @@ export const addBoards = createAsyncThunk(
   'api/addBoards',
   async (data, thunkAPI) => {
     try {
-      const response = await AddBoard();
+      const response = await AddBoard(data);
       console.log(response);
       return response;
     } catch (error) {
