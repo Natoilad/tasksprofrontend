@@ -9,9 +9,12 @@ import {
 import ContainerModal from 'components/Modals/ContainerModal';
 import { useState } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
-
-const MainDashboard = ({ columns }) => {
-  // console.log(columns);
+// import { useSelector } from 'react-redux';
+// import { selectContent, selectColumns } from 'redux/content/content-selectors';
+const MainDashboard = ({ boardId, columns }) => {
+  // const boards = useSelector(selectContent);
+  // console.log(boards);
+  // const columns = useSelector(selectColumns);
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
@@ -35,7 +38,11 @@ const MainDashboard = ({ columns }) => {
           <ColumnList>
             {columns.map(column => (
               <li key={column._id}>
-                <Column title={column.title} id={column._id} />
+                <Column
+                  boardId={boardId}
+                  title={column.title}
+                  id={column._id}
+                />
               </li>
             ))}
           </ColumnList>
@@ -47,6 +54,7 @@ const MainDashboard = ({ columns }) => {
             open={open}
             component={
               <ColumnModal
+                boardId={boardId}
                 title={'Add column'}
                 butName={'Add'}
                 handleClose={handleClose}

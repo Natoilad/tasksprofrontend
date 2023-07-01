@@ -16,7 +16,7 @@ export const BoardListItem = ({ board }) => {
   const handleSelectBoard = () => {
     dispatch(getBoardById(board._id));
   };
-  console.log(board._id);
+  // console.log(board._id);
   const dispatch = useDispatch();
   const onDelete = () => dispatch(removeBoard(board._id));
   return (
