@@ -125,8 +125,16 @@ export const Bgpriority = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 4px;
+  width: 260px;
 `;
 
 export const SSvg = styled.svg`
   stroke: ${white50};
+`;
+
+export const BgImg = styled.img`
+  border-radius: 8px;
+  width: 28px;
+  height: 28px;
 `;

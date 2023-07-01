@@ -24,6 +24,8 @@ const bgSlice = createSlice({
       .addCase(getBackGrounds.rejected, handleIfReject)
       .addCase(getBackGrounds.fulfilled, (state, { payload }) => {
         state.backgrounds = payload;
+        state.isLoading = false;
+        state.error = null;
       });
   },
 });
