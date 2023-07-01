@@ -9,36 +9,22 @@ import {
   BtnWrapper,
   IconSvg,
   Button,
-  PriorityBtn,
+  Priority,
   DeadLine,
 } from './Card.styled';
-import { useState } from 'react';
 
-const Card = ({ title, id }) => {
-  const [priority, setPriority] = useState('without');
-
-  const handlechange = evt => {
-    setPriority('medium');
-  };
+const Card = ({ task }) => {
+  const { title, priority, description } = task;
 
   return (
     <Conteiner priority={priority}>
-      <Title>Task name</Title>
-      <Descriptions>
-        Create a visually stunning and eye-catching watch dial design that
-        embodies our brand's...
-      </Descriptions>
+      <Title>{title}</Title>
+      <Descriptions>{description}</Descriptions>
       <SettingsBlock>
         <PriorDeadLinWrapper>
           <Label>
             priority
-            <PriorityBtn
-              priority={priority}
-              onClick={handlechange}
-              type="button"
-            >
-              {priority}
-            </PriorityBtn>
+            <Priority priority={priority}>{priority}</Priority>
           </Label>
           <Label>
             defadline

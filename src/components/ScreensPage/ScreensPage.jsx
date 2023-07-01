@@ -30,7 +30,7 @@ const ScreensPage = () => {
       ) : (
         <>
           <HeaderDashboard title={boardName} />
-          <MainDashboard boardId={board._id || ''} columns={board.columns} />
+          <MainDashboard board={board} columns={board.columns} />
         </>
       )}
     </>

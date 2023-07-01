@@ -129,14 +129,14 @@ export const Radio = styled.input`
     width: 14px;
     height: 14px;
     ${props => {
-      switch (props.name) {
-        case 'easy':
+      switch (props.value) {
+        case 'low':
           return `background-color: ${lowPriority};`;
         case 'medium':
           return `background-color: ${mediumPriority}`;
-        case 'hard':
+        case 'high':
           return `background-color: ${highPriority} `;
-        case 'without':
+        case 'none':
           return `background-color: ${white30}`;
         default:
           return `background-color:  black`;
@@ -171,14 +171,14 @@ export const Radio = styled.input`
         border: 2px solid;
         background-color: transparent;
         ${props => {
-          switch (props.name) {
-            case 'easy':
+          switch (props.value) {
+            case 'low':
               return `border-color: ${lowPriority};`;
             case 'medium':
               return `border-color: ${mediumPriority}`;
-            case 'hard':
+            case 'high':
               return `border-color: ${highPriority}`;
-            case 'without':
+            case 'none':
               return `border-color: ${white30}`;
             default:
               return `border-color:  black`;
