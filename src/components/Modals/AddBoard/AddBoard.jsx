@@ -13,15 +13,16 @@ import {
   LabelSvg,
   IconSvg,
   SSvg,
+  LabeImgBg,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   addBoards,
-  getBoards,
+  // getBoards,
   getBackGrounds,
 } from 'redux/content/content-operations';
-import { useContent } from 'hooks/contentsHooks';
+import { useBg } from 'hooks/backgroundHooks';
 
 const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
@@ -29,7 +30,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
   // const [bg, setBg] = useState([]);
   const dispatch = useDispatch();
 
-  const { backgrounds } = useContent();
+  const { backgrounds } = useBg();
   console.log(backgrounds);
 
   const hundleSubmit = evt => {
@@ -42,9 +43,9 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
     dispatch(addBoards(task));
   };
 
-  // useEffect(() => {
-  //   dispatch(getBackGrounds());
-  // }, []);
+  useEffect(() => {
+    dispatch(getBackGrounds());
+  }, [dispatch]);
 
   // useEffect(() => {
   //   dispatch(getBackGrounds())
@@ -196,36 +197,28 @@ input:checked + label > img {} */}
         <Label>
           Background
           <Priority>
-            <input
-              type="radio"
-              name="radio"
-              value="9"
-              checked={value === '9' ? true : false}
-              onChange={chengeValue}
-            />
-
-            <input
-              type="radio"
-              name="radio"
-              value="10"
-              checked={value === '10' ? true : false}
-              onChange={chengeValue}
-            />
-
-            <input
-              type="radio"
-              name="radio"
-              value="11"
-              checked={value === '11' ? true : false}
-              onChange={chengeValue}
-            />
-            <input
-              type="radio"
-              name="radio"
-              value="12"
-              checked={value === '12' ? true : false}
-              onChange={chengeValue}
-            />
+            {backgrounds.map(bg => {
+              return (
+                <>
+                  <LabeImgBg for={bg.bgIcons}>
+                    <img
+                      src={bg.bgIcons}
+                      width="28px"
+                      height="28px"
+                      alt="bgIcons"
+                    />
+                  </LabeImgBg>
+                  <IconSvg
+                    id={bg.bgIcons}
+                    type="radio"
+                    name="radio"
+                    value="7"
+                    // checked={value === '7' ? true : false}
+                    onChange={chengeValue}
+                  />
+                </>
+              );
+            })}
           </Priority>
         </Label>
 

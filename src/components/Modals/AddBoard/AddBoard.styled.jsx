@@ -114,6 +114,11 @@ export const IconSvg = styled.input`
 export const LabelSvg = styled.label`
   cursor: pointer;
 `;
+export const LabeImgBg = styled.label`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const SSvg = styled.svg`
   stroke: ${white50};

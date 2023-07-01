@@ -1,4 +1,4 @@
-import { getBackGrounds } from 'redux/content/content-operations';
+import { getBackGrounds } from './background-operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
