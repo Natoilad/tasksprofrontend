@@ -30,16 +30,16 @@ const theme = {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistR}>
-          <BrowserRouter basename="/tasksprofrontend">
-            <App />
-          </BrowserRouter>
-        </PersistGate>
-      </Provider>
-      <ToastContainer />
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistR}>
+        <BrowserRouter basename="/tasksprofrontend">
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+    <ToastContainer />
+  </ThemeProvider>
   </React.StrictMode>
 );

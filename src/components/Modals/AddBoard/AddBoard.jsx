@@ -69,7 +69,6 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="project"
               type="radio"
               name="radio"
-
               value="1"
               // checked={value === '1' ? true : false}
               // onChange={chengeValue}
@@ -185,7 +184,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               // checked={value === '10' ? true : false}
               onChange={chengeValue}
             />
-            <LabelBlockSvg for="block">
+            <LabelBlockSvg htmlFor="block">
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>
