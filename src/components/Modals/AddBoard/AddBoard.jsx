@@ -13,26 +13,22 @@ import {
   LabelSvg,
   IconSvg,
   SSvg,
-  LabeImgBg,
   Bgpriority,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
-import {
-  addBoards,
-  // getBoards,
-  getBackGrounds,
-} from 'redux/content/content-operations';
+import { addBoards } from 'redux/content/content-operations';
+
 import { useBg } from 'hooks/backgroundHooks';
+import { getBackGrounds } from 'redux/backgrounds/background-operations';
+import BgComponent from './bgComponent';
 
 const AddBoard = ({ handleClose, title, background, butName }) => {
   const [value, setValue] = useState(1);
-  // const [bgIcons, setBgIcons] = useState([]);
-  // const [bg, setBg] = useState([]);
+
   const dispatch = useDispatch();
 
   const { backgrounds } = useBg();
-  console.log(backgrounds);
 
   const hundleSubmit = evt => {
     evt.preventDefault();
@@ -48,21 +44,9 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
     dispatch(getBackGrounds());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(getBackGrounds())
-  //     .then(response => {
-  //       const bgIconsData = response[0].bgIcons(item => item.bgIcons);
-  //       console.log(bgIconsData);
-  //       setBgIcons(bgIconsData);
-  //     })
-  //     .catch(error => console.log(error));
-  // }, []);
-
   function chengeValue(event) {
     setValue(event.target.value);
   }
-
-  // const iconDataBg = response[0].bgIcons;
 
   return (
     <Wrap>
@@ -75,7 +59,6 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           name="title"
           placeholder="Title"
         />
-
         <Label>
           Icons
           <Priority>
@@ -83,24 +66,16 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="project"
               type="radio"
               name="radio"
-              checked
+
               // value="1"
               // checked={value === '1' ? true : false}
               // onChange={chengeValue}
             />
-            <LabelSvg for="project">
+            <LabelSvg htmlFor="project">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-dashbordicon1'}></use>
               </SSvg>
             </LabelSvg>
-
-            {/* <input type="radio" name="" id="id1">   
-<label for="id1"><img src="" alt=""></label>
-
-
-а чекать в css соответсвующим селектором
-input:checked + label > img {} */}
-
             <IconSvg
               id="star"
               type="radio"
@@ -109,7 +84,7 @@ input:checked + label > img {} */}
               checked={value === '2' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="star">
+            <LabelSvg htmlFor="star">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-star'}></use>
               </SSvg>
@@ -123,7 +98,7 @@ input:checked + label > img {} */}
               checked={value === '3' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="loading">
+            <LabelSvg htmlFor="loading">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-loading-spin'}></use>
               </SSvg>
@@ -136,7 +111,7 @@ input:checked + label > img {} */}
               checked={value === '4' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="puzle">
+            <LabelSvg htmlFor="puzle">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-puzzle-piece'}></use>
               </SSvg>
@@ -149,7 +124,7 @@ input:checked + label > img {} */}
               checked={value === '5' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="container">
+            <LabelSvg htmlFor="container">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-container'}></use>
               </SSvg>
@@ -162,7 +137,7 @@ input:checked + label > img {} */}
               checked={value === '6' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="lightning">
+            <LabelSvg htmlFor="lightning">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-lightning'}></use>
               </SSvg>
@@ -175,7 +150,7 @@ input:checked + label > img {} */}
               checked={value === '7' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="colors">
+            <LabelSvg htmlFor="colors">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-colors'}></use>
               </SSvg>
@@ -188,7 +163,7 @@ input:checked + label > img {} */}
               checked={value === '8' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="hexagon">
+            <LabelSvg htmlFor="hexagon">
               <SSvg width="18" height="18">
                 <use href={sprite + '#icon-hexagon'}></use>
               </SSvg>
@@ -201,22 +176,7 @@ input:checked + label > img {} */}
             {backgrounds.map(bg => {
               return (
                 <>
-                  <LabeImgBg for={bg.bgIcons}>
-                    <img
-                      src={bg.bgIcons}
-                      width="28px"
-                      height="28px"
-                      alt="bgIcons"
-                    />
-                  </LabeImgBg>
-                  <IconSvg
-                    id={bg.bgIcons}
-                    type="radio"
-                    name="radio"
-                    value="7"
-                    // checked={value === '7' ? true : false}
-                    onChange={chengeValue}
-                  />
+                  <BgComponent bg={bg} />
                 </>
               );
             })}

@@ -7,7 +7,6 @@ import { backendAPI } from './auth-service';
 
 export const BoardList = async () => {
   const { data } = await backendAPI.get('api/boards');
-  console.log(data);
   return data;
 };
 
@@ -42,7 +41,6 @@ export const PatchUpdate = async (id, newData) => {
 };
 
 export const AddColumn = async (boardId, newData) => {
-  console.log(boardId, newData);
   const { data } = await backendAPI.post(`api/boards/${boardId}/columns`, {
     title: newData,
   });
@@ -66,6 +64,6 @@ export const RemoveCol = async (boardId, columnId) => {
 
 export const BoardBackGrounds = async () => {
   const { data } = await backendAPI.get('api/backgrounds');
-  console.log(data[0].bgIcons);
+
   return data;
 };

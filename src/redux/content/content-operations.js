@@ -126,16 +126,3 @@ export const removeColumn = createAsyncThunk(
     }
   }
 );
-
-export const getBackGrounds = createAsyncThunk(
-  'api/backgrounds',
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await BoardBackGrounds();
-      console.log(response);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
-    }
-  }
-);
