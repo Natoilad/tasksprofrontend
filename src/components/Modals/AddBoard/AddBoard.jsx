@@ -14,6 +14,7 @@ import {
   IconSvg,
   SSvg,
   LabeImgBg,
+  Bgpriority,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
@@ -196,7 +197,7 @@ input:checked + label > img {} */}
         </Label>
         <Label>
           Background
-          <Priority>
+          <Bgpriority>
             {backgrounds.map(bg => {
               return (
                 <>
@@ -219,7 +220,7 @@ input:checked + label > img {} */}
                 </>
               );
             })}
-          </Priority>
+          </Bgpriority>
         </Label>
 
         <Button type="submit">

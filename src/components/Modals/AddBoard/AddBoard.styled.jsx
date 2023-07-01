@@ -118,6 +118,13 @@ export const LabeImgBg = styled.label`
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+`;
+export const Bgpriority = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const SSvg = styled.svg`
