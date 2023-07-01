@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { darkGray, white50 } from 'variables/variables';
+import { darkGray } from 'variables/variables';
 
 export const BoardItem = styled(NavLink)`
   /* background-color: ${darkGray}; */
@@ -13,7 +13,7 @@ export const BoardItem = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-  color: ${white50};
+  color: ${({ theme }) => theme.colors.barSecondaryText};
   margin: 0px -24px;
 `;
 
@@ -26,7 +26,7 @@ export const BoardHero = styled.div`
 export const BoardIcon = styled.svg`
   width: 18px;
   height: 18px;
-  stroke: ${white50};
+  stroke: ${({ theme }) => theme.colors.barSecondaryText};
 `;
 
 export const BoardBtnBox = styled.div`
@@ -43,5 +43,5 @@ export const BoardBtn = styled.button`
 export const BtnIcon = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: ${white50};
+  stroke: ${({ theme }) => theme.colors.barSecondaryText};
 `;

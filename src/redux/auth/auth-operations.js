@@ -5,6 +5,7 @@ import {
   logoutUser,
   registerUser,
   token,
+  updateUserTheme,
 } from 'service/auth-service';
 
 import { toast } from 'react-toastify';
@@ -75,6 +76,27 @@ export const authRefresh = createAsyncThunk(
       token.set(persistedToken);
       const data = await currentUser();
       return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateTheme = createAsyncThunk(
+  'auth/theme',
+  async (theme, { rejectWithValue, getState }) => {
+    const state = getState();
+
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return rejectWithValue('Sorry!Unable to fetch user');
+    }
+
+    try {
+      token.set(persistedToken);
+      await updateUserTheme(theme);
+      return theme;
     } catch (error) {
       return rejectWithValue(error.message);
     }

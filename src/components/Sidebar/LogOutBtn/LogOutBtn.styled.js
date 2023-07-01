@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { white100 } from 'variables/variables';
 
 export const LogOutBox = styled.button`
   display: flex;
@@ -10,7 +9,7 @@ export const LogOutBox = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.barPrimaryText};
   gap: 14px;
 `;
 

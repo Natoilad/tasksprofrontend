@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import {
-  darkSecond,
-  highPriority,
-  white10,
-  white100,
-} from 'variables/variables';
 
 export const CreateBoardBox = styled.button`
   min-width: 197px;
@@ -14,14 +8,14 @@ export const CreateBoardBox = styled.button`
   align-items: center;
   justify-content: space-between;
   background-color: inherit;
-  border-top: 1px solid ${white10};
-  border-bottom: 1px solid ${white10};
+  border-top: 1px solid ${({ theme }) => theme.colors.barLine};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.barLine};
   border-left: none;
   border-right: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.barPrimaryText};
   text-align: start;
   margin-bottom: 40px;
 
@@ -38,6 +32,6 @@ export const TextBox = styled.div`
 export const CreateBoardIcon = styled.svg`
   width: 40px;
   height: 36px;
-  fill: ${highPriority};
-  stroke: ${darkSecond};
+  fill: ${({ theme }) => theme.colors.barBtnBg};
+  stroke: ${({ theme }) => theme.colors.btnText};
 `;

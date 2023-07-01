@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { darkGray, highPriority, white100 } from 'variables/variables';
 
 export const HelpBox = styled.div`
   padding: 20px;
-  background-color: ${darkGray};
+  background-color: ${({ theme }) => theme.colors.barAdditionalBg};
   border-radius: 8px;
   margin-bottom: 24px;
 `;
@@ -12,11 +11,11 @@ export const HelpText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.barPrimaryText};
   margin-bottom: 18px;
 `;
 export const HelpSpan = styled.span`
-  color: ${highPriority};
+  color: ${({ theme }) => theme.colors.accent};
 `;
 
 export const HelpButton = styled.button`
@@ -29,7 +28,7 @@ export const HelpButton = styled.button`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.barPrimaryText};
 `;
 
 export const HelpIcon = styled.svg`
