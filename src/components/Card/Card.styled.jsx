@@ -29,7 +29,7 @@ export const Conteiner = styled.div`
     // border-radius: 4px 0px 0px 4px;
     ${({ priority }) => {
       switch (priority) {
-        case 'without':
+        case 'none':
           return `top: 0;
     left: 0;
     content: '';
@@ -38,7 +38,7 @@ export const Conteiner = styled.div`
     width: 4px;
     border-radius: 4px 0px 0px 4px;
     background: ${white30}`;
-        case 'eazy':
+        case 'low':
           return `
       top: 0;
     left: 0;
@@ -57,7 +57,7 @@ export const Conteiner = styled.div`
     width: 4px;
     border-radius: 4px 0px 0px 4px;
     background: ${mediumPriority}`;
-        case 'hard':
+        case 'high':
           return `
       top: 0;
     left: 0;
@@ -131,13 +131,11 @@ export const Label = styled.label`
   letter-spacing: -0.16px;
 `;
 
-export const PriorityBtn = styled.button`
+export const Priority = styled.p`
   position: relative;
   margin-top: 4px;
   margin-left: 16px;
   padding: 0px;
-  background-color: transparent;
-  border: none;
   color: ${white100};
   font-size: 10px;
   font-family: 'Poppins';
@@ -146,7 +144,7 @@ export const PriorityBtn = styled.button`
   &::before {
     ${props => {
       switch (props.priority) {
-        case 'without':
+        case 'none':
           return `top: 50%;
     left: -12px;
     position: absolute;
@@ -156,7 +154,7 @@ export const PriorityBtn = styled.button`
     height: 12px;
     border-radius: 50%;
     background: ${white30};`;
-        case 'eazy':
+        case 'low':
           return `top: 50%;
     left: -12px;
     position: absolute;
@@ -176,7 +174,7 @@ export const PriorityBtn = styled.button`
     height: 12px;
     border-radius: 50%;
     background: ${mediumPriority};`;
-        case 'hard':
+        case 'high':
           return `top: 50%;
     left: -12px;
     position: absolute;
