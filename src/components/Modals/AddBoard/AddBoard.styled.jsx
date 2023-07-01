@@ -122,6 +122,7 @@ export const Bgpriority = styled.div`
   flex-wrap: wrap;
   gap: 4px;
   margin-top: 14px;
+  width: 260px;
 `;
 
 export const IconBlockSvg = styled.input`
@@ -171,3 +172,8 @@ export const SSvg = styled.svg`
   }
 `;
 
+export const BgImg = styled.img`
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+`;

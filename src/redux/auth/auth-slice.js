@@ -3,6 +3,7 @@ import {
   authLogout,
   authRefresh,
   authRegister,
+  updateTheme,
 } from './auth-operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
@@ -70,6 +71,9 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.isLoading = false;
+      })
+      .addCase(updateTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload;
       });
   },
 });

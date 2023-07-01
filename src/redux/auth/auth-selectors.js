@@ -1,4 +1,4 @@
-export const selectUsers = state => state.auth.users;
+export const selectUsers = state => state.auth.user;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 

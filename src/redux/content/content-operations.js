@@ -9,7 +9,6 @@ import {
   AddColumn,
   UpdateCol,
   RemoveCol,
-  BoardBackGrounds,
 } from 'service/content-service';
 import { token } from 'service/auth-service';
 
@@ -123,19 +122,6 @@ export const removeColumn = createAsyncThunk(
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const getBackGrounds = createAsyncThunk(
-  'api/backgrounds',
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await BoardBackGrounds();
-      console.log(response);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
     }
   }
 );
