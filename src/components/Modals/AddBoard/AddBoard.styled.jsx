@@ -122,37 +122,15 @@ export const Bgpriority = styled.div`
   flex-wrap: wrap;
   gap: 4px;
   margin-top: 14px;
-  
 `;
 
-export const ImgBgList = styled.ul`
-  /* flex-basis: calc((100% - 8px) / 9); */
+export const IconBlockSvg = styled.input`
+  display: none;
 `;
 
-export const ImgBgItem = styled.li`
-  /* flex-basis: calc((100% - 8px) / 9); */
-`;
-
-export const LabeImgBg = styled.label`
+export const LabelBlockSvg = styled.label`
   cursor: pointer;
-`;
-
-export const ImgBg = styled.img`
-  border-radius: 6px;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
-export const SSvg = styled.svg`
-  stroke: ${white50};
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.6);
-  }
+  height: 28px;
 `;
 
 export const BlockSvg = styled.svg`
@@ -162,3 +140,34 @@ export const BlockSvg = styled.svg`
     transform: scale(1.2);
   }
 `;
+
+export const LabeImgBg = styled.label`
+  cursor: pointer;
+`;
+
+export const ImgBgList = styled.ul`
+  /* width: calc((100% - 8px) / 9); */
+`;
+
+export const ImgBgItem = styled.li`
+  /* flex-basis: calc((100% - 8px) / 9); */
+`;
+
+export const ImgBg = styled.img`
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const SSvg = styled.svg`
+  stroke: ${white50};
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.6);
+  }
+`;
+

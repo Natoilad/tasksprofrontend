@@ -11,7 +11,9 @@ import {
   Priority,
   Label,
   LabelSvg,
+  LabelBlockSvg,
   IconSvg,
+  IconBlockSvg,
   SSvg,
   BlockSvg,
   LabeImgBg,
@@ -202,7 +204,7 @@ input:checked + label > img {} */}
         <Label>
           Background
           <Bgpriority>
-            <IconSvg
+            <IconBlockSvg
               id="block"
               type="radio"
               name="radio"
@@ -210,11 +212,11 @@ input:checked + label > img {} */}
               // checked={value === '2' ? true : false}
               onChange={chengeValue}
             />
-            <LabelSvg for="block">
+            <LabelBlockSvg for="block">
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>
-            </LabelSvg>
+            </LabelBlockSvg>
             {backgrounds.map(bg => {
               return (
                 <>
