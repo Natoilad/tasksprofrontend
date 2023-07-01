@@ -126,7 +126,7 @@ export const Bgpriority = styled.div`
 `;
 
 export const ImgBgList = styled.ul`
-  flex-basis: calc((100% - 8px) / 9);
+  /* flex-basis: calc((100% - 8px) / 9); */
 `;
 
 export const ImgBgItem = styled.li`
@@ -152,5 +152,13 @@ export const SSvg = styled.svg`
 
   &:hover {
     transform: scale(1.6);
+  }
+`;
+
+export const BlockSvg = styled.svg`
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
   }
 `;
