@@ -64,9 +64,9 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   color: rgba(255, 255, 255, 1);
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Poppins';
-  letter-spacing: -0.24px;
+  letter-spacing: -0.28px;
   height: 100%;
 `;
 
@@ -114,19 +114,43 @@ export const IconSvg = styled.input`
 export const LabelSvg = styled.label`
   cursor: pointer;
 `;
-export const LabeImgBg = styled.label`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-`;
+
 export const Bgpriority = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 14px;
+  
+`;
+
+export const ImgBgList = styled.ul`
+  flex-basis: calc((100% - 8px) / 9);
+`;
+
+export const ImgBgItem = styled.li`
+  /* flex-basis: calc((100% - 8px) / 9); */
+`;
+
+export const LabeImgBg = styled.label`
+  cursor: pointer;
+`;
+
+export const ImgBg = styled.img`
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const SSvg = styled.svg`
   stroke: ${white50};
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.6);
+  }
 `;

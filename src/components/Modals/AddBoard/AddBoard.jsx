@@ -15,6 +15,9 @@ import {
   SSvg,
   LabeImgBg,
   Bgpriority,
+  ImgBgList,
+  ImgBgItem,
+  ImgBg,
 } from './AddBoard.styled';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
@@ -201,14 +204,19 @@ input:checked + label > img {} */}
             {backgrounds.map(bg => {
               return (
                 <>
-                  <LabeImgBg for={bg.bgIcons}>
-                    <img
-                      src={bg.bgIcons}
-                      width="28px"
-                      height="28px"
-                      alt="bgIcons"
-                    />
-                  </LabeImgBg>
+                  <ImgBgList>
+                    <ImgBgItem>
+                      <LabeImgBg for={bg.bgIcons}>
+                        <ImgBg
+                          src={bg.bgIcons}
+                          width="28px"
+                          height="28px"
+                          alt="bgIcons"
+                        />
+                      </LabeImgBg>
+                    </ImgBgItem>
+                  </ImgBgList>
+
                   <IconSvg
                     id={bg.bgIcons}
                     type="radio"
