@@ -31,3 +31,9 @@ export const currentUser = async () => {
   const { data } = await backendAPI.get('auth/current');
   return data;
 };
+
+export const updateUserTheme = async theme => {
+  const newTheme = { theme };
+  const { data } = await backendAPI.patch('auth/theme', newTheme);
+  return data;
+};
