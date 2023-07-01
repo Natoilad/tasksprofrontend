@@ -59,14 +59,14 @@ export const Field = styled.input`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   color: rgba(255, 255, 255, 1);
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Poppins';
-  letter-spacing: -0.24px;
+  letter-spacing: -0.28px;
   height: 100%;
 `;
 
@@ -104,7 +104,7 @@ export const IconPlus = styled.svg`
   border-radius: 8px;
 `;
 
-export const IconSvg = styled.input`
+export const InputSvg = styled.input`
   display: none;
   &:checked + label > svg {
     stroke: ${white100};
@@ -114,27 +114,67 @@ export const IconSvg = styled.input`
 export const LabelSvg = styled.label`
   cursor: pointer;
 `;
-export const LabeImgBg = styled.label`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-`;
+
 export const Bgpriority = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
+  margin-top: 14px;
   width: 260px;
+`;
+
+export const InputBlockSvg = styled.input`
+  display: none;
+`;
+
+export const LabelBlockSvg = styled.label`
+  cursor: pointer;
+  height: 28px;
+`;
+
+export const BlockSvg = styled.svg`
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const LabeImgBg = styled.label`
+  cursor: pointer;
+`;
+
+export const ImgBgList = styled.ul`
+  /* width: calc((100% - 8px) / 9); */
+`;
+
+export const ImgBgItem = styled.li`
+  /* flex-basis: calc((100% - 8px) / 9); */
 `;
 
 export const SSvg = styled.svg`
   stroke: ${white50};
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.6);
+  }
 `;
 
 export const BgImg = styled.img`
-  border-radius: 8px;
-  width: 28px;
-  height: 28px;
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const InputImg = styled.input`
+  display: none;
+  &:checked + label > img {
+    transform: scale(1.2);
+  }
 `;
