@@ -33,15 +33,16 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
 
   const { backgrounds } = useBg();
 
-  const hundleSubmit = evt => {
-    evt.preventDefault();
+  const hundleSubmit = event => {
+    event.preventDefault();
     const task = {
       title,
       icon,
-      background,
+      // background,
     };
     dispatch(addBoards(task));
   };
+  
 
   useEffect(() => {
     dispatch(getBackGrounds());
@@ -62,14 +63,13 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           name="title"
           placeholder="Title"
         />
-        <Label>
+        <Label id="my-radio-groupIcon">
           Icons
-          <Priority>
+          <Priority role="group" aria-labelledby="my-radio-groupIcon">
             <InputSvg
               id="project"
               type="radio"
               name="radio"
-
               value="1"
               // checked={value === '1' ? true : false}
               // onChange={chengeValue}
@@ -174,9 +174,9 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           </Priority>
         </Label>
 
-        <Label>
+        <Label id="my-radio-groupImage">
           Background
-          <Bgpriority>
+          <Bgpriority role="group" aria-labelledby="my-radio-groupImage">
             <InputBlockSvg
               id="block"
               type="radio"
