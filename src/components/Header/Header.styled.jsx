@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderComponent = styled.header`
-  background-color: #161616;
+  background-color: ${({ theme }) => theme.colors.secondaryBg};
   font-size: 14px;
 
   padding-top: 14px;
@@ -66,15 +66,15 @@ export const ThemeDropdown = styled.div`
     top: 22px;
     left: -16px;
 
-    background-color: #151515;
-    border: 1px solid #bedbb0;
+    background-color: ${({ theme }) => theme.colors.secondaryBg};
+    border: 1px solid ${({ theme }) => theme.colors.additionalAccent};
     border-radius: 8px;
     width: 100px;
 
     list-style-type: none;
     margin: 0;
     padding: 18px;
-    box-shadow: 0px 4px 16px 0px #1111111a;
+    box-shadow: 0px 4px 16px 0px ${({ theme }) => theme.colors.boxShadow};
   }
 
   li {
@@ -101,13 +101,17 @@ export const ThemeDropdown = styled.div`
     font: inherit;
     cursor: pointer;
 
-    color: rgba(255, 255, 255, 0.8);
-    fill: rgba(255, 255, 255, 0.8);
+    color: ${({ theme }) => theme.colors.tertiaryText};
+    fill: ${({ theme }) => theme.colors.tertiaryText};
   }
 
   ul > li > button {
     &:hover {
-      color: #bedbb0;
+      color: ${({ theme }) => theme.colors.accent};
+    }
+
+    &.active {
+      color: ${({ theme }) => theme.colors.accent};
     }
   }
 `;
@@ -117,7 +121,7 @@ export const UserInfoBox = styled.div`
   align-items: center;
 
   p {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.primaryText};
     margin-right: 8px;
   }
 `;
@@ -129,8 +133,8 @@ export const AvatarBox = styled.div`
 
   border-radius: 8px;
 
-  background-color: #1f1f1f;
-  fill: #151515;
+  background-color: ${({ theme }) => theme.colors.pageBg};
+  fill: ${({ theme }) => theme.colors.secondaryBg};
 `;
 
 export const BurgerMenuBtn = styled.button`
