@@ -1,6 +1,6 @@
 import { SmallLoader } from 'components/Loader/SmallLoader/Loader';
 import { useBg } from 'hooks/backgroundHooks';
-const { LabeImgBg, IconSvg, BgImg } = require('./AddBoard.styled');
+const { LabeImgBg, InputImg, BgImg } = require('./AddBoard.styled');
 
 const BgComponent = ({ bg }) => {
   const { bgIcons } = bg;
@@ -13,12 +13,12 @@ const BgComponent = ({ bg }) => {
       <LabeImgBg htmlFor={bgIcons}>
         <BgImg src={bgIcons} width="28px" height="28px" alt="bgIcons" />
       </LabeImgBg>
-      <IconSvg
+      <InputImg
         id={bgIcons}
         type="radio"
         name="radio"
-        // value="7"
-        // checked={value === '7' ? true : false}
+        value={bgIcons}
+        // checked={value === { bgIcons } ? true : false}
         // onChange={chengeValue}
       />
     </>

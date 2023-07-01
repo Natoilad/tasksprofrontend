@@ -59,7 +59,7 @@ export const Field = styled.input`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ export const IconPlus = styled.svg`
   border-radius: 8px;
 `;
 
-export const IconSvg = styled.input`
+export const InputSvg = styled.input`
   display: none;
   &:checked + label > svg {
     stroke: ${white100};
@@ -125,7 +125,7 @@ export const Bgpriority = styled.div`
   width: 260px;
 `;
 
-export const IconBlockSvg = styled.input`
+export const InputBlockSvg = styled.input`
   display: none;
 `;
 
@@ -154,15 +154,6 @@ export const ImgBgItem = styled.li`
   /* flex-basis: calc((100% - 8px) / 9); */
 `;
 
-export const ImgBg = styled.img`
-  border-radius: 6px;
-  transition: transform 0.25s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
 export const SSvg = styled.svg`
   stroke: ${white50};
   transition: transform 0.25s ease;
@@ -174,6 +165,16 @@ export const SSvg = styled.svg`
 
 export const BgImg = styled.img`
   border-radius: 6px;
-  width: 28px;
-  height: 28px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const InputImg = styled.input`
+  display: none;
+  &:checked + label > img {
+    transform: scale(1.2);
+  }
 `;

@@ -12,8 +12,8 @@ import {
   Label,
   LabelSvg,
   LabelBlockSvg,
-  IconSvg,
-  IconBlockSvg,
+  InputSvg,
+  InputBlockSvg,
   SSvg,
   BlockSvg,
   Bgpriority,
@@ -65,12 +65,12 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
         <Label>
           Icons
           <Priority>
-            <IconSvg
+            <InputSvg
               id="project"
               type="radio"
               name="radio"
 
-              // value="1"
+              value="1"
               // checked={value === '1' ? true : false}
               // onChange={chengeValue}
             />
@@ -79,7 +79,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-dashbordicon1'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="star"
               type="radio"
               name="radio"
@@ -93,7 +93,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               </SSvg>
             </LabelSvg>
 
-            <IconSvg
+            <InputSvg
               id="loading"
               type="radio"
               name="radio"
@@ -106,7 +106,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-loading-spin'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="puzle"
               type="radio"
               name="radio"
@@ -119,7 +119,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-puzzle-piece'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="container"
               type="radio"
               name="radio"
@@ -132,7 +132,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-container'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="lightning"
               type="radio"
               name="radio"
@@ -145,7 +145,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-lightning'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="colors"
               type="radio"
               name="radio"
@@ -158,7 +158,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
                 <use href={sprite + '#icon-colors'}></use>
               </SSvg>
             </LabelSvg>
-            <IconSvg
+            <InputSvg
               id="hexagon"
               type="radio"
               name="radio"
@@ -173,15 +173,16 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
             </LabelSvg>
           </Priority>
         </Label>
+
         <Label>
           Background
           <Bgpriority>
-            <IconBlockSvg
+            <InputBlockSvg
               id="block"
               type="radio"
               name="radio"
-              // value="2"
-              // checked={value === '2' ? true : false}
+              value="10"
+              // checked={value === '10' ? true : false}
               onChange={chengeValue}
             />
             <LabelBlockSvg for="block">
@@ -192,7 +193,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
             {backgrounds.map(bg => {
               return (
                 <>
-                  <BgComponent bg={bg} />
+                  <BgComponent key={bg.bgIcons} bg={bg} />
                 </>
               );
             })}
