@@ -23,6 +23,11 @@ export const Wrap = styled.div`
 
   border-radius: 8px;
   background: #151515;
+
+   @media screen and (min-width: 768px) {
+  width: 424px;
+  height: 395px;
+    }
 `;
 
 export const LinkWrap = styled.div`
@@ -30,14 +35,20 @@ export const LinkWrap = styled.div`
   border-radius: 8px;
   display: flex;
   gap: 14px;
+
+  @media screen and (min-width: 768px) {
+  margin: 40px 0 40px 40px;
+    }
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: rgba(255, 255, 255, 0.3);
+  font-family: Poppins;
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.36px;
+  line-height: 27px;
+  letter-spacing: -0.2px;
   cursor: pointer;
 
   &.active {
@@ -52,7 +63,7 @@ export const Form = styled(FormWrap)`
 `;
 
 export const Field = styled(Input)`
-  width: 279px;
+  width: 287px;
   height: 49px;
   border-radius: 8px;
   border: 1px solid #bedbb0;
@@ -64,6 +75,10 @@ export const Field = styled(Input)`
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   padding: 14px 0 14px 18px;
+
+  @media screen and (min-width: 768px) {
+   width: 344px;
+    }
 
   // &:not(:last-child) {
   //   margin-bottom: 14px;
@@ -75,7 +90,7 @@ export const Field = styled(Input)`
 
 export const FieldPassword = styled(Input)`
   position: relative;
-  width: 279px;
+  width: 287px;
   height: 49px;
   border-radius: 8px;
   border: 1px solid #bedbb0;
@@ -83,9 +98,13 @@ export const FieldPassword = styled(Input)`
   background: #1f1f1f;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: #fff;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 14px 0 14px 18px;
+
+  @media screen and (min-width: 768px) {
+   width: 344px;
+    }
 `;
 
 export const Button = styled.button`
@@ -100,18 +119,22 @@ export const Button = styled.button`
   color: #161616;
   margin-bottom: 24px;
   margin-top: 10px;
-
+font-family: Poppins;
+line-height: 21px;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.2px;
   transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     border: 1px solid #161616;
     font-size: 16px;
   }
+
+   @media screen and (min-width: 768px) {
+   width: 344px;
+    }
 `;
 
 export const ErrorWrap = styled.div`
