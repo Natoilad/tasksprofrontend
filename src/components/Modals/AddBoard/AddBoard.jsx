@@ -206,7 +206,8 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
           <IconPlus width="28" height="28">
             <use href={sprite + '#icon-plus-black'}></use>
           </IconPlus>
-          {butName}
+          {/* {butName} */}
+          Add
         </Button>
         <CloseBtn onClick={handleClose}>
           <svg width="18" height="18">
