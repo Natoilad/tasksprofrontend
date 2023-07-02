@@ -104,10 +104,10 @@ export const addColumns = createAsyncThunk(
 
 export const updateColumn = createAsyncThunk(
   'api/columns/updateCol',
-  async ({ boardId, columnId, data }, thunkAPI) => {
+  async ({ boardId, columnId, inputValue }, thunkAPI) => {
     try {
-      const response = await UpdateCol(boardId, columnId, data);
-      return response;
+       await UpdateCol(boardId, columnId, inputValue);
+      return { boardId, columnId, inputValue };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

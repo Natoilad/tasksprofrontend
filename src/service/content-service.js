@@ -44,10 +44,13 @@ export const AddColumn = async (boardId, newData) => {
   return data;
 };
 
-export const UpdateCol = async (boardId, columnId, newData) => {
+export const UpdateCol = async (boardId, columnId, title) => {
+  console.log(title);
   const { data } = await backendAPI.patch(
     `api/boards/${boardId}/columns/${columnId}`,
-    newData
+    {
+      title: title,
+    }
   );
   return data;
 };

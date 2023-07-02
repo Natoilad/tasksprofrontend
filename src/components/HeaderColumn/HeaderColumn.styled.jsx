@@ -30,10 +30,11 @@ export const Btn = styled.button`
   background: none;
   border: none;
   padding: 0;
+  
 `;
 
 export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: ${({ theme }) => theme.colors.secondText};
+  stroke: ${({ theme }) => theme.colors.secondaryText};
 `;

@@ -91,17 +91,20 @@ const contentSlice = createSlice({
           board => board._id === payload.boardId
         );
         const columnIndex = state.boards[index].columns.findIndex(
-          column => column.id === payload.columnId
+          column => column._id === payload.columnId
         );
         state.boards[index].columns.splice(columnIndex, 1);
       })
       .addCase(updateColumn.pending, handleIfPending)
       .addCase(updateColumn.rejected, handleIfReject)
       .addCase(updateColumn.fulfilled, (state, { payload }) => {
-        const index = state.boards.columns.findIndex(
-          column => column.id === payload.id
+        const index = state.boards.findIndex(
+          board => board._id === payload.boardId
         );
-        state.columns.splice(index, 1);
+        const columnIndex = state.boards[index].columns.findIndex(
+          column => column._id === payload.columnId
+        );
+        state.boards[index].columns[columnIndex].title = payload.inputValue;
       });
   },
 });
