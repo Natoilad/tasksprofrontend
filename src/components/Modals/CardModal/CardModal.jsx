@@ -37,13 +37,14 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
     const task = {
       title: title.value,
       description: description.value,
-      priority: priority.value,
+      priority: priority.value || 'none',
       // deadline: deadline.value,
       userId: { owner },
       boardId: { id },
       columnId: { columnId },
     };
     dispatch(addTasks(task));
+    handleClose();
   };
 
   return (

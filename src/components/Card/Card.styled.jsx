@@ -1,5 +1,11 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import 'variables/variables';
+import {
+  lowPriority,
+  mediumPriority,
+  highPriority,
+  white30,
+} from 'variables/variables';
 
 export const Conteiner = styled.div`
   position: relative;
@@ -10,53 +16,24 @@ export const Conteiner = styled.div`
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.cardBg};
   &::before {
-    // top: 0;
-    // left: 0;
-    // content: '';
-    // position: absolute;
-    // height: 100%;
-    // width: 4px;
-    // border-radius: 4px 0px 0px 4px;
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 4px 0px 0px 4px;
+
     ${({ priority }) => {
       switch (priority) {
         case 'none':
-          return `top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${({ theme }) => theme.colors.taskWithoutPriority}`;
+          return `background: ${white30}`;
         case 'low':
-          return `
-      top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${({ theme }) => theme.colors.taskLowPriority}`;
+          return `background: ${lowPriority}`;
         case 'medium':
-          return `top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${({ theme }) => theme.colors.taskMediumPriority}`;
+          return `background: ${mediumPriority}`;
         case 'high':
-          return `
-      top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${({ theme }) => theme.colors.taskHighPrority}`;
+          return `background: ${highPriority}`;
         default:
           return;
       }
@@ -133,48 +110,24 @@ export const Priority = styled.p`
   letter-spacing: -0.2px;
 
   &::before {
-    ${props => {
-      switch (props.priority) {
+    top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    ${({ priority }) => {
+      switch (priority) {
         case 'none':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.taskWithoutPriority};`;
+          return `background: ${white30}`;
         case 'low':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.taskLowPriority};`;
+          return `background: ${lowPriority}`;
         case 'medium':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.taskMediumPriority};`;
+          return `background: ${mediumPriority}`;
         case 'high':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.taskHighPrority};`;
+          return `background: ${highPriority}`;
         default:
           return;
       }
