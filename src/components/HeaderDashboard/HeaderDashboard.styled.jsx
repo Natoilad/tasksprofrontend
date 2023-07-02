@@ -17,7 +17,7 @@ export const Header = styled.div`
     padding-right: 32px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 24px;

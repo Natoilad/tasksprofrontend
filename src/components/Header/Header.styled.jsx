@@ -42,7 +42,7 @@ export const HeaderBox = styled.div`
     padding-right: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     width: 100%;
     justify-content: flex-end;
 
@@ -145,7 +145,7 @@ export const BurgerMenuBtn = styled.button`
   background-color: transparent;
   cursor: pointer;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;
