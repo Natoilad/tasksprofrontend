@@ -98,10 +98,13 @@ const contentSlice = createSlice({
       .addCase(updateColumn.pending, handleIfPending)
       .addCase(updateColumn.rejected, handleIfReject)
       .addCase(updateColumn.fulfilled, (state, { payload }) => {
-        const index = state.boards.columns.findIndex(
-          column => column.id === payload.id
+        const index = state.boards.findIndex(
+          board => board._id === payload.boardId
         );
-        state.columns.splice(index, 1);
+        const columnIndex = state.boards[index].columns.findIndex(
+          column => column.id === payload.columnId
+        );
+        state.boards[index].columns[columnIndex].title = payload.inputValue;
       });
   },
 });
