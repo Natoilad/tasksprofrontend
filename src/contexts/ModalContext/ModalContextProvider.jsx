@@ -34,7 +34,7 @@ export const ModalProvider = ({ children }) => {
   };
 
   return (
-    <ThemeProvider theme={themes[user.theme]}>
+    <ThemeProvider theme={user ? themes[user.theme] : dark}>
       <ModalContext.Provider value={valueModalProvider}>
         {modalOpened && <ContainerModal {...modalContent} />}
         {children}
