@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import 'variables/variables';
+import {
+  highPriority,
+  lowPriority,
+  mediumPriority,
+  white30,
+} from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
@@ -133,19 +139,15 @@ export const Radio = styled.input`
     ${props => {
       switch (props.value) {
         case 'low':
-          return `background-color: ${({ theme }) =>
-            theme.colors.taskWithoutPriority}`;
+          return `background-color: ${lowPriority}`;
         case 'medium':
-          return `background-color: ${({ theme }) =>
-            theme.colors.taskLowPriority}`;
+          return `background-color: ${mediumPriority}`;
         case 'high':
-          return `background-color: ${({ theme }) =>
-            theme.colors.taskMediumPriority} `;
+          return `background-color: ${highPriority} `;
         case 'none':
-          return `background-color: ${({ theme }) =>
-            theme.colors.taskHighPrority}`;
+          return `background-color: ${white30}`;
         default:
-          return `background-color:  black`;
+          return;
       }
     }}
   }
@@ -179,19 +181,15 @@ export const Radio = styled.input`
         ${props => {
           switch (props.value) {
             case 'low':
-              return `background-color: ${({ theme }) =>
-                theme.colors.taskWithoutPriority}`;
+              return `background-color: ${lowPriority}`;
             case 'medium':
-              return `background-color: ${({ theme }) =>
-                theme.colors.taskLowPriority}`;
+              return `background-color: ${mediumPriority}`;
             case 'high':
-              return `background-color: ${({ theme }) =>
-                theme.colors.taskMediumPriority} `;
+              return `background-color: ${highPriority} `;
             case 'none':
-              return `background-color: ${({ theme }) =>
-                theme.colors.taskHighPrority}`;
+              return `background-color: ${white30}`;
             default:
-              return `background-color:  black`;
+              return;
           }
         }}
       }
