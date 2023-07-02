@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import icon from '../../../images/sprite.svg';
 import {
   CreateBoardBox,
@@ -6,17 +6,25 @@ import {
   TextBox,
 } from './BoardCreateBtn.styled';
 // import { CreateBoardModal } from 'components/Modals/CreateBoardModal/CreateBoardModal';
-import ContainerModal from 'components/Modals/ContainerModal';
+import { ModalContext } from '../../../contexts/index';
 import AddBoard from 'components/Modals/AddBoard/AddBoard';
 
 export const BoardCreateBtn = () => {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+  const { openModal, closeModal } = useContext(ModalContext);
+
+  const addBoardModal = () => {
+    openModal({
+      children: <AddBoard
+              title={'New Board'}
+              butName={'Create'}
+              handleClose={closeModal}
+            />
+    });
+  }
 
   return (
     <>
-      <CreateBoardBox onClick={handleOpen}>
+      <CreateBoardBox onClick={addBoardModal}>
         <TextBox>
           <p>Create a</p>
           <p>new board</p>
@@ -25,19 +33,6 @@ export const BoardCreateBtn = () => {
           <use href={icon + '#icon-plus'}></use>
         </CreateBoardIcon>
       </CreateBoardBox>
-      {open && (
-        <ContainerModal
-          handleClose={handleClose}
-          open={open}
-          component={
-            <AddBoard
-              title={'New Board'}
-              butName={'Create'}
-              handleClose={handleClose}
-            />
-          }
-        />
-      )}
     </>
   );
 };

@@ -6,15 +6,23 @@ import {
   ColumnList,
 } from './MainDashboard.styled,';
 // import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import ContainerModal from 'components/Modals/ContainerModal';
-import { useState } from 'react';
+import { ModalContext } from '../../contexts/index';
+import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 
 const MainDashboard = ({ columns }) => {
   // console.log(columns);
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+  const { openModal, closeModal } = useContext(ModalContext);
+
+  const addColumnModal = () => {
+    openModal({
+      children: <ColumnModal
+              title={'Add column'}
+              butName={'Add'}
+              handleClose={closeModal}
+            />
+    });
+  }
 
   return (
     <ScrollBlock
@@ -40,20 +48,7 @@ const MainDashboard = ({ columns }) => {
             ))}
           </ColumnList>
         )}
-        <Btn onClick={handleOpen}>Add another column</Btn>
-        {open && (
-          <ContainerModal
-            handleClose={handleClose}
-            open={open}
-            component={
-              <ColumnModal
-                title={'Add column'}
-                butName={'Add'}
-                handleClose={handleClose}
-              />
-            }
-          />
-        )}
+        <Btn onClick={addColumnModal}>Add another column</Btn>
       </Conteiner>
     </ScrollBlock>
   );
