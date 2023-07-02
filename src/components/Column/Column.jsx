@@ -23,11 +23,11 @@ const options = {
   },
 };
 
-const Column = ({ title, id }) => {
-  console.log(id);
-  const realTasks = useSelector(selectTasks);
-  console.log(realTasks);
-  const tasks = ['1', '2', '3'];
+const Column = ({ board, title, id }) => {
+  // console.log(id);
+  const { tasks } = useSelector(selectTasks);
+  // console.log(realTasks);
+  // const tasks = ['1', '2', '3'];
   const { openModal, closeModal } = useContext(ModalContext);
 
   const addCardModal = () => {
@@ -39,15 +39,16 @@ const Column = ({ title, id }) => {
             />
     });
   }
+  const filteredTasks = tasks.filter(task => task.columnId === id);
 
   return (
     <Conteiner>
-      <HeaderColumn title={title} />
+      <HeaderColumn boardId={board._id} title={title} columnId={id} />
       <ScrollBlock defer element="div" options={options}>
         <CardList>
-          {tasks.map(item => (
-            <li key={item}>
-              <Card />
+          {filteredTasks.map(item => (
+            <li key={item._id}>
+              <Card task={item} />
             </li>
           ))}
         </CardList>

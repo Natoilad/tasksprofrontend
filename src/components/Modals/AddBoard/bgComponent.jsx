@@ -6,6 +6,7 @@ const BgComponent = ({ bg }) => {
   const { bgIcons } = bg;
   const { isLoading } = useBg();
 
+
   return isLoading ? (
     <SmallLoader />
   ) : (
@@ -17,8 +18,8 @@ const BgComponent = ({ bg }) => {
         id={bgIcons}
         type="radio"
         name="radio"
-        value={bgIcons}
-        // checked={value === { bgIcons } ? true : false}
+        // value="11"
+        // checked={bgValue === '11' ? true : false}
         // onChange={chengeValue}
       />
     </>

@@ -165,7 +165,7 @@ export const SSvg = styled.svg`
 
 export const BgImg = styled.img`
   border-radius: 6px;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease; 
 
   &:hover {
     transform: scale(1.2);
@@ -174,7 +174,9 @@ export const BgImg = styled.img`
 
 export const InputImg = styled.input`
   display: none;
-  &:checked + label > img {
-    transform: scale(1.2);
+  /* transition: transform 0.25s ease; */
+  &:checked + img {
+    /* transform: scale(1.2); */
+    border: ${white100};
   }
 `;

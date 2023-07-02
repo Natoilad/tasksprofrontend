@@ -10,8 +10,12 @@ import {
   IconEdit,
   Wrap,
 } from './HeaderColumn.styled';
+import { useDispatch } from 'react-redux';
+// useSelector
+// import { selectCurrentBoard } from 'redux/content/content-selectors';
+import { removeColumn } from 'redux/content/content-operations';
 
-const HeaderColumn = ({ title, id }) => {
+const HeaderColumn = ({ boardId, title, columnId }) => {
   const { openModal, closeModal } = useContext(ModalContext);
 
   const editColumnModal = () => {
@@ -24,6 +28,14 @@ const HeaderColumn = ({ title, id }) => {
     });
   }
 
+  const dispatch = useDispatch();
+  // const board = useSelector(selectCurrentBoard);
+  const handleRemove = () => {
+    // const boardId = board._id;
+    console.log(columnId);
+    dispatch(removeColumn({ boardId, columnId }));
+  };
+
   return (
     <Conteiner>
       <ColumnName>{title}</ColumnName>
@@ -33,7 +45,7 @@ const HeaderColumn = ({ title, id }) => {
             <use href={icon + '#icon-pencil'}></use>
           </IconEdit>
         </Btn>
-        <Btn>
+        <Btn onClick={handleRemove}>
           <IconEdit>
             <use href={icon + '#icon-trash'}></use>
           </IconEdit>

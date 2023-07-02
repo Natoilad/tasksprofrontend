@@ -24,7 +24,7 @@ export const addTasks = createAsyncThunk(
     try {
       const response = await AddTask(data);
       console.log(response);
-      // return response
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

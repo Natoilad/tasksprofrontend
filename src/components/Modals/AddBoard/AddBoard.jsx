@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import icon from '../../../images/sprite.svg';
+// import icon from '../../../images/sprite.svg';
 import {
   Form,
   Field,
@@ -26,29 +26,32 @@ import { useBg } from 'hooks/backgroundHooks';
 import { getBackGrounds } from 'redux/backgrounds/background-operations';
 import BgComponent from './bgComponent';
 
-const AddBoard = ({ handleClose, title, background, butName }) => {
-  const [value, setValue] = useState(1);
+const AddBoard = ({ handleClose, title, background, icon, butName }) => {
+  const [value, setValue] = useState('icon-dashbordicon1');
 
   const dispatch = useDispatch();
 
   const { backgrounds } = useBg();
 
-  const hundleSubmit = evt => {
-    evt.preventDefault();
+  const hundleSubmit = event => {
+    event.preventDefault();
+    console.log(event.currentTarget.elements.title.value);
+    console.log(event.target.getAttribute('value'));
     const task = {
-      title,
-      icon,
-      background,
+      title: event.currentTarget.elements.title.value,
+      icon: value,
+      background: '649f40cdcaf11c74bb2317b1',
     };
     dispatch(addBoards(task));
   };
-
+  console.log(value);
   useEffect(() => {
     dispatch(getBackGrounds());
   }, [dispatch]);
 
   function chengeValue(event) {
     setValue(event.target.value);
+    console.log(event.target.value);
   }
 
   return (
@@ -62,17 +65,16 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           name="title"
           placeholder="Title"
         />
-        <Label>
+        <Label id="my-radio-groupIcon">
           Icons
-          <Priority>
+          <Priority role="group" aria-labelledby="my-radio-groupIcon">
             <InputSvg
               id="project"
               type="radio"
               name="radio"
-
-              value="1"
-              // checked={value === '1' ? true : false}
-              // onChange={chengeValue}
+              value="icon-dashbordicon1"
+              checked={value === 'icon-dashbordicon1' ? true : false}
+              onChange={chengeValue}
             />
             <LabelSvg htmlFor="project">
               <SSvg width="18" height="18">
@@ -83,8 +85,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="star"
               type="radio"
               name="radio"
-              value="2"
-              checked={value === '2' ? true : false}
+              value="icon-star"
+              checked={value === 'icon-star' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="star">
@@ -97,12 +99,12 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="loading"
               type="radio"
               name="radio"
-              value="3"
-              checked={value === '3' ? true : false}
+              value="icon-loading-spin"
+              checked={value === 'icon-loading-spin' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="loading">
-              <SSvg width="18" height="18">
+              <SSvg width="18" height="18" value="icon-loading-spin">
                 <use href={sprite + '#icon-loading-spin'}></use>
               </SSvg>
             </LabelSvg>
@@ -110,8 +112,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="puzle"
               type="radio"
               name="radio"
-              value="4"
-              checked={value === '4' ? true : false}
+              value="icon-puzzle-piece"
+              checked={value === 'icon-puzzle-piece' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="puzle">
@@ -123,8 +125,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="container"
               type="radio"
               name="radio"
-              value="5"
-              checked={value === '5' ? true : false}
+              value="icon-container"
+              checked={value === 'icon-container' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="container">
@@ -136,8 +138,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="lightning"
               type="radio"
               name="radio"
-              value="6"
-              checked={value === '6' ? true : false}
+              value="icon-lightning"
+              checked={value === 'icon-lightning' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="lightning">
@@ -149,8 +151,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="colors"
               type="radio"
               name="radio"
-              value="7"
-              checked={value === '7' ? true : false}
+              value="icon-colors"
+              checked={value === 'icon-colors' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="colors">
@@ -162,8 +164,8 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               id="hexagon"
               type="radio"
               name="radio"
-              value="8"
-              checked={value === '8' ? true : false}
+              value="icon-hexagon"
+              checked={value === 'icon-hexagon' ? true : false}
               onChange={chengeValue}
             />
             <LabelSvg htmlFor="hexagon">
@@ -174,9 +176,9 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           </Priority>
         </Label>
 
-        <Label>
+        <Label id="my-radio-groupImage">
           Background
-          <Bgpriority>
+          <Bgpriority role="group" aria-labelledby="my-radio-groupImage">
             <InputBlockSvg
               id="block"
               type="radio"
@@ -185,7 +187,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
               // checked={value === '10' ? true : false}
               onChange={chengeValue}
             />
-            <LabelBlockSvg for="block">
+            <LabelBlockSvg htmlFor="block">
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>
@@ -200,7 +202,7 @@ const AddBoard = ({ handleClose, title, background, butName }) => {
           </Bgpriority>
         </Label>
 
-        <Button type="submit">
+        <Button type="submit" onSubmit={hundleSubmit}>
           <IconPlus width="28" height="28">
             <use href={icon + '#icon-plus-black'}></use>
           </IconPlus>

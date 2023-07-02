@@ -23,6 +23,10 @@ export const Wrap = styled.div`
 
   border-radius: 8px;
   background: #151515;
+
+  @media screen and (min-width: 768px) {
+     width: 424px;
+   height: 332px;}
 `;
 
 export const LinkWrap = styled.div`
@@ -37,7 +41,7 @@ export const NavLink = styled(Link)`
   color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.3px;
   cursor: pointer;
 
   &.active {
@@ -52,7 +56,7 @@ export const Form = styled(FormWrap)`
 `;
 
 export const Field = styled(Input)`
-  width: 279px;
+  width: 287px;
   height: 49px;
   border-radius: 8px;
   border: 1px solid #bedbb0;
@@ -62,6 +66,10 @@ export const Field = styled(Input)`
   color: #fff;
   margin-bottom: 14px;
   padding: 14px 0 14px 18px;
+
+  @media screen and (min-width: 768px) {
+     width: 344px;
+   }
 
   // &:not(:last-child) {
   //   margin-bottom: 14px;
@@ -72,7 +80,7 @@ export const Field = styled(Input)`
 `;
 export const FieldPassword = styled(Input)`
   position: relative;
-  width: 279px;
+  width: 287px;
   height: 49px;
   border-radius: 8px;
   border: 1px solid #bedbb0;
@@ -83,6 +91,10 @@ export const FieldPassword = styled(Input)`
   margin-bottom: 14px;
 
   padding: 14px 0 14px 18px;
+
+  @media screen and (min-width: 768px) {
+     width: 344px;
+   }
 `;
 
 export const Button = styled.button`
@@ -108,6 +120,10 @@ export const Button = styled.button`
   &:hover {
     border: 1px solid #161616;
     font-size: 16px;
+
+    @media screen and (min-width: 768px) {
+     width: 344px;
+   }
   }
 `;
 

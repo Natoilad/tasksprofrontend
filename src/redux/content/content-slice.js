@@ -60,7 +60,7 @@ const contentSlice = createSlice({
       .addCase(removeBoard.rejected, handleIfReject)
       .addCase(removeBoard.fulfilled, (state, { payload }) => {
         const index = state.boards.findIndex(board => board.id === payload.id);
-        state.contacts.splice(index, 1);
+        state.boards.splice(index, 1);
       })
       .addCase(updateBoard.pending, handleIfPending)
       .addCase(updateBoard.rejected, handleIfReject)
@@ -77,15 +77,23 @@ const contentSlice = createSlice({
       .addCase(addColumns.pending, handleIfPending)
       .addCase(addColumns.rejected, handleIfReject)
       .addCase(addColumns.fulfilled, (state, { payload }) => {
-        // state.boards.columns.push(payload);
+        console.log(payload._id);
+        const index = state.boards.findIndex(
+          board => board._id === payload._id
+        );
+        const [last] = payload.columns.slice(-1);
+        state.boards[index].columns.push(last);
       })
       .addCase(removeColumn.pending, handleIfPending)
       .addCase(removeColumn.rejected, handleIfReject)
       .addCase(removeColumn.fulfilled, (state, { payload }) => {
-        const index = state.boards.columns.findIndex(
-          column => column.id === payload.id
+        const index = state.boards.findIndex(
+          board => board._id === payload.boardId
         );
-        state.columns.splice(index, 1);
+        const columnIndex = state.boards[index].columns.findIndex(
+          column => column.id === payload.columnId
+        );
+        state.boards[index].columns.splice(columnIndex, 1);
       })
       .addCase(updateColumn.pending, handleIfPending)
       .addCase(updateColumn.rejected, handleIfReject)

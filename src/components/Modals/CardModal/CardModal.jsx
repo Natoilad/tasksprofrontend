@@ -19,7 +19,7 @@ import {
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
-const CardModal = ({ handleClose, title, butName }) => {
+const CardModal = ({ board, handleClose, title, butName, columnId }) => {
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
   function chengeValue(event) {
@@ -28,7 +28,21 @@ const CardModal = ({ handleClose, title, butName }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addTasks());
+    console.log(event.currentTarget.elements.description.value);
+
+    const { owner, _id: id } = board;
+    // const title = event.currentTarget.elements.title.value
+    const { title, description, priority } = event.currentTarget.elements;
+    const task = {
+      title: title.value,
+      description: description.value,
+      priority: priority.value,
+      // deadline: deadline.value,
+      userId: { owner },
+      boardId: { id },
+      columnId: { columnId },
+    };
+    dispatch(addTasks(task));
   };
 
   return (
@@ -47,33 +61,33 @@ const CardModal = ({ handleClose, title, butName }) => {
             Label color
             <Priority>
               <Radio
-                checked={value === '2' ? true : false}
+                checked={value === 'low' ? true : false}
                 type="radio"
-                name="easy"
-                value="2"
+                name="priority"
+                value="low"
                 onChange={chengeValue}
               />
 
               <Radio
                 type="radio"
-                name="medium"
-                value="3"
-                checked={value === '3' ? true : false}
+                name="priority"
+                value="medium"
+                checked={value === 'medium' ? true : false}
                 onChange={chengeValue}
               />
 
               <Radio
                 type="radio"
-                name="hard"
-                value="4"
-                checked={value === '4' ? true : false}
+                name="priority"
+                value="high"
+                checked={value === 'high' ? true : false}
                 onChange={chengeValue}
               />
               <Radio
                 type="radio"
-                name="without"
-                value="1"
-                checked={value === '1' ? true : false}
+                name="priority"
+                value="none"
+                checked={value === 'none' ? true : false}
                 onChange={chengeValue}
               />
             </Priority>

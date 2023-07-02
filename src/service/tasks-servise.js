@@ -5,10 +5,21 @@ export const GetTasksList = async () => {
   return data;
 };
 
-export const AddTask = async newData => {
+export const AddTask = async ({
+  userId: { owner: userId },
+  boardId: { id: boardId },
+  columnId: { columnId },
+  description,
+  priority,
+  title,
+}) => {
   const newTask = {
-    title: 'test',
-    priority: 'high',
+    title,
+    priority,
+    description,
+    userId,
+    boardId,
+    columnId,
   };
   const { data } = await backendAPI.post('api/tasks', newTask);
   return data;
