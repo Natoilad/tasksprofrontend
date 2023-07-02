@@ -32,13 +32,17 @@ const Column = ({ board, title, id }) => {
 
   const addCardModal = () => {
     openModal({
-      children: <CardModal
-              title={'Add card'}
-              butName={'Add'}
-              handleClose={closeModal}
-            />
+      children: (
+        <CardModal
+          columnId={id}
+          board={board}
+          title={'Add card'}
+          butName={'Add'}
+          handleClose={closeModal}
+        />
+      ),
     });
-  }
+  };
   const filteredTasks = tasks.filter(task => task.columnId === id);
 
   return (

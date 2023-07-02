@@ -20,6 +20,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
 const CardModal = ({ board, handleClose, title, butName, columnId }) => {
+  console.log(columnId);
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
   function chengeValue(event) {
