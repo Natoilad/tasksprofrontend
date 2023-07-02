@@ -4,6 +4,7 @@ import {
   SidebarIcon,
   SidebarHeader,
   SideListName,
+  SidebarWrap,
 } from './SidebarMain.styled';
 import icon from '../../../images/sprite.svg';
 import { BoardCreateBtn } from 'components/Sidebar/BoardCreateBtn/BoardCreateBtn';
@@ -26,10 +27,10 @@ export const SidebarMain = () => {
         <BoardList />
       </div>
 
-      <div>
+      <SidebarWrap>
         <AskHelp></AskHelp>
         <LogOutBtn></LogOutBtn>
-      </div>
+      </SidebarWrap>
     </SidebarWrapper>
   );
 };

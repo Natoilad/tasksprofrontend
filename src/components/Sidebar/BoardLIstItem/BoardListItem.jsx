@@ -5,7 +5,7 @@ import icon from '../../../images/sprite.svg';
 import {
   BoardHero,
   BoardIcon,
-  BoardItem,
+  BoarLink,
   BtnIcon,
   BoardBtnBox,
   BoardBtn,
@@ -20,7 +20,7 @@ export const BoardListItem = ({ board }) => {
   const dispatch = useDispatch();
   const onDelete = () => dispatch(removeBoard(board._id));
   return (
-    <BoardItem onClick={handleSelectBoard} to={`/home/${board.title}`}>
+    <BoarLink onClick={handleSelectBoard} to={`/home/${board.title}`}>
       <BoardHero>
         <BoardIcon>
           <use href={icon + `#${board.icon}`}></use>
@@ -39,6 +39,6 @@ export const BoardListItem = ({ board }) => {
           </BtnIcon>
         </BoardBtn>
       </BoardBtnBox>
-    </BoardItem>
+    </BoarLink>
   );
 };
