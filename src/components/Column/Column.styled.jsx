@@ -1,12 +1,7 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import 'variables/variables';
-import {
-  highPriority,
-  white100,
-  darkFirst,
-  darkModal,
-} from 'variables/variables';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+
 export const Conteiner = styled.div`
   width: 335px;
   display: flex;
@@ -38,8 +33,8 @@ export const Btn = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: ${highPriority};
-  color: ${darkFirst};
+  background: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.btnText};
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
@@ -50,6 +45,6 @@ export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
   /* background-color: #fff; */
-  fill: ${darkModal};
-  stroke: ${white100};
+  fill: ${({ theme }) => theme.colors.btnText};
+  stroke: ${({ theme }) => theme.colors.primaryText};
 `;

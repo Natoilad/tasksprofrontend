@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import {
-  white100,
-  white50,
-  highPriority,
-  lowPriority,
-  mediumPriority,
-  white30,
-  darkModal,
-} from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
@@ -16,7 +7,7 @@ export const Wrap = styled.div`
   /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
-  background: #151515;
+  background: ${({ theme }) => theme.colors.secondaryBg};
 `;
 
 export const CloseBtn = styled.button`
@@ -32,15 +23,15 @@ export const CloseBtn = styled.button`
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
-  /* fill: ${white100}; */
+  /* fill: ${({ theme }) => theme.colors.primaryText}; */
 `;
 
 export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
-  /* background-color: #fff; */
-  fill: ${darkModal};
-  stroke: ${white100};
+  /* background-color: ${({ theme }) => theme.colors.btnIcon}; */
+  fill: ${({ theme }) => theme.colors.btnText};
+  stroke: ${({ theme }) => theme.colors.btnIcon};
 `;
 
 export const Form = styled.form`
@@ -51,7 +42,7 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.h4`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.36px;
@@ -62,33 +53,44 @@ export const Field = styled.input`
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   opacity: 0.4000000059604645;
-  background: #1f1f1f;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  color: ${white100};
+  background: ${({ theme }) => theme.colors.tertiaryBg};
+  box-shadow: 0px 4px 16px 0px ${({ theme }) => theme.colors.inputShadow};
+  color: ${({ theme }) => theme.colors.primaryText};
   padding: 14px 0 14px 18px;
 
-  &::placeholder {
-    color: ${white50};
+  /* &::placeholder {
+    color: ${({ theme }) => theme.colors.secondaryText};
+  } */
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+    opacity: 1;
   }
 `;
 
-export const Description = styled.input`
+export const Description = styled.textarea`
   display: block;
   width: 100%;
   height: 154px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   opacity: 0.4000000059604645;
-  background: #1f1f1f;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  color: ${white100};
+  background: ${({ theme }) => theme.colors.tertiaryBg};
+  box-shadow: 0px 4px 16px 0px ${({ theme }) => theme.colors.inputShadow};
+  color: ${({ theme }) => theme.colors.primaryText};
   padding: 14px 0 14px 18px;
   resize: none;
 
-  &::placeholder {
-    color: ${white50};
+  /* &::placeholder {
+    color: ${({ theme }) => theme.colors.secondaryText}
+  } */
+
+  &:focus {
+    outline: 0;
+    opacity: 1;
   }
 `;
 
@@ -100,7 +102,7 @@ export const Label = styled.label`
   display: flex;
   /* margin-right: auto; */
   flex-direction: column;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 12px;
   font-family: 'Poppins';
   letter-spacing: -0.24px;
@@ -131,13 +133,17 @@ export const Radio = styled.input`
     ${props => {
       switch (props.value) {
         case 'low':
-          return `background-color: ${lowPriority};`;
+          return `background-color: ${({ theme }) =>
+            theme.colors.taskWithoutPriority}`;
         case 'medium':
-          return `background-color: ${mediumPriority}`;
+          return `background-color: ${({ theme }) =>
+            theme.colors.taskLowPriority}`;
         case 'high':
-          return `background-color: ${highPriority} `;
+          return `background-color: ${({ theme }) =>
+            theme.colors.taskMediumPriority} `;
         case 'none':
-          return `background-color: ${white30}`;
+          return `background-color: ${({ theme }) =>
+            theme.colors.taskHighPrority}`;
         default:
           return `background-color:  black`;
       }
@@ -173,15 +179,19 @@ export const Radio = styled.input`
         ${props => {
           switch (props.value) {
             case 'low':
-              return `border-color: ${lowPriority};`;
+              return `background-color: ${({ theme }) =>
+                theme.colors.taskWithoutPriority}`;
             case 'medium':
-              return `border-color: ${mediumPriority}`;
+              return `background-color: ${({ theme }) =>
+                theme.colors.taskLowPriority}`;
             case 'high':
-              return `border-color: ${highPriority}`;
+              return `background-color: ${({ theme }) =>
+                theme.colors.taskMediumPriority} `;
             case 'none':
-              return `border-color: ${white30}`;
+              return `background-color: ${({ theme }) =>
+                theme.colors.taskHighPrority}`;
             default:
-              return `border-color:  black`;
+              return `background-color:  black`;
           }
         }}
       }
@@ -200,13 +210,13 @@ export const ButPiker = styled.button`
   background: none;
   border: none;
   padding: 0;
-  color: ${highPriority};
+  color: ${({ theme }) => theme.colors.accent};
 `;
 
 export const ChevronIcon = styled.svg`
   width: 18px;
   height: 18px;
-  fill: ${highPriority};
+  fill: ${({ theme }) => theme.colors.accent};
 `;
 
 export const Button = styled.button`
@@ -222,8 +232,8 @@ export const Button = styled.button`
 
   border: none;
   border-radius: 8px;
-  background: #bedbb0;
-  color: #161616;
+  background: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.btnText};
 
   text-align: center;
   font-size: 14px;
