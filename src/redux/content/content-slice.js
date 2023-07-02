@@ -91,7 +91,7 @@ const contentSlice = createSlice({
           board => board._id === payload.boardId
         );
         const columnIndex = state.boards[index].columns.findIndex(
-          column => column.id === payload.columnId
+          column => column._id === payload.columnId
         );
         state.boards[index].columns.splice(columnIndex, 1);
       })
@@ -102,7 +102,7 @@ const contentSlice = createSlice({
           board => board._id === payload.boardId
         );
         const columnIndex = state.boards[index].columns.findIndex(
-          column => column.id === payload.columnId
+          column => column._id === payload.columnId
         );
         state.boards[index].columns[columnIndex].title = payload.inputValue;
       });
