@@ -39,7 +39,7 @@ export const ImgWrap = styled.div`
   margin-bottom: 24px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
   margin-bottom: 30px;
   }
 `;
@@ -78,7 +78,7 @@ text-align: center;
   line-height: 60px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   }
 `;
