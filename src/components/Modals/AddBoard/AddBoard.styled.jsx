@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import { white50, white100 } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
@@ -8,7 +7,7 @@ export const Wrap = styled.div`
   /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
-  background: #151515;
+  background: ${({ theme }) => theme.colors.secondaryBg};
 `;
 
 export const CloseBtn = styled.button`
@@ -32,7 +31,7 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.h4`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.36px;
@@ -47,15 +46,20 @@ export const Field = styled.input`
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   opacity: 0.4000000059604645;
-  background: #1f1f1f;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  color: #fff;
+  background: ${({ theme }) => theme.colors.tertiaryBg};
+  box-shadow: 0px 4px 16px 0px ${({ theme }) => theme.colors.inputShadow};
+  color: ${({ theme }) => theme.colors.primaryText};
   padding: 14px 0 14px 18px;
 
   &::placeholder {
     /* padding: 14px; */
+  }
+
+  &:focus {
+    outline: 0;
+    opacity: 1;
   }
 `;
 
@@ -63,7 +67,7 @@ export const Label = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  color: rgba(255, 255, 255, 1);
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 14px;
   font-family: 'Poppins';
   letter-spacing: -0.28px;
@@ -90,10 +94,9 @@ export const Button = styled.button`
   gap: 8px;
 
   border-radius: 8px;
-  background: #bedbb0;
-
+  background: ${({ theme }) => theme.colors.accent};
   text-align: center;
-  color: #161616;
+  color: ${({ theme }) => theme.colors.btnText};
   font-size: 14px;
   font-family: Poppins;
   font-weight: 500;
@@ -107,7 +110,7 @@ export const IconPlus = styled.svg`
 export const InputSvg = styled.input`
   display: none;
   &:checked + label > svg {
-    stroke: ${white100};
+    stroke: ${({ theme }) => theme.colors.primaryText};
   }
 `;
 
@@ -155,7 +158,7 @@ export const ImgBgItem = styled.li`
 `;
 
 export const SSvg = styled.svg`
-  stroke: ${white50};
+  stroke: ${({ theme }) => theme.colors.secondaryText};
   transition: transform 0.25s ease;
 
   &:hover {
@@ -165,7 +168,7 @@ export const SSvg = styled.svg`
 
 export const BgImg = styled.img`
   border-radius: 6px;
-  transition: transform 0.25s ease; 
+  transition: transform 0.25s ease;
 
   &:hover {
     transform: scale(1.2);
@@ -177,6 +180,6 @@ export const InputImg = styled.input`
   /* transition: transform 0.25s ease; */
   &:checked + img {
     /* transform: scale(1.2); */
-    border: ${white100};
+    border: ${({ theme }) => theme.colors.primaryText};
   }
 `;

@@ -1,30 +1,44 @@
-import React from "react";
-import { ModalContext } from "./ModalContext"
-import { useState } from "react";
-import { ContainerModal } from "../../components/Modals"
+import React from 'react';
+import { ModalContext } from './ModalContext';
+import { useState } from 'react';
+import { ContainerModal } from '../../components/Modals';
+
+import { useAuth } from 'hooks/authHooks';
+import { ThemeProvider } from 'styled-components';
+import { light, dark, violet } from '../../components/styles/Theme.styled';
 
 export const ModalProvider = ({ children }) => {
-    const [modalOpened, setModalOpened] = useState(false);
-    const [modalContent, setModalContent] = useState(null);
+  const [modalOpened, setModalOpened] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
-    const openModal = (modalConfig) => {
-        setModalContent(modalConfig);
-        setModalOpened(true);
-    }
+  const themes = {
+    light,
+    dark,
+    violet,
+  };
 
-    const closeModal = () => {
-        setModalOpened(false);
-    }
+  const { user } = useAuth();
 
-    const valueModalProvider = {
-        openModal,
-        closeModal
-    }
+  const openModal = modalConfig => {
+    setModalContent(modalConfig);
+    setModalOpened(true);
+  };
 
-    return (
-        <ModalContext.Provider value={valueModalProvider}>
-            {modalOpened && <ContainerModal {...modalContent} />}
-            {children}
-        </ModalContext.Provider>
-    )
-}
+  const closeModal = () => {
+    setModalOpened(false);
+  };
+
+  const valueModalProvider = {
+    openModal,
+    closeModal,
+  };
+
+  return (
+    <ThemeProvider theme={user ? themes[user.theme] : dark}>
+      <ModalContext.Provider value={valueModalProvider}>
+        {modalOpened && <ContainerModal {...modalContent} />}
+        {children}
+      </ModalContext.Provider>
+    </ThemeProvider>
+  );
+};
