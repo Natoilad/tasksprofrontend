@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import 'variables/variables';
-import { white50, white100, darkSecond } from 'variables/variables';
 
 export const Conteiner = styled.div`
   display: flex;
@@ -9,13 +8,13 @@ export const Conteiner = styled.div`
   width: 335px;
   padding: 18px 20px;
   border-radius: 8px;
-  background: ${darkSecond};
+  background: ${({ theme }) => theme.colors.primaryBg};
 `;
 
 export const ColumnName = styled.p`
   padding: 0px;
   margin: 0px;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 14px;
   font-weight: 500;
   font-family: 'Poppins';
@@ -36,5 +35,5 @@ export const Btn = styled.button`
 export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: ${white50};
+  stroke: ${({ theme }) => theme.colors.secondText};
 `;

@@ -1,17 +1,11 @@
 import styled from 'styled-components';
-import {
-  white100,
-  highPriority,
-  darkModal,
-  darkFirst,
-} from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
   width: 400px;
   padding: 24px;
   border-radius: 8px;
-  background: ${darkModal};
+  background: ${({ theme }) => theme.colors.secondaryBg};
 `;
 
 export const Form = styled.form`
@@ -22,7 +16,7 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.h4`
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.36px;
@@ -37,8 +31,8 @@ export const Button = styled.button`
   align-items: center;
   gap: 8px;
   border-radius: 8px;
-  background: ${highPriority};
-  color: ${darkFirst};
+  background: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.btnText};
   text-align: center;
   font-size: 14px;
   font-weight: 500;

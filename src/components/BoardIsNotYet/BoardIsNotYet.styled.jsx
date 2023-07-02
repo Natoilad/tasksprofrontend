@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import 'variables/variables';
-import { white50, highPriority } from 'variables/variables';
+
 export const Wrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   flex-direction: column;
   flex-shrink: 0;
-  color: ${white50};
+  color: ${({ theme }) => theme.colors.messageText};
   text-align: center;
   font-size: 12px;
   line-height: 16px;
@@ -30,5 +30,5 @@ export const Text = styled.p`
 
 export const Link = styled.span`
   white-space: nowrap;
-  color: ${highPriority};
+  color: ${({ theme }) => theme.colors.accent};
 `;
