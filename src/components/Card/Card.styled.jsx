@@ -1,14 +1,10 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import 'variables/variables';
 import {
-  white50,
-  white30,
-  white10,
-  white100,
-  darkSecond,
   lowPriority,
   mediumPriority,
   highPriority,
+  white30,
 } from 'variables/variables';
 
 export const Conteiner = styled.div`
@@ -18,55 +14,26 @@ export const Conteiner = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  background: ${darkSecond};
+  background: ${({ theme }) => theme.colors.cardBg};
   &::before {
-    // top: 0;
-    // left: 0;
-    // content: '';
-    // position: absolute;
-    // height: 100%;
-    // width: 4px;
-    // border-radius: 4px 0px 0px 4px;
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 4px 0px 0px 4px;
+
     ${({ priority }) => {
       switch (priority) {
         case 'none':
-          return `top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${white30}`;
+          return `background: ${white30}`;
         case 'low':
-          return `
-      top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${lowPriority}`;
+          return `background: ${lowPriority}`;
         case 'medium':
-          return `top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${mediumPriority}`;
+          return `background: ${mediumPriority}`;
         case 'high':
-          return `
-      top: 0;
-    left: 0;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    background: ${highPriority}`;
+          return `background: ${highPriority}`;
         default:
           return;
       }
@@ -76,7 +43,7 @@ export const Conteiner = styled.div`
 
 export const Title = styled.p`
   display: flex;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 14px;
   font-weight: 600;
   font-family: 'Poppins';
@@ -92,9 +59,9 @@ export const Descriptions = styled.p`
   flex-direction: column;
   flex-shrink: 0;
   overflow: hidden;
-  color: ${white50};
+  color: ${({ theme }) => theme.colors.secondaryText};
   text-overflow: ellipsis;
-  whitespace: nowrap;
+  white-space: nowrap;
   font-size: 12px;
   line-height: 16px;
   font-family: 'Poppins';
@@ -114,7 +81,8 @@ export const SettingsBlock = styled.div`
     content: '';
     width: 100%;
     height: 1px;
-    background-color: ${white10};
+    background-color: ${({ theme }) => theme.colors.barLine};
+  }
 `;
 
 export const PriorDeadLinWrapper = styled.div`
@@ -125,7 +93,7 @@ export const PriorDeadLinWrapper = styled.div`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  color: ${white50};
+  color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 8px;
   font-family: 'Poppins';
   letter-spacing: -0.16px;
@@ -136,54 +104,30 @@ export const Priority = styled.p`
   margin-top: 4px;
   margin-left: 16px;
   padding: 0px;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 10px;
   font-family: 'Poppins';
   letter-spacing: -0.2px;
 
   &::before {
-    ${props => {
-      switch (props.priority) {
+    top: 50%;
+    left: -12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    ${({ priority }) => {
+      switch (priority) {
         case 'none':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${white30};`;
+          return `background: ${white30}`;
         case 'low':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${lowPriority};`;
+          return `background: ${lowPriority}`;
         case 'medium':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${mediumPriority};`;
+          return `background: ${mediumPriority}`;
         case 'high':
-          return `top: 50%;
-    left: -12px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${highPriority};`;
+          return `background: ${highPriority}`;
         default:
           return;
       }
@@ -193,7 +137,7 @@ export const Priority = styled.p`
 
 export const DeadLine = styled.p`
   margin-top: 4px;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 10px;
   font-family: Poppins;
   letter-spacing: -0.2px;
@@ -212,5 +156,5 @@ export const Button = styled.button`
 export const IconSvg = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: ${white50};
+  stroke: ${({ theme }) => theme.colors.secondaryText};
 `;

@@ -20,6 +20,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
 const CardModal = ({ board, handleClose, title, butName, columnId }) => {
+  console.log(columnId);
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
   function chengeValue(event) {
@@ -36,13 +37,14 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
     const task = {
       title: title.value,
       description: description.value,
-      priority: priority.value,
+      priority: priority.value || 'none',
       // deadline: deadline.value,
       userId: { owner },
       boardId: { id },
       columnId: { columnId },
     };
     dispatch(addTasks(task));
+    handleClose();
   };
 
   return (

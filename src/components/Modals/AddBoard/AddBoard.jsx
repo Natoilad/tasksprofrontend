@@ -204,13 +204,14 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
 
         <Button type="submit" onSubmit={hundleSubmit}>
           <IconPlus width="28" height="28">
-            <use href={icon + '#icon-plus-black'}></use>
+            <use href={sprite + '#icon-plus-black'}></use>
           </IconPlus>
-          {butName}
+          {/* {butName} */}
+          Add
         </Button>
         <CloseBtn onClick={handleClose}>
           <svg width="18" height="18">
-            <use href={icon + '#icon-close'}></use>
+            <use href={sprite + '#icon-close'}></use>
           </svg>
         </CloseBtn>
       </Form>

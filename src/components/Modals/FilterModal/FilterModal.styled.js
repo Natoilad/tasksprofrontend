@@ -3,42 +3,27 @@ import { Form as FormikForm, Field as FormikField } from 'formik';
 import {
   white100,
   white50,
-  highPriority,
   darkModal,
-  darkFirst,
+  white10,
+  lowPriority,
+  mediumPriority,
+  highPriority,
+  white30,
+  darkGray,
 } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
-  width: 400px;
+  width: 300px;
   padding: 24px;
   border-radius: 8px;
   background: ${darkModal};
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
-`;
-
-export const Field = styled(FormikField)`
-  width: 100%;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  border-radius: 8px;
-  border: 1px solid ${highPriority};
-  opacity: 0.4000000059604645;
-  background: ${darkModal};
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  color: ${white100};
-  padding: 14px 0 14px 18px;
-
-  &::placeholder {
-    color: ${white50};
-  }
 `;
 
 export const Title = styled.h4`
@@ -47,23 +32,153 @@ export const Title = styled.h4`
   font-weight: 500;
   letter-spacing: -0.36px;
   margin-right: auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid ${white10};
+  margin-bottom: 14px;
 `;
 
-export const Button = styled.button`
-  width: 100%;
-  padding: 10px 0px;
+export const ImgContainer = styled.div`
+  margin-top: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid ${white10};
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  background: ${highPriority};
-  color: ${darkFirst};
-  text-align: center;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 4px;
+  position: relative;
+
+  label {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    cursor: pointer;
+  }
+`;
+
+export const Svg = styled.svg`
+  width: 28px;
+  height: 28px;
+  fill: ${darkGray};
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const BgImg = styled.img`
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const Field = styled(FormikField)`
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+`;
+
+export const Text = styled.h4`
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.28px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: ${white100};
+`;
+
+export const Box = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+`;
+
+export const ShowAll = styled.label`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: ${white50};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: ${white100};
+  }
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+`;
+
+export const Span = styled.span`
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: relative;
+
+  background-color: ${props => {
+    if (props.value === 'low') {
+      return `${lowPriority}`;
+    } else if (props.value === 'medium') {
+      return `${mediumPriority}`;
+    } else if (props.value === 'high') {
+      return `${highPriority}`;
+    } else if (props.value === 'without') {
+      return `${white30}`;
+    } else {
+      return;
+    }
+  }};
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 2px solid ${darkModal};
+    opacity: 0;
+  }
+`;
+
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: ${white50};
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: ${white100};
+    }
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input:checked {
+    & + ${Span}::before {
+      opacity: 1;
+    }
+  }
 `;
 
 export const CloseBtn = styled.button`

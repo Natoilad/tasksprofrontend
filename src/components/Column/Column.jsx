@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import CardModal from 'components/Modals/CardModal/CardModal';
 import { useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/tasks-selectors';
+import { getFilter } from 'redux/filter/filter-selectors';
 const options = {
   scrollbars: {
     scrollbars: { autoHide: 'scroll' },
@@ -29,24 +30,36 @@ const Column = ({ board, title, id }) => {
   // console.log(realTasks);
   // const tasks = ['1', '2', '3'];
   const { openModal, closeModal } = useContext(ModalContext);
+  const filter = useSelector(getFilter);
 
   const addCardModal = () => {
     openModal({
-      children: <CardModal
-              title={'Add card'}
-              butName={'Add'}
-              handleClose={closeModal}
-            />
+      children: (
+        <CardModal
+          columnId={id}
+          board={board}
+          title={'Add card'}
+          butName={'Add'}
+          handleClose={closeModal}
+        />
+      ),
     });
-  }
+  };
   const filteredTasks = tasks.filter(task => task.columnId === id);
+
+  const filterPriority = () => {
+    if (filter !== 'all') {
+      return filteredTasks.filter(task => task.priority === filter);
+    }
+    return filteredTasks;
+  };
 
   return (
     <Conteiner>
       <HeaderColumn boardId={board._id} title={title} columnId={id} />
       <ScrollBlock defer element="div" options={options}>
         <CardList>
-          {filteredTasks.map(item => (
+          {filterPriority().map(item => (
             <li key={item._id}>
               <Card task={item} />
             </li>
