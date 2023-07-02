@@ -1,9 +1,12 @@
 import icon from '../../../images/sprite.svg';
 import React from 'react';
 import { Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  useDispatch,
+  // useSelector
+} from 'react-redux';
 import { addBoards } from 'redux/content/content-operations';
-import { selectContent } from 'redux/content/content-selectors';
+// import { selectContent } from 'redux/content/content-selectors';
 
 import {
   Form,
