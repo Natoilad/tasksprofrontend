@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 
 import {
   HeaderComponent,
@@ -12,7 +12,7 @@ import {
 
 import icon from '../../images/sprite.svg';
 import { EditProfileModal } from 'components/Modals/EditProfileModal/EditProfileModal';
-import ContainerModal from 'components/Modals/ContainerModal';
+import { ModalContext } from '../../contexts';
 import { useAuth } from 'hooks/authHooks';
 import { updateTheme } from 'redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
@@ -20,9 +20,7 @@ import { useDispatch } from 'react-redux';
 export const Header = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const [openModalEdit, setOpenModalEdit] = useState(false);
-  const handleCloseModalEdit = () => setOpenModalEdit(false);
-  const handleOpenModalEdit = () => setOpenModalEdit(true);
+  const { openModal, closeModal } = useContext(ModalContext);
   const themeListRef = useRef(null);
 
   const { user } = useAuth();
@@ -48,6 +46,12 @@ export const Header = () => {
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
+
+  const handleOpenModalEdit = () => {
+    openModal({
+      children: <EditProfileModal handleClose={closeModal} />
+    });
+  }
 
   return (
     <>
@@ -106,13 +110,6 @@ export const Header = () => {
           </UserBox>
         </HeaderBox>
       </HeaderComponent>
-      {openModalEdit && (
-        <ContainerModal
-          handleClose={handleCloseModalEdit}
-          open={openModalEdit}
-          component={<EditProfileModal handleClose={handleCloseModalEdit} />}
-        />
-      )}
     </>
   );
 };

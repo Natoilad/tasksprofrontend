@@ -6,18 +6,28 @@ import {
   ColumnList,
 } from './MainDashboard.styled,';
 // import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import ContainerModal from 'components/Modals/ContainerModal';
-import { useState } from 'react';
+import { ModalContext } from '../../contexts/index';
+import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
+
 // import { useSelector } from 'react-redux';
 // import { selectContent, selectColumns } from 'redux/content/content-selectors';
 const MainDashboard = ({ board, columns }) => {
   // const boards = useSelector(selectContent);
   // console.log(boards);
   // const columns = useSelector(selectColumns);
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+  const { openModal, closeModal } = useContext(ModalContext);
+
+  const addColumnModal = () => {
+    openModal({
+      children: <ColumnModal
+              boardId={board._id}
+              title={'Add column'}
+              butName={'Add'}
+              handleClose={closeModal}
+            />
+    });
+  }
 
   return (
     <ScrollBlock
@@ -43,21 +53,7 @@ const MainDashboard = ({ board, columns }) => {
             ))}
           </ColumnList>
         )}
-        <Btn onClick={handleOpen}>Add another column</Btn>
-        {open && (
-          <ContainerModal
-            handleClose={handleClose}
-            open={open}
-            component={
-              <ColumnModal
-                boardId={board._id}
-                title={'Add column'}
-                butName={'Add'}
-                handleClose={handleClose}
-              />
-            }
-          />
-        )}
+        <Btn onClick={addColumnModal}>Add another column</Btn>
       </Conteiner>
     </ScrollBlock>
   );

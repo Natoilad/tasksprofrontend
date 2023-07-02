@@ -1,6 +1,7 @@
 import icon from '../../images/sprite.svg';
-import ContainerModal from 'components/Modals/ContainerModal';
-import { useState } from 'react';
+
+import { ModalContext } from '../../contexts/index';
+import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 import {
   ColumnName,
@@ -15,9 +16,17 @@ import { useDispatch } from 'react-redux';
 import { removeColumn } from 'redux/content/content-operations';
 
 const HeaderColumn = ({ boardId, title, columnId }) => {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+  const { openModal, closeModal } = useContext(ModalContext);
+
+  const editColumnModal = () => {
+    openModal({
+      children: <ColumnModal
+              title={'Edit column'}
+              butName={'Edit'}
+              handleClose={closeModal}
+            />
+    });
+  }
 
   const dispatch = useDispatch();
   // const board = useSelector(selectCurrentBoard);
@@ -31,7 +40,7 @@ const HeaderColumn = ({ boardId, title, columnId }) => {
     <Conteiner>
       <ColumnName>{title}</ColumnName>
       <Wrap>
-        <Btn onClick={handleOpen}>
+        <Btn onClick={editColumnModal}>
           <IconEdit>
             <use href={icon + '#icon-pencil'}></use>
           </IconEdit>
@@ -42,19 +51,6 @@ const HeaderColumn = ({ boardId, title, columnId }) => {
           </IconEdit>
         </Btn>
       </Wrap>
-      {open && (
-        <ContainerModal
-          handleClose={handleClose}
-          open={open}
-          component={
-            <ColumnModal
-              title={'Edit column'}
-              butName={'Edit'}
-              handleClose={handleClose}
-            />
-          }
-        />
-      )}
     </Conteiner>
   );
 };
