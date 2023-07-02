@@ -1,8 +1,7 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const Conteiner = styled.div`
-
-background-color: black;
+  background-color: black;
   padding: 0px 10px;
   display: flex;
   align-items: center;
