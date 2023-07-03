@@ -15,7 +15,6 @@ import {
 
 const Card = ({ task }) => {
   const { title, priority, description } = task;
-  console.log(priority);
 
   return (
     <Conteiner priority={priority}>
