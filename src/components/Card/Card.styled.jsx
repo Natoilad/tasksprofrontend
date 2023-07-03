@@ -156,6 +156,7 @@ export const BtnWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  position: relative;
   background: none;
   border: none;
   padding: 0;

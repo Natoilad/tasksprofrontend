@@ -181,13 +181,13 @@ export const Radio = styled.input`
         ${props => {
           switch (props.value) {
             case 'low':
-              return `background-color: ${lowPriority}`;
+              return `border-color: ${lowPriority}`;
             case 'medium':
-              return `background-color: ${mediumPriority}`;
+              return `border-color: ${mediumPriority}`;
             case 'high':
-              return `background-color: ${highPriority} `;
+              return `border-color: ${highPriority} `;
             case 'none':
-              return `background-color: ${white30}`;
+              return `border-color: ${white30}`;
             default:
               return;
           }

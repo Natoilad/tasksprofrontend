@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
+  UpdateTaskById,
   GetTasksList,
   GetById,
   GetByColumnId,
@@ -47,20 +48,20 @@ export const removeTask = createAsyncThunk(
   '/api/removeTask',
   async (id, thunkAPI) => {
     try {
-      const response = await DeleteTask(id);
-      return response;
+      await DeleteTask(id);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
 
-export const UpdateTask = createAsyncThunk(
+export const updateTask = createAsyncThunk(
   '/api/updateTask',
   async (data, thunkAPI) => {
     try {
-      //   const response = await UpdateTaskById(id, data)
-      //   return response;
+      const response = await UpdateTaskById(data);
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

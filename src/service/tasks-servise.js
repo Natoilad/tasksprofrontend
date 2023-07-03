@@ -35,8 +35,11 @@ export const DeleteTask = async id => {
   return data;
 };
 
-export const UpdateTaskById = async (id, newData) => {
-  const { data } = await backendAPI.put(`api/tasks/${id}`, newData);
+export const UpdateTaskById = async newData => {
+  const request = {
+    ...(newData.task || newData.columnId),
+  };
+  const { data } = await backendAPI.put(`api/tasks/${newData.id}`, request);
   return data;
 };
 
