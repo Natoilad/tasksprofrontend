@@ -21,6 +21,7 @@ const ColumnModal = ({ boardId, handleClose, title, butName }) => {
     const value = evt.currentTarget.elements.title.value;
 
     dispatch(addColumns({ boardId, value }));
+    handleClose();
   };
   return (
     <Wrap>
