@@ -7,21 +7,25 @@ export const BoardItem = styled(NavLink)`
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
+  justify-content: center;
+  align-content: center;
+  /* padding: 20px 24px; */
   position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.barSecondaryText};
   margin: 0px -24px;
+  gap: 8px;
 `;
 
-export const BoardHero = styled.div`
-  display: flex;
-  gap: 8px;
-  text-align: center;
-`;
+// export const BoardHero = styled.div`
+//   display: flex;
+//   gap: 8px;
+//   text-align: center;
+//   align-content: center;
+//   justify-content: center;
+// `;
 
 export const BoardIcon = styled.svg`
   width: 18px;

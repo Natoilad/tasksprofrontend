@@ -59,7 +59,7 @@ const contentSlice = createSlice({
       .addCase(removeBoard.pending, handleIfPending)
       .addCase(removeBoard.rejected, handleIfReject)
       .addCase(removeBoard.fulfilled, (state, { payload }) => {
-        const index = state.boards.findIndex(board => board.id === payload.id);
+        const index = state.boards.findIndex(board => board._id === payload.id);
         state.boards.splice(index, 1);
       })
       .addCase(updateBoard.pending, handleIfPending)
