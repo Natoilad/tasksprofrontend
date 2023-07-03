@@ -3,6 +3,8 @@ import {
   authLogout,
   authRefresh,
   authRegister,
+  authUpdateUser,
+  authUpdateUserAvatar,
   updateTheme,
 } from './auth-operations';
 
@@ -74,6 +76,20 @@ const authSlice = createSlice({
       })
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload;
+      })
+      .addCase(authUpdateUser.pending, handleIfPending)
+      .addCase(authUpdateUser.rejected, handleIfReject)
+      .addCase(authUpdateUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isLoading = false;
+        console.log(state.user);
+      })
+      .addCase(authUpdateUserAvatar.pending, handleIfPending)
+      .addCase(authUpdateUserAvatar.rejected, handleIfReject)
+      .addCase(authUpdateUserAvatar.fulfilled, (state, { payload }) => {
+        state.userAvatar = payload;
+        state.isLoading = false;
+        console.log(state.user);
       });
   },
 });

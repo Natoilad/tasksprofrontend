@@ -37,3 +37,15 @@ export const updateUserTheme = async theme => {
   const { data } = await backendAPI.patch('auth/theme', newTheme);
   return data;
 };
+
+export const updateUser = async user => {
+  const { _id, ...rest } = user;
+  const { data } = await backendAPI.put(`auth/${_id}`, rest);
+  return data;
+};
+
+export const updateUserAvatar = async avatar => {
+  const { _id, ...rest } = avatar;
+  const { data } = await backendAPI.patch(`auth/avatars`, rest);
+  return data;
+};
