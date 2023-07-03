@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 
+
 export const List = styled.ul`
  
 `;
@@ -14,4 +15,5 @@ export const Li = styled.li`
   align-content: center;
   justify-content: space-between;
   margin-bottom: 4px;
+
 `;
