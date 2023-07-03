@@ -12,9 +12,8 @@ export const BoardList = async () => {
 
 export const AddBoard = async task => {
   const { data } = await backendAPI.post('api/boards', task);
-  console.log(data);
+
   return data;
-  
 };
 
 export const GetById = async id => {
@@ -45,7 +44,6 @@ export const AddColumn = async (boardId, newData) => {
 };
 
 export const UpdateCol = async (boardId, columnId, title) => {
-  console.log(title);
   const { data } = await backendAPI.patch(
     `api/boards/${boardId}/columns/${columnId}`,
     {

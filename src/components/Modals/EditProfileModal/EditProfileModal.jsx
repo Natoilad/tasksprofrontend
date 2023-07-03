@@ -76,7 +76,7 @@ export const EditProfileModal = ({ handleClose }) => {
       path: photos.dataURL,
     };
 
-    console.log(photos);
+    // console.log(photos);
 
     resetForm();
 

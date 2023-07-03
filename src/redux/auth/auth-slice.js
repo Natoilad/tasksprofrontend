@@ -82,14 +82,12 @@ const authSlice = createSlice({
       .addCase(authUpdateUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoading = false;
-        console.log(state.user);
       })
       .addCase(authUpdateUserAvatar.pending, handleIfPending)
       .addCase(authUpdateUserAvatar.rejected, handleIfReject)
       .addCase(authUpdateUserAvatar.fulfilled, (state, { payload }) => {
         state.userAvatar = payload;
         state.isLoading = false;
-        console.log(state.user);
       });
   },
 });

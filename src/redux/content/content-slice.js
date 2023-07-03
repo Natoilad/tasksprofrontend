@@ -77,7 +77,6 @@ const contentSlice = createSlice({
       .addCase(addColumns.pending, handleIfPending)
       .addCase(addColumns.rejected, handleIfReject)
       .addCase(addColumns.fulfilled, (state, { payload }) => {
-        console.log(payload._id);
         const index = state.boards.findIndex(
           board => board._id === payload._id
         );

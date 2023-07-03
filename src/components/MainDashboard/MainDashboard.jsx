@@ -18,7 +18,7 @@ const MainDashboard = ({ board, columns }) => {
   // const columns = useSelector(selectColumns);
   const { openModal, closeModal } = useContext(ModalContext);
 
-  const addColumnModal = () => {
+  const addColumnModal = ({ board, columns }) => {
     openModal({
       children: (
         <ColumnModal
