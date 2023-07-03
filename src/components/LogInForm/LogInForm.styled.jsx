@@ -25,8 +25,9 @@ export const Wrap = styled.div`
   background: #151515;
 
   @media screen and (min-width: 768px) {
-     width: 424px;
-   height: 332px;}
+    width: 424px;
+    height: 332px;
+  }
 `;
 
 export const LinkWrap = styled.div`
@@ -68,8 +69,8 @@ export const Field = styled(Input)`
   padding: 14px 0 14px 18px;
 
   @media screen and (min-width: 768px) {
-     width: 344px;
-   }
+    width: 344px;
+  }
 
   // &:not(:last-child) {
   //   margin-bottom: 14px;
@@ -93,8 +94,8 @@ export const FieldPassword = styled(Input)`
   padding: 14px 0 14px 18px;
 
   @media screen and (min-width: 768px) {
-     width: 344px;
-   }
+    width: 344px;
+  }
 `;
 
 export const Button = styled.button`
@@ -116,14 +117,13 @@ export const Button = styled.button`
   margin-top: 10px;
   margin-bottom: 24px;
   transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
 
   &:hover {
     border: 1px solid #161616;
     font-size: 16px;
-
-    @media screen and (min-width: 768px) {
-     width: 344px;
-   }
   }
 `;
 
