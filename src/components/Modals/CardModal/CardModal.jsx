@@ -16,13 +16,24 @@ import {
   ChevronIcon,
   Radio,
 } from './CardModal.styled';
+import { DayPicker } from 'react-day-picker';
+import { format } from 'date-fns';
+import 'react-day-picker/dist/style.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
 const CardModal = ({ board, handleClose, title, butName, columnId }) => {
-  // console.log(columnId);
+  const [isOpen, setIsOpen] = useState(false);
+  const [date, setDate] = useState(Date.now());
+  // console.log(format(date, 'MM/dd/yyyy'));
+
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
+
+  const togleOpen = () => {
+    setIsOpen(state => !state);
+  };
+
   function chengeValue(event) {
     setValue(event.target.value);
   }
@@ -36,9 +47,9 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
     const { title, description, priority } = event.currentTarget.elements;
     const task = {
       title: title.value,
-      description: description.value || '',
+      description: description.value,
       priority: priority.value || 'none',
-      // deadline: deadline.value,
+      deadline: format(date, 'mm/dd/yyyy'),
       userId: { owner },
       boardId: { id },
       columnId: { columnId },
@@ -96,12 +107,20 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
           </Label>
           <Label>
             Deadline
-            <ButPiker style={{ marginTop: '4px' }}>
-              Today, March 8
+            <ButPiker onClick={togleOpen} style={{ marginTop: '4px' }}>
+              {`Today, ${format(date, 'MMMM i')}`}
               <ChevronIcon>
                 <use href={icon + '#icon-chevron-down'}></use>
               </ChevronIcon>
             </ButPiker>
+            <DayPicker
+              style={{ display: isOpen ? `block` : 'none' }}
+              showOutsideDays
+              fixedWeeks
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+            />
           </Label>
         </SettingsBlock>
 

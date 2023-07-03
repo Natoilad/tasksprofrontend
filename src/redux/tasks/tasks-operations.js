@@ -6,6 +6,7 @@ import {
   GetByColumnId,
   AddTask,
   DeleteTask,
+  Transfer,
 } from 'service/tasks-servise';
 export const getTasks = createAsyncThunk(
   '/api/tasks',
@@ -61,6 +62,18 @@ export const updateTask = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await UpdateTaskById(data);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const transferTask = createAsyncThunk(
+  'api/TransferTask',
+  async (data, thunkAPI) => {
+    try {
+      const response = await Transfer(data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

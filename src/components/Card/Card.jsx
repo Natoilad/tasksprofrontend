@@ -12,22 +12,18 @@ import {
   Priority,
   DeadLine,
 } from './Card.styled';
-import TransferCard from 'components/Modals/TranferCard/TransferCard';
+import TransferCard from 'components/Modals/TranferCardModal/TransferCardModal';
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
 import EditCardModal from 'components/Modals/CardModal/EditCardModal';
 import { useDispatch } from 'react-redux';
 import { removeTask } from 'redux/tasks/tasks-operations';
-import { useState } from 'react';
 const Card = ({ task, columns, columnId }) => {
-  const { title, priority, description, _id: id } = task;
+  const { title, priority, description, _id: id, deadline } = task;
   const { openModal, closeModal } = useContext(ModalContext);
   const [isOpenTransfer, setIsOpenTransfer] = useState(false);
-
-<<<<<<< HEAD
 const Card = ({ task }) => {
   const { title, priority, description } = task;
-=======
   const togleTransferModal = () => {
     setIsOpenTransfer(state => !state);
   };
@@ -45,13 +41,25 @@ const Card = ({ task }) => {
       ),
     });
   };
+
+  const transferCardModal = () => {
+    openModal({
+      children: (
+        <TransferCard
+          columnId={columnId}
+          columns={columns}
+          taskId={id}
+          handleClose={closeModal}
+        />
+      ),
+    });
+  };
   // console.log(priority);
   const dispatch = useDispatch();
   const handleRemove = evt => {
     evt.preventDefault();
     dispatch(removeTask(id));
   };
->>>>>>> 7fe3497 (adds tasks operations)
 
   return (
     <Conteiner priority={priority}>
@@ -65,20 +73,14 @@ const Card = ({ task }) => {
           </Label>
           <Label>
             defadline
-            <DeadLine>10/06/2023</DeadLine>
+            <DeadLine>{deadline}</DeadLine>
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
-          <Button onClick={togleTransferModal}>
+          <Button onClick={transferCardModal}>
             <IconSvg>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
             </IconSvg>
-            <TransferCard
-              columnId={columnId}
-              columns={columns}
-              isOpen={isOpenTransfer}
-              taskId={id}
-            />
           </Button>
           <Button onClick={editCardModal}>
             <IconSvg>
@@ -94,5 +96,6 @@ const Card = ({ task }) => {
       </SettingsBlock>
     </Conteiner>
   );
-};
-export default Card;
+  };
+  
+  export default Card

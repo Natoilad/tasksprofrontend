@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  transferTask,
   addTasks,
   getTaskByColumnId,
   getTaskById,
@@ -41,6 +42,12 @@ const tasksSlice = createSlice({
       .addCase(updateTask.rejected)
       .addCase(updateTask.fulfilled, (state, { payload }) => {
         const index = state.tasks.findIndex(task => task._id === payload._id);
+        state.tasks.splice(index, 1, payload);
+      })
+      .addCase(transferTask.pending)
+      .addCase(transferTask.rejected)
+      .addCase(transferTask.fulfilled, (state, { payload }) => {
+        const index = state.tasks.findIndex(t => t._id === payload._id);
         state.tasks.splice(index, 1, payload);
       });
   },
