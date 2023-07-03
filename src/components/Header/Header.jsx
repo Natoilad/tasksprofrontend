@@ -49,9 +49,9 @@ export const Header = () => {
 
   const handleOpenModalEdit = () => {
     openModal({
-      children: <EditProfileModal handleClose={closeModal} />
+      children: <EditProfileModal handleClose={closeModal} />,
     });
-  }
+  };
 
   return (
     <>
@@ -105,6 +105,7 @@ export const Header = () => {
                 <svg width="32" height="32">
                   <use href={icon + '#icon-user-avatar'}></use>
                 </svg>
+                <img src={user.avatarUrl} alt="User avatar" />
               </AvatarBox>
             </UserInfoBox>
           </UserBox>
