@@ -17,7 +17,7 @@ export const ModalHelp = ({ handleClose, title, butName }) => {
     <Wrap>
       <Form>
         <Title>{title}</Title>
-        <Field id="title" type="text" name="title" placeholder="Title" />
+        <Field id="title" type="text" name="title" placeholder="Email address" />
         <Comment
           id="comment"
           type="text"

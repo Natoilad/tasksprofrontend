@@ -10,7 +10,7 @@ import {
 export const Conteiner = styled.div`
   position: relative;
   width: 335px;
-  padding: 14px 20px;
+  padding: 14px 20px 14px 24px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -47,6 +47,7 @@ export const Title = styled.p`
   font-size: 14px;
   font-weight: 600;
   font-family: 'Poppins';
+  line-height: 21px;
   letter-spacing: -0.28px;
   margin-bottom: 8px;
 `;
@@ -62,6 +63,7 @@ export const Descriptions = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   font-family: 'Poppins';
@@ -95,6 +97,8 @@ export const Label = styled.label`
   flex-direction: column;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 8px;
+  font-weight: 400;
+  line-height: 12px;
   font-family: 'Poppins';
   letter-spacing: -0.16px;
 `;
@@ -105,6 +109,8 @@ export const Priority = styled.p`
   margin-left: 16px;
   padding: 0px;
   color: ${({ theme }) => theme.colors.primaryText};
+  font-weight: 400;
+  line-height: 15px;
   font-size: 10px;
   font-family: 'Poppins';
   letter-spacing: -0.2px;
@@ -140,6 +146,8 @@ export const DeadLine = styled.p`
   color: ${({ theme }) => theme.colors.primaryText};
   font-size: 10px;
   font-family: Poppins;
+  font-weight: 400;
+  line-height: 15px;
   letter-spacing: -0.2px;
 `;
 export const BtnWrapper = styled.div`
