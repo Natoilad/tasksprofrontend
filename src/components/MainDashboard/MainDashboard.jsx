@@ -20,14 +20,16 @@ const MainDashboard = ({ board, columns }) => {
 
   const addColumnModal = () => {
     openModal({
-      children: <ColumnModal
-              boardId={board._id}
-              title={'Add column'}
-              butName={'Add'}
-              handleClose={closeModal}
-            />
+      children: (
+        <ColumnModal
+          boardId={board._id}
+          title={'Add column'}
+          butName={'Add'}
+          handleClose={closeModal}
+        />
+      ),
     });
-  }
+  };
 
   return (
     <ScrollBlock

@@ -5,6 +5,7 @@ import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 export const Conteiner = styled.div`
   /* position: relative; */
   display: flex;
+  gap: 34px;
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
