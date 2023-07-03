@@ -14,11 +14,11 @@ import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 // import { selectContent, selectColumns } from 'redux/content/content-selectors';
 const MainDashboard = ({ board, columns }) => {
   // const boards = useSelector(selectContent);
-  // console.log(boards);
+  // console.log(board._id);
   // const columns = useSelector(selectColumns);
   const { openModal, closeModal } = useContext(ModalContext);
 
-  const addColumnModal = ({ board, columns }) => {
+  const addColumnModal = () => {
     openModal({
       children: (
         <ColumnModal

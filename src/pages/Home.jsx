@@ -2,7 +2,6 @@ import {
   useDispatch,
   // useSelector
 } from 'react-redux';
-
 import { useEffect } from 'react';
 // import { selectIsLoading, selectError } from 'redux/content/content-selectors';
 import { getBoards } from 'redux/content/content-operations';

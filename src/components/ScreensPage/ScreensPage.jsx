@@ -12,7 +12,7 @@ import BoardIsNotYet from 'components/BoardIsNotYet/BoardIsNotYet';
 
 import { useEffect } from 'react';
 
-// import { Container } from 'components/ScreensPage/SceensPage.styled';
+import { Container } from 'components/ScreensPage/SceensPage.styled';
 // import backgrounds from '../../images/bgFolder/backgrounds.json';
 // import { useState } from 'react';
 
@@ -22,8 +22,6 @@ const ScreensPage = () => {
   const navigate = useNavigate();
   const { boardName } = useParams();
   // const [idBackground, setIdBackground] = useState();
-
-  const board = boards.find(board => board.title === boardName);
 
   // const trueBackground = backgrounds.find(
   //   background =>
@@ -41,6 +39,7 @@ const ScreensPage = () => {
     }
   }, [boardName, boards, navigate]);
 
+  const board = boards.find(board => board.title === boardName);
   // const findBgId = async () => {
   //   if (!board.background) return;
   //   const trueBackground = await backgrounds.find(
@@ -56,24 +55,22 @@ const ScreensPage = () => {
   //         return bgid;
   //       }
   return (
-    // <Container
-    // board={idBackground}
-    // >
-    <div>
-      {boards.length === 0 ? (
-        <BoardIsNotYet />
-      ) : (
-        <>
-          {board && (
-            <>
-              <HeaderDashboard title={boardName} />
-              <MainDashboard board={board} columns={board.columns} />
-            </>
-          )}
-        </>
-      )}
-    </div>
-    // </Container>
+    
+      <>
+        {boards.length === 0 ? (
+          <BoardIsNotYet />
+        ) : (
+          <>
+            {board && (
+              <Container board={board}>
+                <HeaderDashboard title={boardName} />
+                <MainDashboard board={board} columns={board.columns} />
+              </Container>
+            )}
+          </>
+        )}
+      </>
+  
   );
 };
 export default ScreensPage;
