@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import AuthPage from 'pages/AuthPage';
-import WelcomePage from 'pages/WelcomePage';
-import HomePage from 'pages/Home';
+// import AuthPage from 'pages/AuthPage';
+// import WelcomePage from 'pages/WelcomePage';
+// import HomePage from 'pages/Home';
 
 import { PublicRoute } from 'components/Routs/PublicRoute';
 import { PrivateRoute } from 'components/Routs/PrivateRoute';
@@ -15,9 +15,11 @@ import ScreensPage from 'components/ScreensPage/ScreensPage';
 import { Suspense } from 'react';
 import { ModalProvider } from '../../contexts';
 
-// const Welcome = lazy(() => import('../pages/WelcomePage'));
+const WelcomePage = lazy(() => import('../../pages/WelcomePage'));
 
-// const AuthPage = lazy(() => import('../pages/AuthPage'));
+const AuthPage = lazy(() => import('../../pages/AuthPage'));
+
+const HomePage = lazy(() => import('../../pages/Home'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -38,7 +40,9 @@ export const App = () => {
 
           <Route
             path="/auth/:id"
-            element={<PublicRoute redirectTo="/home" component={<AuthPage />} />}
+            element={
+              <PublicRoute redirectTo="/home" component={<AuthPage />} />
+            }
           />
 
           <Route
