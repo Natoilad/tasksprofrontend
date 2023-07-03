@@ -5,6 +5,8 @@ import {
   logoutUser,
   registerUser,
   token,
+  updateUser,
+  updateUserAvatar,
   updateUserTheme,
 } from 'service/auth-service';
 
@@ -99,6 +101,40 @@ export const updateTheme = createAsyncThunk(
       return theme;
     } catch (error) {
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const authUpdateUser = createAsyncThunk(
+  'auth/:id',
+  async (user, { rejectWithValue }) => {
+    try {
+      const data = await updateUser(user);
+
+      if (data.status === 'success') {
+        toast.success('User has been updated successfully!');
+      }
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.data.message);
+    }
+  }
+);
+
+export const authUpdateUserAvatar = createAsyncThunk(
+  'auth/avatars',
+  async (user, { rejectWithValue }) => {
+    try {
+      const data = await updateUserAvatar(user);
+
+      if (data.status === 'success') {
+        toast.success('User has been updated successfully!');
+      }
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.data.message);
     }
   }
 );

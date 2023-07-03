@@ -16,6 +16,12 @@ import {
   // Button,
   Title,
 } from './EditProfileModal.styled';
+import { useDispatch } from 'react-redux';
+import {
+  authUpdateUser,
+  authUpdateUserAvatar,
+} from 'redux/auth/auth-operations';
+import { useAuth } from 'hooks/authHooks';
 
 const Form = styled(FormWrap)({
   display: ' flex',
@@ -40,8 +46,11 @@ const Field = styled(Input)({
 });
 
 export const EditProfileModal = ({ handleClose }) => {
+  const dispatch = useDispatch();
   const [isShowEditor, setIsShowEditor] = useState(false);
   const [uploadImg, setUploadImg] = useState(null);
+  const { user: currentUser } = useAuth();
+
   const [photos, setPhotos] = useState({ photoName: null, dataURL: null });
 
   const schema = Yup.object().shape({
@@ -55,14 +64,24 @@ export const EditProfileModal = ({ handleClose }) => {
 
   const onFormSubmit = (values, { resetForm }) => {
     const user = {
-      img: photos,
+      // img: photos,
       name: values.name,
       email: values.email,
       password: values.password,
+      _id: currentUser._id,
     };
-    console.log(user);
-    console.log(`Successfully!`);
+
+    const updateAvatarData = {
+      _id: currentUser._id,
+      path: photos.dataURL,
+    };
+
+    console.log(photos);
+
     resetForm();
+
+    dispatch(authUpdateUser(user));
+    dispatch(authUpdateUserAvatar(updateAvatarData));
   };
 
   return (
@@ -76,7 +95,11 @@ export const EditProfileModal = ({ handleClose }) => {
 
       <div>
         <Formik
-          initialValues={{ name: '', email: '', password: '' }}
+          initialValues={{
+            name: currentUser.name,
+            email: currentUser.email,
+            password: currentUser.password,
+          }}
           validationSchema={schema}
           onSubmit={onFormSubmit}
         >
@@ -117,7 +140,11 @@ export const EditProfileModal = ({ handleClose }) => {
                 <div className={styles.error}>{errors.email}</div>
               ) : null}
 
-              <Field name="password" placeholder="Create a password" />
+              <Field
+                name="password"
+                type="password"
+                placeholder="Create a password"
+              />
               {errors.password && touched.password ? (
                 <div className={styles.error}>{errors.password}</div>
               ) : null}
