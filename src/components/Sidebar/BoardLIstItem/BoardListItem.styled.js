@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { darkGray } from 'variables/variables';
 
-export const BoarLink = styled(NavLink)`
+export const BoardItem = styled(NavLink)`
   /* background-color: ${darkGray}; */
   text-decoration: none;
   display: flex;
