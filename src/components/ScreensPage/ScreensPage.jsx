@@ -1,8 +1,5 @@
 import { useSelector } from 'react-redux';
-import {
-  selectContent,
-  // selectCurrentBoard,
-} from 'redux/content/content-selectors';
+import { selectContent } from 'redux/content/content-selectors';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,12 +9,12 @@ import BoardIsNotYet from 'components/BoardIsNotYet/BoardIsNotYet';
 
 import { useEffect } from 'react';
 
-// import { Container } from 'components/ScreensPage/SceensPage.styled';
+import { Container } from 'components/ScreensPage/SceensPage.styled';
 // import backgrounds from '../../images/bgFolder/backgrounds.json';
+
 // import { useState } from 'react';
 
 const ScreensPage = () => {
-  // const currentBoard = useSelector(selectCurrentBoard);
   const boards = useSelector(selectContent);
   const navigate = useNavigate();
   const { boardName } = useParams();
@@ -25,11 +22,12 @@ const ScreensPage = () => {
 
   const board = boards.find(board => board.title === boardName);
 
+  // console.log(boards.map(board => console.log(board.background)));
+
   // const trueBackground = backgrounds.find(
-  //   background =>
-  //     background._id === board.background[0]
+  //   background => background._id === board.background[0]
   // );
-  // setIdBackground(trueBackground);
+
   // console.log(trueBackground);
 
   useEffect(() => {
@@ -50,16 +48,9 @@ const ScreensPage = () => {
   //   return trueBackground;
   // };
 
-  // async () => {
-  //         const bgid = await findBgId();
-  //         console.log(bgid);
-  //         return bgid;
-  //       }
   return (
-    // <Container
-    // board={idBackground}
-    // >
-    <div>
+    <Container>
+      {/* <div> */}
       {boards.length === 0 ? (
         <BoardIsNotYet />
       ) : (
@@ -72,8 +63,8 @@ const ScreensPage = () => {
           )}
         </>
       )}
-    </div>
-    // </Container>
+      {/* </div> */}
+    </Container>
   );
 };
 export default ScreensPage;

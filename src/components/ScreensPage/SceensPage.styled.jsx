@@ -7,9 +7,8 @@ export const Container = styled.div`
   background-repeat: round;
   width: 100%;
   height: 100%;
-
-  background-image: ${props => console.log(props)};
 `;
+//  background-image: ${props => console.log(props)};
 
 // const trueBackground = backgrounds.find(
 //   background => background._id === props.board.background[0]
