@@ -33,7 +33,7 @@ export const addBoards = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await AddBoard(data);
-      console.log(response);
+
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -118,8 +118,6 @@ export const removeColumn = createAsyncThunk(
   'api/columns/removeColumn',
   async (data, thunkAPI) => {
     const { boardId, columnId } = data;
-    console.log(boardId);
-    console.log(columnId);
     try {
       await RemoveCol(boardId, columnId);
       return { boardId, columnId };

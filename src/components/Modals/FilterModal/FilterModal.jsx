@@ -27,7 +27,7 @@ const initialFormValues = { title: '' };
 export const FilterModal = ({ handleClose, title }) => {
   const dispatch = useDispatch();
   const onFilter = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     dispatch(setFilter(e.target.value));
   };
 

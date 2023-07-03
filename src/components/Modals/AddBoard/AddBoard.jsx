@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import icon from '../../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
 import {
   Form,
   Field,
@@ -18,41 +18,45 @@ import {
   BlockSvg,
   Bgpriority,
 } from './AddBoard.styled';
-import sprite from '../../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
-import { addBoards } from 'redux/content/content-operations';
 
-import { useBg } from 'hooks/backgroundHooks';
+import sprite from '../../../images/sprite.svg';
+import backgrounds from '../../../images/bgFolder/backgrounds.json';
+import { addBoards } from 'redux/content/content-operations';
+// import { useBg } from 'hooks/backgroundHooks';
 import { getBackGrounds } from 'redux/backgrounds/background-operations';
 import BgComponent from './bgComponent';
 
 const AddBoard = ({ handleClose, title, background, icon, butName }) => {
   const [value, setValue] = useState('icon-dashbordicon1');
+  const [bground, setBground] = useState(null);
 
   const dispatch = useDispatch();
 
-  const { backgrounds } = useBg();
+  // const { backgrounds } = useBg();
 
   const hundleSubmit = event => {
     event.preventDefault();
-    console.log(event.currentTarget.elements.title.value);
-    console.log(event.target.getAttribute('value'));
+
     const task = {
       title: event.currentTarget.elements.title.value,
       icon: value,
-      background: '649f40cdcaf11c74bb2317b1',
+      background: bground,
     };
+
     dispatch(addBoards(task));
     handleClose();
   };
-  console.log(value);
+
+  const onClickOnBg = value => {
+    setBground(value);
+  };
+
   useEffect(() => {
     dispatch(getBackGrounds());
   }, [dispatch]);
 
   function chengeValue(event) {
     setValue(event.target.value);
-    console.log(event.target.value);
   }
 
   return (
@@ -196,7 +200,12 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
             {backgrounds.map(bg => {
               return (
                 <>
-                  <BgComponent key={bg.bgIcons} bg={bg} />
+                  <BgComponent
+                    key={bg._id}
+                    bg={bg}
+                    _id={bg._id}
+                    onClick={onClickOnBg}
+                  />
                 </>
               );
             })}
