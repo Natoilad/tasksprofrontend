@@ -12,9 +12,54 @@ import {
   Priority,
   DeadLine,
 } from './Card.styled';
-
+import TransferCard from 'components/Modals/TranferCardModal/TransferCardModal';
+import { ModalContext } from '../../contexts/index';
+import { useContext } from 'react';
+import EditCardModal from 'components/Modals/CardModal/EditCardModal';
+import { useDispatch } from 'react-redux';
+import { removeTask } from 'redux/tasks/tasks-operations';
+const Card = ({ task, columns, columnId }) => {
+  const { title, priority, description, _id: id, deadline } = task;
+  const { openModal, closeModal } = useContext(ModalContext);
+  const [isOpenTransfer, setIsOpenTransfer] = useState(false);
 const Card = ({ task }) => {
   const { title, priority, description } = task;
+  const togleTransferModal = () => {
+    setIsOpenTransfer(state => !state);
+  };
+
+  const editCardModal = () => {
+    openModal({
+      children: (
+        <EditCardModal
+          columnId={id}
+          modalTitle={'Edit card'}
+          task={task}
+          butName={'Edit'}
+          handleClose={closeModal}
+        />
+      ),
+    });
+  };
+
+  const transferCardModal = () => {
+    openModal({
+      children: (
+        <TransferCard
+          columnId={columnId}
+          columns={columns}
+          taskId={id}
+          handleClose={closeModal}
+        />
+      ),
+    });
+  };
+  // console.log(priority);
+  const dispatch = useDispatch();
+  const handleRemove = evt => {
+    evt.preventDefault();
+    dispatch(removeTask(id));
+  };
 
   return (
     <Conteiner priority={priority}>
@@ -28,21 +73,21 @@ const Card = ({ task }) => {
           </Label>
           <Label>
             defadline
-            <DeadLine>10/06/2023</DeadLine>
+            <DeadLine>{deadline}</DeadLine>
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
-          <Button>
+          <Button onClick={transferCardModal}>
             <IconSvg>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
             </IconSvg>
           </Button>
-          <Button>
+          <Button onClick={editCardModal}>
             <IconSvg>
               <use href={icon + '#icon-pencil'}></use>
             </IconSvg>
           </Button>
-          <Button>
+          <Button onClick={handleRemove}>
             <IconSvg>
               <use href={icon + '#icon-trash'}></use>
             </IconSvg>
@@ -51,5 +96,6 @@ const Card = ({ task }) => {
       </SettingsBlock>
     </Conteiner>
   );
-};
-export default Card;
+  };
+  
+  export default Card

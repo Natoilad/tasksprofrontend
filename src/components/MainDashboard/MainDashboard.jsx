@@ -50,7 +50,12 @@ const MainDashboard = ({ board, columns }) => {
           <ColumnList>
             {columns.map(column => (
               <li key={column._id}>
-                <Column board={board} title={column.title} id={column._id} />
+                <Column
+                  columns={columns}
+                  board={board}
+                  title={column.title}
+                  id={column._id}
+                />
               </li>
             ))}
           </ColumnList>
