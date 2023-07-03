@@ -21,12 +21,6 @@ import { removeTask } from 'redux/tasks/tasks-operations';
 const Card = ({ task, columns, columnId }) => {
   const { title, priority, description, _id: id, deadline } = task;
   const { openModal, closeModal } = useContext(ModalContext);
-  const [isOpenTransfer, setIsOpenTransfer] = useState(false);
-const Card = ({ task }) => {
-  const { title, priority, description } = task;
-  const togleTransferModal = () => {
-    setIsOpenTransfer(state => !state);
-  };
 
   const editCardModal = () => {
     openModal({
@@ -96,6 +90,5 @@ const Card = ({ task }) => {
       </SettingsBlock>
     </Conteiner>
   );
-  };
-  
-  export default Card
+};
+export default Card;
