@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import 'variables/variables';
 
 export const SidebarWrapper = styled.section`
-  /* height: 100%; */
+  // /* height: 100%; */
+  height: 100vh;
   width: 225px;
   background-color: ${({ theme }) => theme.colors.primaryBg};
   padding: 14px;
