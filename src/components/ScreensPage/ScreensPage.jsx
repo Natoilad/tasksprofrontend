@@ -22,21 +22,26 @@ const ScreensPage = () => {
   if (!boardName && boards.length > 0) {
     navigate(`/home/${boards[0].title}`, { replace: true });
   }
+  if (boards.length === 0 && boardName) {
+    navigate(`/home`, { replace: true });
+  }
   return (
     // <Conteiner>
     <div>
-      {board && (
-        <>
-          {boards.length === 0 ? (
-            <BoardIsNotYet />
-          ) : (
-            <>
-              <HeaderDashboard title={boardName} />
-              <MainDashboard board={board} columns={board.columns} />
-            </>
-          )}
-        </>
-      )}
+      <>
+        {boards.length === 0 ? (
+          <BoardIsNotYet />
+        ) : (
+          <>
+            {board && (
+              <>
+                <HeaderDashboard title={boardName} />
+                <MainDashboard board={board} columns={board.columns} />
+              </>
+            )}
+          </>
+        )}
+      </>
     </div>
     // </Conteiner>
   );

@@ -26,7 +26,7 @@ export const LogoBox = styled.div`
 export const SidebarIcon = styled.svg`
   width: 32px;
   height: 32px;
-  background-color: ${({ theme }) => theme.colors.barSecondaryText};
+  // background-color: ${({ theme }) => theme.colors.barSecondaryText};
   border-radius: 25%;
 `;
 

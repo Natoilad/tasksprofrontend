@@ -1,7 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  useDispatch,
+  // useSelector
+} from 'react-redux';
 
 import { useEffect } from 'react';
-import { selectIsLoading, selectError } from 'redux/content/content-selectors';
+// import { selectIsLoading, selectError } from 'redux/content/content-selectors';
 import { getBoards } from 'redux/content/content-operations';
 import { getTasks } from 'redux/tasks/tasks-operations';
 import { Box, HomeWrapper } from './PagesStyle.styled';
@@ -17,8 +20,8 @@ const { SidebarMain } = require('components/Sidebar/SidebarMain/SidebarMain');
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
   const { user } = useAuth();
 
   const themes = {
@@ -35,7 +38,7 @@ const HomePage = () => {
   return (
     <ThemeProvider theme={themes[user.theme]}>
       <HomeWrapper>
-        {isLoading && error}
+        {/* {isLoading && error} */}
         <SidebarMain />
         <Box>
           <Header />
