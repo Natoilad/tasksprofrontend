@@ -12,7 +12,7 @@ import BoardIsNotYet from 'components/BoardIsNotYet/BoardIsNotYet';
 
 import { useEffect } from 'react';
 
-import { Container } from 'components/ScreensPage/SceensPage.styled';
+// import { Container } from 'components/ScreensPage/SceensPage.styled';
 // import backgrounds from '../../images/bgFolder/backgrounds.json';
 // import { useState } from 'react';
 
@@ -56,26 +56,24 @@ const ScreensPage = () => {
   //         return bgid;
   //       }
   return (
-    <Container
+    // <Container
     // board={idBackground}
-    >
-      {/* <div> */}
-      <>
-        {boards.length === 0 ? (
-          <BoardIsNotYet />
-        ) : (
-          <>
-            {board && (
-              <>
-                <HeaderDashboard title={boardName} />
-                <MainDashboard board={board} columns={board.columns} />
-              </>
-            )}
-          </>
-        )}
-      </>
-      {/* </div> */}
-    </Container>
+    // >
+    <div>
+      {boards.length === 0 ? (
+        <BoardIsNotYet />
+      ) : (
+        <>
+          {board && (
+            <>
+              <HeaderDashboard title={boardName} />
+              <MainDashboard board={board} columns={board.columns} />
+            </>
+          )}
+        </>
+      )}
+    </div>
+    // </Container>
   );
 };
 export default ScreensPage;
