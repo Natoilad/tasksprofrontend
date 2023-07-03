@@ -2,17 +2,28 @@ import styled from 'styled-components';
 import 'variables/variables';
 
 export const SidebarWrapper = styled.section`
-  /* height: 100vh; */
+  /* height: 100%; */
   width: 225px;
   background-color: ${({ theme }) => theme.colors.primaryBg};
   padding: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -100%; */
 
   @media screen and (min-width: 768px) {
     width: 260px;
     padding: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* height: 100vh; */
   }
 `;
 
