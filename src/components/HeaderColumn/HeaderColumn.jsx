@@ -2,7 +2,7 @@ import icon from '../../images/sprite.svg';
 
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
-import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
+import EditColumnModal from 'components/Modals/ColumnModal/EditColumnModal';
 import {
   ColumnName,
   Conteiner,
@@ -20,11 +20,16 @@ const HeaderColumn = ({ boardId, title, columnId }) => {
 
   const editColumnModal = () => {
     openModal({
-      children: <ColumnModal
-              title={'Edit column'}
-              butName={'Edit'}
-              handleClose={closeModal}
-            />
+      children: (
+        <EditColumnModal
+          boardId={boardId}
+          columnId={columnId}
+          titleColumn={title}
+          title={'Edit column'}
+          butName={'Edit'}
+          handleClose={closeModal}
+        />
+      ),
     });
   }
 

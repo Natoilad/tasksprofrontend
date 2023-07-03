@@ -43,6 +43,7 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
       background: '649f40cdcaf11c74bb2317b1',
     };
     dispatch(addBoards(task));
+    handleClose();
   };
   console.log(value);
   useEffect(() => {
