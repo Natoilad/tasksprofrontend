@@ -6,7 +6,8 @@ import icon from '../../../images/sprite.svg';
 import {
   // BoardHero,
   BoardIcon,
-  BoarLink,
+  // BoarLink,
+  BoardItem,
   BtnIcon,
   BoardBtnBox,
   BoardBtn,
@@ -28,18 +29,17 @@ export const BoardListItem = ({ board }) => {
     if (board.title === boardName) {
       navigate(`/home`, { replace: true });
     }
-  
+
     dispatch(removeBoard(board._id));
   };
   return (
-
     <>
       <BoardItem to={`/home/${board.title}`}>
         {/* <BoardHero> */}
-          <BoardIcon>
-            <use href={icon + `#${board.icon}`}></use>
-          </BoardIcon>
-          <p>{board.title}</p>
+        <BoardIcon>
+          <use href={icon + `#${board.icon}`}></use>
+        </BoardIcon>
+        <p>{board.title}</p>
         {/* </BoardHero> */}
       </BoardItem>
       <BoardBtnBox>
@@ -54,7 +54,6 @@ export const BoardListItem = ({ board }) => {
           </BtnIcon>
         </BoardBtn>
       </BoardBtnBox>
-
     </>
   );
 };
