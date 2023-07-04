@@ -7,6 +7,7 @@ export const Conteiner = styled.div`
   display: flex;
   flex-direction: column;
   max-height: 87vh;
+  padding-bottom: 15px;
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
