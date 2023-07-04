@@ -57,8 +57,8 @@ export const removeBoard = createAsyncThunk(
   'api/removeBoard',
   async (id, thunkAPI) => {
     try {
-       await Remove(id);
-      return {id}
+      await Remove(id);
+      return { id };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -67,9 +67,11 @@ export const removeBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'api/updateBoard',
-  async ({ id, data }, thunkAPI) => {
+  async ({ boardId, data }, thunkAPI) => {
     try {
-      const response = await PutUpdate(id, data);
+      console.log(boardId);
+      console.log(data);
+      const response = await PutUpdate(boardId, data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -106,7 +108,7 @@ export const updateColumn = createAsyncThunk(
   'api/columns/updateCol',
   async ({ boardId, columnId, inputValue }, thunkAPI) => {
     try {
-       await UpdateCol(boardId, columnId, inputValue);
+      await UpdateCol(boardId, columnId, inputValue);
       return { boardId, columnId, inputValue };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

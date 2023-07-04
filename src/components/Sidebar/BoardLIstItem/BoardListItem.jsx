@@ -1,5 +1,4 @@
-// import { PropTypes } from 'prop-types';
-// import { useDispatch } from 'react-redux';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { removeBoard } from 'redux/content/content-operations';
 import icon from '../../../images/sprite.svg';
@@ -14,8 +13,27 @@ import {
 } from './BoardListItem.styled';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { ModalContext } from '../../../contexts/index';
+import EditBoard from 'components/Modals/EditBoardModal/EditBoardModal';
 // import { getBoardById } from 'redux/content/content-operations';
 export const BoardListItem = ({ board }) => {
+  const { openModal, closeModal } = useContext(ModalContext);
+
+  const editBoardModal = () => {
+    openModal({
+      children: (
+        <EditBoard
+          title={'Edit card'}
+          butName={'Create'}
+          handleClose={closeModal}
+          boardTitle={board.title}
+          boardId={board._id}
+          boardBgr={board.background[0]}
+        />
+      ),
+    });
+  };
+
   const { boardName } = useParams();
   // const handleSelectBoard = (evt) => {
   //   if (evt.currentTarget === evt.target) {
@@ -43,7 +61,7 @@ export const BoardListItem = ({ board }) => {
         {/* </BoardHero> */}
       </BoardItem>
       <BoardBtnBox>
-        <BoardBtn>
+        <BoardBtn type="button" onClick={editBoardModal}>
           <BtnIcon>
             <use href={icon + '#icon-pencil'}></use>
           </BtnIcon>
