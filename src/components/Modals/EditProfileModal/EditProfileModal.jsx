@@ -1,15 +1,18 @@
-import { IconButton } from '@mui/material';
+import { useState } from 'react';
+
 import { Formik } from 'formik';
+import { Form as FormWrap, Field as Input } from 'formik';
 import * as Yup from 'yup';
-import styles from './EditProfileModal.module.css';
+
 import { Close as CloseIcon } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
+import { IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Form as FormWrap, Field as Input } from 'formik';
-import userImg from '../../..//images/unknown-user.png';
+
 import { DropzoneBox } from 'components/DropzoneBox/DropzoneBox';
-import { useState } from 'react';
-import { PhotoEditor } from 'components/PhotoEditor/PhotoEditor';
+import styles from './EditProfileModal.module.css';
+
+import userImg from '../../..//images/unknown-user.png';
 
 import {
   Wrap,
@@ -47,11 +50,9 @@ const Field = styled(Input)({
 
 export const EditProfileModal = ({ handleClose }) => {
   const dispatch = useDispatch();
-  const [isShowEditor, setIsShowEditor] = useState(false);
-  const [uploadImg, setUploadImg] = useState(null);
   const { user: currentUser } = useAuth();
-
-  const [photos, setPhotos] = useState({ photoName: null, dataURL: null });
+  const [uploadImg, setUploadImg] = useState(null);
+  const [img, setImg] = useState(currentUser.avatarURL || '');
 
   const schema = Yup.object().shape({
     name: Yup.string().required('Name is Required'),
@@ -64,24 +65,23 @@ export const EditProfileModal = ({ handleClose }) => {
 
   const onFormSubmit = (values, { resetForm }) => {
     const user = {
-      // img: photos,
       name: values.name,
       email: values.email,
       password: values.password,
       _id: currentUser._id,
     };
 
-    const updateAvatarData = {
-      _id: currentUser._id,
-      path: photos.dataURL,
-    };
-
-    // console.log(photos);
-
-    resetForm();
+    const formData = new FormData();
+    formData.append('avatar', uploadImg);
 
     dispatch(authUpdateUser(user));
-    dispatch(authUpdateUserAvatar(updateAvatarData));
+
+    if (uploadImg) {
+      dispatch(authUpdateUserAvatar(formData));
+    }
+
+    resetForm();
+    handleClose();
   };
 
   return (
@@ -98,7 +98,7 @@ export const EditProfileModal = ({ handleClose }) => {
           initialValues={{
             name: currentUser.name,
             email: currentUser.email,
-            password: currentUser.password,
+            password: '',
           }}
           validationSchema={schema}
           onSubmit={onFormSubmit}
@@ -107,31 +107,32 @@ export const EditProfileModal = ({ handleClose }) => {
             <Form autoComplete="off">
               <div className={styles.box_icon_user}>
                 <div className={styles.icon_dropzone}>
-                  {photos.dataURL ? (
+                  {img ? (
                     <img
                       style={{ borderRadius: '4px' }}
                       className={styles.icon_user}
-                      src={photos.dataURL}
-                      alt={photos.photoName}
+                      src={img}
+                      alt="user"
                     />
                   ) : (
                     <img
                       className={styles.icon_user}
-                      src={userImg}
+                      src={img ? img : userImg}
                       alt="unknown user img"
                     />
                   )}
-
-                  <DropzoneBox
-                    setIsShowEditor={setIsShowEditor}
-                    setUploadImg={setUploadImg}
-                  />
+                  <DropzoneBox setUploadImg={setUploadImg} setImg={setImg} />
                   <div className={styles.box_add}>
                     <AddIcon width="10px" height="10px" />
                   </div>
                 </div>
               </div>
-              <Field name="name" type="text" placeholder="Enter your Name" />
+              <Field
+                name="name"
+                type="text"
+                autoComplete="off"
+                placeholder="Enter your Name"
+              />
               {errors.name && touched.name ? (
                 <div className={styles.error}>{errors.name}</div>
               ) : null}
@@ -156,16 +157,6 @@ export const EditProfileModal = ({ handleClose }) => {
           )}
         </Formik>
       </div>
-      {isShowEditor && (
-        <PhotoEditor
-          setIsShowEditor={setIsShowEditor}
-          uploadImg={uploadImg}
-          setUploadImg={setUploadImg}
-          photos={photos}
-          setPhotos={setPhotos}
-          limit={2}
-        />
-      )}
     </Wrap>
   );
 };
