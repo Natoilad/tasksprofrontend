@@ -13,7 +13,6 @@ import {
 import { authReducer } from './auth/auth-slice';
 import { contentReducer } from './content/content-slice';
 import { tasksReducer } from './tasks/tasks-slice';
-import { bgReducer } from './backgrounds/background-slice';
 import { filterReducer } from './filter/filter-slice';
 
 const persistConfig = {
@@ -29,7 +28,6 @@ export const store = configureStore({
     auth: persistReducerUser,
     content: contentReducer,
     tasks: tasksReducer,
-    bg: bgReducer,
     filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>

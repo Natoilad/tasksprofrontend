@@ -59,9 +59,3 @@ export const RemoveCol = async (boardId, columnId) => {
   );
   return data;
 };
-
-export const BoardBackGrounds = async () => {
-  const { data } = await backendAPI.get('api/backgrounds');
-
-  return data;
-};

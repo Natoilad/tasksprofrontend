@@ -21,11 +21,12 @@ const desktop = props => {
 
 export const Container = styled.div`
   padding: 10px;
+  max-height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 92vh;
+  height: 92%;
   background-image: url(${mobile});
 
   @media (min-width: 768px) {

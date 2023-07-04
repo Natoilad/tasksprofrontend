@@ -9,7 +9,7 @@ import {
   Button,
 } from './WelcomePageComponent.styled';
 
-import icon from '../../images/sprite.svg';
+import sprite from '../../images/sprite.svg';
 
 export const WelcomePageComponent = () => {
   return (
@@ -18,13 +18,14 @@ export const WelcomePageComponent = () => {
         <ImgWrap />
         <LogoWrap>
           <SVG>
-            <use href={icon + '#appIcon'}></use>
+            <use href={sprite + '#icon-appIcon'}></use>
           </SVG>
           <H1>Task Pro</H1>
         </LogoWrap>
 
         <P>
-          Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!
+          Supercharge your productivity and take control of your tasks with Task
+          Pro - Don't wait, start achieving your goals now!
         </P>
         <Button to="/auth/register">Registration</Button>
         <Button to="/auth/login">Log In</Button>

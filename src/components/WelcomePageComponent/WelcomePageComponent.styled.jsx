@@ -21,7 +21,7 @@ export const Wrap = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) 
+  transform: translate(-50%, -50%);
 `;
 
 export const ImgWrap = styled.div`
@@ -34,16 +34,15 @@ export const ImgWrap = styled.div`
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
-  width: 162px;
-  height: 162px;
-  margin-bottom: 24px;
+    width: 162px;
+    height: 162px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1440px) {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 `;
-
 
 export const LogoWrap = styled.div`
   display: flex;
@@ -53,38 +52,36 @@ export const LogoWrap = styled.div`
 `;
 
 export const SVG = styled.svg`
-width: 40px;
-height: 40px; 
-  
-  
+  width: 40px;
+  height: 40px;
+  fill: #fff;
+
   @media screen and (min-width: 768px) {
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
   }
 `;
 
 export const H1 = styled.h1`
-font-family: Poppins;
-font-size: 28px;
-font-weight: 600;
-line-height: 21px;
-letter-spacing: -0.04em;
-text-align: center;
-  
-  
+  font-family: Poppins;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: -0.04em;
+  text-align: center;
 
   @media screen and (min-width: 768px) {
-  font-size: 40px;
-  line-height: 60px;
+    font-size: 40px;
+    line-height: 60px;
   }
 
   @media screen and (min-width: 1440px) {
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   }
 `;
 
 export const P = styled.p`
-font-family: Poppins;
+  font-family: Poppins;
   padding: 0 10px;
   width: 335px;
   font-weight: 400;
@@ -95,8 +92,8 @@ font-family: Poppins;
   margin-bottom: 48px;
 
   @media screen and (min-width: 768px) {
-  width: 473px;
-    }
+    width: 473px;
+  }
 `;
 
 export const Button = styled(Link)`
@@ -122,6 +119,6 @@ export const Button = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-  width: 344px;
-    }
+    width: 344px;
+  }
 `;
