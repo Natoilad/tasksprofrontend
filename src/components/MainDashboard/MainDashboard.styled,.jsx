@@ -9,17 +9,23 @@ export const Conteiner = styled.div`
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
+  max-width: 375px;
+  // height: 812px;
   padding-left: 20px;
   padding-right: 20px;
   height: 85vh;
   @media (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
+    max-width: 704px;
+    // max-height: 640px;
   }
 
   @media (min-width: 1440px) {
     padding-left: 24px;
     padding-right: 24px;
+    max-width: 1080px;
+    // max-height: 478px;
   }
 `;
 
