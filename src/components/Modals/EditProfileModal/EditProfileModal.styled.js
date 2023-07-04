@@ -53,4 +53,5 @@ export const CloseBtn = styled.button`
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
+  stroke: ${({ theme }) => theme.colors.primaryText};
 `;

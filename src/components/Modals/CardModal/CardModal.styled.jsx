@@ -29,7 +29,7 @@ export const CloseBtn = styled.button`
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
-  /* fill: ${({ theme }) => theme.colors.primaryText}; */
+  stroke: ${({ theme }) => theme.colors.primaryText};
 `;
 
 export const IconPlus = styled.svg`
