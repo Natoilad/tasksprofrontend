@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const backendAPI = axios.create({
-  baseURL: 'http://localhost:4001/',
+  baseURL: 'https://tasksprobackend.onrender.com/',
 });
 
 export const token = {
