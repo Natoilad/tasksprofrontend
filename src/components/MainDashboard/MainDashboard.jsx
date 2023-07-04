@@ -4,8 +4,10 @@ import {
   Conteiner,
   ScrollBlock,
   ColumnList,
+  IconPlus,
 } from './MainDashboard.styled,';
 // import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import icon from '../../images/sprite.svg';
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
@@ -60,7 +62,10 @@ const MainDashboard = ({ board, columns }) => {
             ))}
           </ColumnList>
         )}
-        <Btn onClick={addColumnModal}>Add another column</Btn>
+        <Btn onClick={addColumnModal}>
+          <IconPlus width="28" height="28">
+            <use href={icon + '#icon-plus-black'}></use>
+          </IconPlus>Add another column</Btn>
       </Conteiner>
     </ScrollBlock>
   );

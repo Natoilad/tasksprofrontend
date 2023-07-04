@@ -47,4 +47,11 @@ export const Btn = styled.button`
   font-weight: 500;
   font-family: 'Poppins';
   letter-spacing: -0.28px;
+  gap: 8px;
 `;
+
+export const IconPlus = styled.svg`
+  border-radius: 8px;
+  fill: ${({ theme }) => theme.colors.columIconPlusFill};
+  stroke: ${({ theme }) => theme.colors.columIconPlusStroke};
+  `;

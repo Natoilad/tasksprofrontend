@@ -24,7 +24,7 @@ const EditCardModal = ({
   modalTitle,
   handleClose,
   columnId,
-  btnName,
+  // btnName,
 }) => {
   const [taskTitle, setTaskTitle] = useState(title);
   const [taskDescription, setTaskDescription] = useState(description);
@@ -132,7 +132,8 @@ const EditCardModal = ({
           <IconPlus>
             <use href={icon + '#icon-plus'}></use>
           </IconPlus>
-          {btnName}
+          Edit
+          {/* {btnName} */}
         </Button>
 
         <CloseBtn onClick={handleClose}>

@@ -24,15 +24,24 @@ export const PopUpTransfer = styled.div`
   // outline: 2px solid red;
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   animation: ${fadeIn} 0.5s ease-out;
+  width: 135px;
+  height: 86px;
+  padding: 18px;
 `;
 
 export const PopUpColumnList = styled.ul`
-  padding: 18px;
+  /* padding: 18px; */
   display: flex;
   flex-direction: column;
+  gap: 8px;
 `;
 
 export const PopUpListItem = styled.li`
   display: flex;
   width: 100%;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.02em;
 `;
