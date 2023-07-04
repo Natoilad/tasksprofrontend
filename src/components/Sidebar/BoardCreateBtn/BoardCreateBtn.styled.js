@@ -34,4 +34,10 @@ export const CreateBoardIcon = styled.svg`
   height: 36px;
   fill: ${({ theme }) => theme.colors.barBtnBg};
   stroke: ${({ theme }) => theme.colors.btnText};
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+    fill: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;

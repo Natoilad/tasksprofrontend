@@ -25,7 +25,7 @@ export const authRegister = createAsyncThunk(
         token.set(loginData.token);
 
         toast.success('Registration successful!');
-        return loginData;
+        return data;
       }
       return data;
     } catch (error) {

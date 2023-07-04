@@ -101,6 +101,12 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+   background: ${({ theme }) => theme.colors.btnFocus};
+   };
 `;
 
 export const CloseBtn = styled.button`
@@ -116,4 +122,7 @@ export const CloseBtn = styled.button`
 export const CloseIcon = styled.svg`
   width: 18px;
   height: 18px;
+  stroke: ${({ theme }) => theme.colors.primaryText};
+  /* stroke: black;
+  fill: none; */
   `;
