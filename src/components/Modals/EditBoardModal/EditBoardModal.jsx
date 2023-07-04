@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+import { useNavigate } from 'react-router-dom';
 import {
   Form,
   Field,
@@ -18,33 +20,42 @@ import {
   BlockSvg,
   Bgpriority,
   CloseIcon,
-} from './AddBoard.styled';
+} from './EditBoardModal.styled';
 
 import sprite from '../../../images/sprite.svg';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
-import { addBoards } from 'redux/content/content-operations';
+import { updateBoard } from 'redux/content/content-operations';
 // import { useBg } from 'hooks/backgroundHooks';
 import { getBackGrounds } from 'redux/backgrounds/background-operations';
-import BgComponent from './bgComponent';
+import BgComponent from '../AddBoard/bgComponent';
 
-const AddBoard = ({ handleClose, title, background, icon, butName }) => {
+const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
+  const [inputValue, setInputValue] = useState(boardTitle);
   const [value, setValue] = useState('icon-dashbordicon1');
-  const [bground, setBground] = useState(null);
+  const [bground, setBground] = useState(boardBgr);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const { backgrounds } = useBg();
+  const handleInputChange = event => {
+    setInputValue(event.target.value);
+  };
 
   const hundleSubmit = event => {
     event.preventDefault();
 
-    const task = {
-      title: event.currentTarget.elements.title.value,
+    const data = {
+      title: inputValue,
       icon: value,
       background: bground,
     };
 
-    dispatch(addBoards(task));
+    dispatch(updateBoard({ boardId, data }));
+
+    if (boardTitle !== data.title) {
+      navigate(`/home/${data.title}`, { replace: true });
+    }
+
     handleClose();
   };
 
@@ -65,11 +76,10 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
       <Form onSubmit={hundleSubmit}>
         <Title>{title}</Title>
         <Field
-          id="title"
           type="text"
-          required
           name="title"
-          placeholder="Title"
+          value={inputValue}
+          onChange={handleInputChange}
         />
         <Label id="my-radio-groupIcon">
           Icons
@@ -218,7 +228,7 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
             <use href={sprite + '#icon-plus-black'}></use>
           </IconPlus>
           {/* {butName} */}
-          Add
+          Edit
         </Button>
         <CloseBtn onClick={handleClose}>
           <CloseIcon width="18" height="18">
@@ -230,4 +240,4 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
   );
 };
 
-export default AddBoard;
+export default EditBoard;

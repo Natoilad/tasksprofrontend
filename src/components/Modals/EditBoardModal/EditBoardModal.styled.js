@@ -8,13 +8,6 @@ export const Wrap = styled.div`
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
-
-   @media (min-width: 375px) {
-    width: 335px;
-  }
-  @media (min-width: 768px) {
-    width: 350px;
-  }
 `;
 
 export const CloseBtn = styled.button`
@@ -39,10 +32,9 @@ export const Form = styled.form`
 
 export const Title = styled.h4`
   color: ${({ theme }) => theme.colors.primaryText};
-  line-height: 27px;
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.36px;
   margin-right: auto;
 `;
 
@@ -77,9 +69,8 @@ export const Label = styled.div`
   flex-direction: column;
   color: ${({ theme }) => theme.colors.primaryText};
   font-size: 14px;
-  line-height: 21px;
   font-family: 'Poppins';
-  letter-spacing: -0.02em;
+  letter-spacing: -0.28px;
   height: 100%;
 `;
 
@@ -110,19 +101,11 @@ export const Button = styled.button`
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
-  /* &:focus {
-    background: ${({ theme }) => theme.colors.btnFocus}
-      }; */
-  &:hover {
-    background: ${({ theme }) => theme.colors.btnFocus}
-  };
 `;
 
 export const IconPlus = styled.svg`
   border-radius: 8px;
-  fill: ${({ theme }) => theme.colors.iconPlusFill};
-  stroke: ${({ theme }) => theme.colors.iconPlusStroke};
-  `;
+`;
 
 export const InputSvg = styled.input`
   display: none;
