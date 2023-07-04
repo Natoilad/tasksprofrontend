@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const backendAPI = axios.create({
-  baseURL: 'https://tasksprobackend.onrender.com/',
+  baseURL: 'http://localhost:4001/',
 });
 
 export const token = {
@@ -45,7 +45,6 @@ export const updateUser = async user => {
 };
 
 export const updateUserAvatar = async avatar => {
-  const { _id, ...rest } = avatar;
-  const { data } = await backendAPI.patch(`auth/avatars`, rest);
+  const data = await backendAPI.patch(`auth/avatars`, avatar);
   return data;
 };

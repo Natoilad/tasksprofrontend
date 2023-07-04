@@ -86,7 +86,7 @@ const authSlice = createSlice({
       .addCase(authUpdateUserAvatar.pending, handleIfPending)
       .addCase(authUpdateUserAvatar.rejected, handleIfReject)
       .addCase(authUpdateUserAvatar.fulfilled, (state, { payload }) => {
-        state.userAvatar = payload;
+        state.user.avatarURL = payload.data.avatarURL;
         state.isLoading = false;
       });
   },

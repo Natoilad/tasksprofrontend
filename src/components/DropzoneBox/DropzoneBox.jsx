@@ -3,18 +3,15 @@ import styles from './DropzoneBox.module.css';
 
 const KILOBYTE = 1024;
 
-export const DropzoneBox = ({
-  setIsShowEditor,
-  setUploadImg,
-  maxFileSize = 10,
-}) => {
+export const DropzoneBox = ({ setImg, setUploadImg, maxFileSize = 10 }) => {
   const handleDrop = acceptedFiles => {
     const file = acceptedFiles[0];
+    setUploadImg(file);
+
     const reader = new FileReader();
 
     reader.onload = () => {
-      setUploadImg(reader.result);
-      setIsShowEditor(true);
+      setImg(reader.result);
     };
 
     reader.readAsDataURL(file);
