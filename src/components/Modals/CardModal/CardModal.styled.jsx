@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import 'variables/variables';
 import {
   highPriority,
@@ -205,6 +206,7 @@ export const Radio = styled.input`
 `;
 
 export const ButPiker = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -225,14 +227,11 @@ export const ChevronIcon = styled.svg`
   fill: ${({ theme }) => theme.colors.accent};
 `;
 
-// export const DatePicker = styled(DayPicker)`
-//   ${prop => {
-//     if (!prop.isOpen) {
-//       return `display: none;`;
-//     }
-//     return `display: block`;
-//   }}
-// `;
+export const Provider = styled(LocalizationProvider)`
+  visibility: hidden;
+  height: 18px;
+`;
+
 export const Button = styled.button`
   width: 100%;
   height: 49px;
