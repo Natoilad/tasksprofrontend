@@ -102,10 +102,13 @@ export const Header = () => {
             <UserInfoBox onClick={handleOpenModalEdit}>
               <p>{user.name}</p>
               <AvatarBox>
-                <svg width="32" height="32">
-                  <use href={icon + '#icon-user-avatar'}></use>
-                </svg>
-                <img src={user.avatarUrl} alt="User avatar" />
+                {user.avatarURL ? (
+                  <img src={user.avatarURL} alt="User avatar" />
+                ) : (
+                  <svg width="32" height="32">
+                    <use href={icon + '#icon-user-avatar'}></use>
+                  </svg>
+                )}
               </AvatarBox>
             </UserInfoBox>
           </UserBox>
