@@ -2,10 +2,16 @@ import styled from 'styled-components';
 
 export const Wrap = styled.div`
   position: relative;
-  width: 400px;
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
+
+  @media (min-width: 375px) {
+    width: 335px;
+  }
+  @media (min-width: 768px) {
+    width: 400px;
+  }
 `;
 
 export const Form = styled.form`
@@ -18,7 +24,8 @@ export const Title = styled.h4`
   color: ${({ theme }) => theme.colors.primaryText};
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.36px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
   margin-right: auto;
   margin-bottom: 24px;
 `;
@@ -27,7 +34,8 @@ export const Field = styled.input`
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 21px;
+  letter-spacing: -0.02em;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   opacity: 0.4000000059604645;
@@ -51,7 +59,8 @@ export const Field = styled.input`
 export const Comment = styled.textarea`
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 21px;
+  letter-spacing: -0.02em;
   display: block;
   width: 100%;
   height: 120px;
@@ -88,10 +97,16 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.accent};
   color: ${({ theme }) => theme.colors.btnText};
   text-align: center;
-  font-size: 14px;
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.28px;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+    background: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;
 
 export const CloseBtn = styled.button`
