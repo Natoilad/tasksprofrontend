@@ -4,10 +4,15 @@ import 'variables/variables';
 export const Wrap = styled.div`
   position: relative;
   width: 350px;
-  /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
+  @media (min-width: 375px) {
+    width: 335px;
+  }
+  @media (min-width: 768px) {
+    width: 350px;
+  }
 `;
 
 export const CloseBtn = styled.button`
@@ -92,4 +97,11 @@ export const Button = styled.button`
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
+
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+   background: ${({ theme }) => theme.colors.btnFocus};
+   };
 `;

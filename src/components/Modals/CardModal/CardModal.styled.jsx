@@ -9,11 +9,17 @@ import {
 
 export const Wrap = styled.div`
   position: relative;
-  width: 350px;
-  /* height: 221px; */
+   /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
+
+   @media (min-width: 375px) {
+    width: 335px;
+  }
+  @media (min-width: 768px) {
+    width: 350px;
+  }
 `;
 
 export const CloseBtn = styled.button`
@@ -49,9 +55,10 @@ export const Form = styled.form`
 
 export const Title = styled.h4`
   color: ${({ theme }) => theme.colors.primaryText};
-  font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.36px;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
   margin-right: auto;
 `;
 
@@ -247,4 +254,10 @@ export const Button = styled.button`
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.28px;
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+    background: ${({ theme }) => theme.colors.btnFocus}
+  };
 `;

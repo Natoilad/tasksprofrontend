@@ -40,6 +40,14 @@ export const dark = {
     inputBorder: 'rgba(190, 219, 176, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
+
+    btnFocus: 'rgba(157, 200, 136, 1)',
+    iconPlusStroke: 'rgba(255, 255, 255, 1)',
+    iconPlusFill: 'rgba(22, 22, 22, 1)',
+    sidebarIcon1: 'rgba(31, 31, 31, 1)',
+    sidebarIcon2: 'rgba(255, 255, 255, 1)',
+    columIconPlusStroke: 'rgba(18, 18, 18, 1)',
+    columIconPlusFill: 'rgba(255, 255, 255, 1)',
   },
 };
 
@@ -85,7 +93,15 @@ export const light = {
     inputBorder: 'rgba(190, 219, 176, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
-  },
+
+    btnFocus: 'rgba(157, 200, 136, 1)',
+    iconPlusStroke: 'rgba(255, 255, 255, 1)',
+    iconPlusFill: 'rgba(22, 22, 22, 1)',
+    sidebarIcon1: 'rgba(31, 31, 31, 1)',
+    sidebarIcon2: 'rgba(255, 255, 255, 1)',
+    columIconPlusStroke: 'rgba(255, 255, 255, 1)',
+    columIconPlusFill: 'rgba(22, 22, 22, 1)',
+    },
 };
 
 export const violet = {
@@ -130,5 +146,13 @@ export const violet = {
     inputBorder: 'rgba(82, 85, 188, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
+
+    btnFocus: 'rgba(123, 126, 222, 1)',
+    iconPlusStroke: 'rgba(22, 22, 22, 1)',
+    iconPlusFill: 'rgba(255, 255, 255, 1)',
+    sidebarIcon1: 'rgba(236, 237, 253, 1)',
+    sidebarIcon2: 'rgba(82, 85, 188, 1)',
+    columIconPlusStroke: 'rgba(255, 255, 255, 1)',
+    columIconPlusFill: 'rgba(82, 85, 188, 1)',
   },
 };

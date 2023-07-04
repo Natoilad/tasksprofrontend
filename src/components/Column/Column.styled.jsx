@@ -42,12 +42,18 @@ export const Btn = styled.button`
   font-weight: 500;
   letter-spacing: -0.28px;
   margin-bottom: 20px;
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+    background: ${({ theme }) => theme.colors.btnFocus}
+  };
 `;
 
 export const IconPlus = styled.svg`
   width: 28px;
   height: 28px;
   /* background-color: #fff; */
-  fill: ${({ theme }) => theme.colors.btnText};
-  stroke: ${({ theme }) => theme.colors.primaryText};
+  fill: ${({ theme }) => theme.colors.iconPlusFill};
+  stroke: ${({ theme }) => theme.colors.iconPlusStroke};
 `;
