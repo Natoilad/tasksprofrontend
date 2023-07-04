@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
@@ -25,8 +25,7 @@ import {
 import sprite from '../../../images/sprite.svg';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 import { updateBoard } from 'redux/content/content-operations';
-// import { useBg } from 'hooks/backgroundHooks';
-import { getBackGrounds } from 'redux/backgrounds/background-operations';
+
 import BgComponent from '../AddBoard/bgComponent';
 
 const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
@@ -62,10 +61,6 @@ const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
   const onClickOnBg = value => {
     setBground(value);
   };
-
-  useEffect(() => {
-    dispatch(getBackGrounds());
-  }, [dispatch]);
 
   function chengeValue(event) {
     setValue(event.target.value);

@@ -12,26 +12,21 @@ import {
   CloseBtn,
   IconPlus,
   Priority,
-  ButPiker,
-  ChevronIcon,
+  // ButPiker,
+  // ChevronIcon,
   Radio,
 } from './CardModal.styled';
-// import { DayPicker } from 'react-day-picker';
-// import { format } from 'date-fns';
-// import 'react-day-picker/dist/style.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
+import PickerWithButtonField from 'components/ButtonDatePicker/ButtonDatePicer';
 const CardModal = ({ board, handleClose, title, butName, columnId }) => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [date, setDate] = useState(Date.now());
-  // console.log(format(date, 'MM/dd/yyyy'));
-
+  const [date, setDate] = useState(Date.now());
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
 
-  const togleOpen = () => {
-    // setIsOpen(state => !state);
+  const setDeadline = value => {
+    setDate(value);
   };
 
   function chengeValue(event) {
@@ -40,16 +35,13 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // console.log(event.currentTarget.elements.description.value);
-
     const { owner, _id: id } = board;
-    // const title = event.currentTarget.elements.title.value
     const { title, description, priority } = event.currentTarget.elements;
     const task = {
       title: title.value,
       description: description.value,
       priority: priority.value || 'none',
-      // deadline: format(date, 'mm/dd/yyyy'),
+      deadline: date.$d,
       userId: { owner },
       boardId: { id },
       columnId: { columnId },
@@ -107,20 +99,14 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
           </Label>
           <Label>
             Deadline
-            <ButPiker onClick={togleOpen} style={{ marginTop: '4px' }}>
-              {/* {`Today, ${format(date, 'MMMM i')}`} */}
+            <PickerWithButtonField date={date} setDeadline={setDeadline} />
+            {/* <ButPiker style={{ marginTop: '4px' }}>
+              {`Today, ${dayjs(date).format('MMMM DD')}`}
+
               <ChevronIcon>
                 <use href={icon + '#icon-chevron-down'}></use>
               </ChevronIcon>
-            </ButPiker>
-            {/* <DayPicker
-              style={{ display: isOpen ? `block` : 'none' }}
-              showOutsideDays
-              fixedWeeks
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-            /> */}
+            </ButPiker> */}
           </Label>
         </SettingsBlock>
 

@@ -105,6 +105,8 @@ export const Button = styled.button`
 
 export const IconPlus = styled.svg`
   border-radius: 8px;
+  fill: ${({ theme }) => theme.colors.iconPlusFill};
+  stroke: ${({ theme }) => theme.colors.iconPlusStroke};
 `;
 
 export const InputSvg = styled.input`

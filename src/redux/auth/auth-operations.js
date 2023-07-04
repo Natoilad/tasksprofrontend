@@ -29,6 +29,7 @@ export const authRegister = createAsyncThunk(
       }
       return data;
     } catch (error) {
+      toast.error(error.response.data.message);
       return rejectWithValue(error.data.message);
     }
   }
@@ -44,7 +45,7 @@ export const authLogin = createAsyncThunk(
       toast.success('Login successful!');
       return data;
     } catch (error) {
-      toast.error('Login failed!');
+      toast.error(error.response.data.message);
 
       return rejectWithValue(error.message);
     }
@@ -74,11 +75,19 @@ export const authRefresh = createAsyncThunk(
     if (persistedToken === null) {
       return rejectWithValue('Sorry!Unable to fetch user');
     }
+
     try {
       token.set(persistedToken);
       const data = await currentUser();
       return data;
     } catch (error) {
+      // if (error.response.status === 401) {
+      //   const refreshtoken = state.auth.token;
+      //   token.set(refreshtoken);
+      //   const response = await currentUser();
+      //   console.log(response);
+      //   return logoutUser();
+      // }
       return rejectWithValue(error.message);
     }
   }
@@ -117,6 +126,7 @@ export const authUpdateUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error(error.response.data.message);
       return rejectWithValue(error.data.message);
     }
   }
@@ -134,6 +144,7 @@ export const authUpdateUserAvatar = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error(error.response.data.message);
       return rejectWithValue(error.data.message);
     }
   }

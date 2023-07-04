@@ -12,6 +12,7 @@ import {
   Priority,
   DeadLine,
 } from './Card.styled';
+import dayjs from 'dayjs';
 import TransferCard from 'components/Modals/TranferCardModal/TransferCardModal';
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
@@ -67,7 +68,7 @@ const Card = ({ task, columns, columnId }) => {
           </Label>
           <Label>
             defadline
-            <DeadLine>{deadline}</DeadLine>
+            <DeadLine>{dayjs(deadline).format('DD/MM/YYYY')}</DeadLine>
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
