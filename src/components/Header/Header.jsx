@@ -17,11 +17,12 @@ import { useAuth } from 'hooks/authHooks';
 import { updateTheme } from 'redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 
-export const Header = () => {
+export const Header = ({ toggleDrawer }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const { openModal, closeModal } = useContext(ModalContext);
   const themeListRef = useRef(null);
+  const anchor = 'left';
 
   const { user } = useAuth();
 
@@ -57,7 +58,7 @@ export const Header = () => {
     <>
       <HeaderComponent>
         <HeaderBox>
-          <BurgerMenuBtn>
+          <BurgerMenuBtn type="button" onClick={toggleDrawer(anchor, true)}>
             <svg width="24" height="24">
               <use href={icon + '#icon-burger-menu'}></use>
             </svg>
