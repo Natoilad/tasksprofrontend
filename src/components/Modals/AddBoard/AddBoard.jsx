@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Form,
@@ -23,8 +23,6 @@ import {
 import sprite from '../../../images/sprite.svg';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 import { addBoards } from 'redux/content/content-operations';
-// import { useBg } from 'hooks/backgroundHooks';
-import { getBackGrounds } from 'redux/backgrounds/background-operations';
 import BgComponent from './bgComponent';
 
 const AddBoard = ({ handleClose, title, background, icon, butName }) => {
@@ -51,10 +49,6 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
   const onClickOnBg = value => {
     setBground(value);
   };
-
-  useEffect(() => {
-    dispatch(getBackGrounds());
-  }, [dispatch]);
 
   function chengeValue(event) {
     setValue(event.target.value);
