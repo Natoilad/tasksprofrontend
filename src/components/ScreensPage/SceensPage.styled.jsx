@@ -36,6 +36,7 @@ export const Container = styled.div`
     background-image: url(${desktop});
   }
 `;
+//  background-image: ${props => console.log(props)};
 
 // const trueBackground = backgrounds.find(
 //   background => background._id === props.board.background[0]

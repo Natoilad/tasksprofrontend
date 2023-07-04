@@ -1,8 +1,5 @@
 import { useSelector } from 'react-redux';
-import {
-  selectContent,
-  // selectCurrentBoard,
-} from 'redux/content/content-selectors';
+import { selectContent } from 'redux/content/content-selectors';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,20 +11,23 @@ import { useEffect } from 'react';
 
 import { Container } from 'components/ScreensPage/SceensPage.styled';
 // import backgrounds from '../../images/bgFolder/backgrounds.json';
+
 // import { useState } from 'react';
 
 const ScreensPage = () => {
-  // const currentBoard = useSelector(selectCurrentBoard);
   const boards = useSelector(selectContent);
   const navigate = useNavigate();
   const { boardName } = useParams();
   // const [idBackground, setIdBackground] = useState();
 
+  const board = boards.find(board => board.title === boardName);
+
+  // console.log(boards.map(board => console.log(board.background)));
+
   // const trueBackground = backgrounds.find(
-  //   background =>
-  //     background._id === board.background[0]
+  //   background => background._id === board.background[0]
   // );
-  // setIdBackground(trueBackground);
+
   // console.log(trueBackground);
 
   useEffect(() => {
@@ -39,7 +39,6 @@ const ScreensPage = () => {
     }
   }, [boardName, boards, navigate]);
 
-  const board = boards.find(board => board.title === boardName);
   // const findBgId = async () => {
   //   if (!board.background) return;
   //   const trueBackground = await backgrounds.find(
@@ -49,11 +48,6 @@ const ScreensPage = () => {
   //   return trueBackground;
   // };
 
-  // async () => {
-  //         const bgid = await findBgId();
-  //         console.log(bgid);
-  //         return bgid;
-  //       }
   return (
     
       <>

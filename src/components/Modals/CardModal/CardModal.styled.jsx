@@ -181,13 +181,13 @@ export const Radio = styled.input`
         ${props => {
           switch (props.value) {
             case 'low':
-              return `background-color: ${lowPriority}`;
+              return `border-color: ${lowPriority}`;
             case 'medium':
-              return `background-color: ${mediumPriority}`;
+              return `border-color: ${mediumPriority}`;
             case 'high':
-              return `background-color: ${highPriority} `;
+              return `border-color: ${highPriority} `;
             case 'none':
-              return `background-color: ${white30}`;
+              return `border-color: ${white30}`;
             default:
               return;
           }
@@ -197,7 +197,7 @@ export const Radio = styled.input`
   }
 `;
 
-export const ButPiker = styled.button`
+export const ButPiker = styled.div`
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -207,6 +207,7 @@ export const ButPiker = styled.button`
   text-align: left;
   background: none;
   border: none;
+  cursor: pointer;
   padding: 0;
   color: ${({ theme }) => theme.colors.accent};
 `;
@@ -217,6 +218,14 @@ export const ChevronIcon = styled.svg`
   fill: ${({ theme }) => theme.colors.accent};
 `;
 
+// export const DatePicker = styled(DayPicker)`
+//   ${prop => {
+//     if (!prop.isOpen) {
+//       return `display: none;`;
+//     }
+//     return `display: block`;
+//   }}
+// `;
 export const Button = styled.button`
   width: 100%;
   height: 49px;

@@ -24,7 +24,7 @@ const options = {
   },
 };
 
-const Column = ({ board, title, id }) => {
+const Column = ({ columns, board, title, id }) => {
   // console.log(id);
   const { tasks } = useSelector(selectTasks);
   // console.log(realTasks);
@@ -46,7 +46,6 @@ const Column = ({ board, title, id }) => {
     });
   };
   const filteredTasks = tasks.filter(task => task.columnId === id);
-
   const filterPriority = () => {
     if (filter !== 'all') {
       return filteredTasks.filter(task => task.priority === filter);
@@ -61,7 +60,7 @@ const Column = ({ board, title, id }) => {
         <CardList>
           {filterPriority().map(item => (
             <li key={item._id}>
-              <Card task={item} />
+              <Card columns={columns} columnId={id} task={item} />
             </li>
           ))}
         </CardList>

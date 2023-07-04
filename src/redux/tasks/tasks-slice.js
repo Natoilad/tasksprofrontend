@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  UpdateTask,
+  transferTask,
   addTasks,
   getTaskByColumnId,
   getTaskById,
   getTasks,
   removeTask,
+  updateTask,
 } from './tasks-operations';
 
 const tasksSlice = createSlice({
@@ -34,14 +35,20 @@ const tasksSlice = createSlice({
       .addCase(removeTask.pending)
       .addCase(removeTask.rejected)
       .addCase(removeTask.fulfilled, (state, { payload }) => {
-        const index = state.tasks.findIndex(task => task.id === payload.id);
-        state.slice(index, 1);
+        const index = state.tasks.findIndex(task => task._id === payload);
+        state.tasks.splice(index, 1);
       })
-      .addCase(UpdateTask.pending)
-      .addCase(UpdateTask.rejected)
-      .addCase(UpdateTask.fulfilled, (state, { payload }) => {
-        const index = state.tasks.findIndex(task => task.id === payload.id);
-        state.slice(index, 1, payload);
+      .addCase(updateTask.pending)
+      .addCase(updateTask.rejected)
+      .addCase(updateTask.fulfilled, (state, { payload }) => {
+        const index = state.tasks.findIndex(task => task._id === payload._id);
+        state.tasks.splice(index, 1, payload);
+      })
+      .addCase(transferTask.pending)
+      .addCase(transferTask.rejected)
+      .addCase(transferTask.fulfilled, (state, { payload }) => {
+        const index = state.tasks.findIndex(t => t._id === payload._id);
+        state.tasks.splice(index, 1, payload);
       });
   },
 });

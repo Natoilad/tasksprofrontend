@@ -1,10 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
+  UpdateTaskById,
   GetTasksList,
   GetById,
   GetByColumnId,
   AddTask,
   DeleteTask,
+  Transfer,
 } from 'service/tasks-servise';
 export const getTasks = createAsyncThunk(
   '/api/tasks',
@@ -47,7 +49,19 @@ export const removeTask = createAsyncThunk(
   '/api/removeTask',
   async (id, thunkAPI) => {
     try {
-      const response = await DeleteTask(id);
+      await DeleteTask(id);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const updateTask = createAsyncThunk(
+  '/api/updateTask',
+  async (data, thunkAPI) => {
+    try {
+      const response = await UpdateTaskById(data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -55,12 +69,12 @@ export const removeTask = createAsyncThunk(
   }
 );
 
-export const UpdateTask = createAsyncThunk(
-  '/api/updateTask',
+export const transferTask = createAsyncThunk(
+  'api/TransferTask',
   async (data, thunkAPI) => {
     try {
-      //   const response = await UpdateTaskById(id, data)
-      //   return response;
+      const response = await Transfer(data);
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
