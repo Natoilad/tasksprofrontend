@@ -15,6 +15,8 @@
 //   );
 // };
 // import icon from '../../images/sprite.svg';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as React from 'react';
 import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
@@ -63,8 +65,14 @@ function ButtonDatePicker(props) {
 export default function PickerWithButtonField({ setDeadline, date }) {
   const [value, setValue] = React.useState(null);
   const setDate = newValue => {
+    if (dayjs(newValue) < Date.now()) {
+      toast.warning('Please select a date in future', {
+        position: 'top-center',
+      });
+      // alert('Please select a date in future');
+      return;
+    }
     setValue(newValue);
-
     setDeadline(newValue);
   };
   return (

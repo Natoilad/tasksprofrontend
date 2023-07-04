@@ -16,7 +16,6 @@ import {
   // ChevronIcon,
   Radio,
 } from './CardModal.styled';
-import 'react-day-picker/dist/style.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
@@ -36,8 +35,6 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // console.log(event.currentTarget.elements.description.value);
-
     const { owner, _id: id } = board;
     const { title, description, priority } = event.currentTarget.elements;
     const task = {
