@@ -12,7 +12,6 @@ export const ScrollBlock = styled(OverlayScrollbarsComponent)`
   padding-left: 20px;
   padding-right: 20px;
   height: 85vh;
-
   @media (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
