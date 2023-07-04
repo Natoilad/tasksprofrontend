@@ -7,6 +7,20 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
+export const Box = styled.div`
+  display: flex;
+  justify-content: space-between;
+  /* gap: 8px; */
+  width: 100%;
+  stroke: ${({ theme }) => theme.colors.transferPrimary};
+  color: ${({ theme }) => theme.colors.transferPrimary};
+
+  &:hover {
+    stroke: ${({ theme }) => theme.colors.transferAccent};
+    color: ${({ theme }) => theme.colors.transferAccent};
+  }
+`;
+
 export const PopUpItemName = styled.p`
   display: flex;
   flex-wrap: nowrap;
@@ -17,11 +31,10 @@ export const PopUpItemName = styled.p`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
-  color: #fff;
 
-  &:hover {
+  /* &:hover {
     color: #bedbb0;
-  }
+  } */
 `;
 
 export const PopUpItemBtn = styled.button`
@@ -34,9 +47,8 @@ export const PopUpItemBtn = styled.button`
 export const IconSvg = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: gray;
 
-  &:hover {
+  /* &:hover {
     stroke: #bedbb0;
-  }
+  } */
 `;

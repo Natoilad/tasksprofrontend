@@ -1,5 +1,6 @@
 import {
   Wrapper,
+  Box,
   PopUpItemBtn,
   PopUpItemName,
   IconSvg,
@@ -12,12 +13,15 @@ const TransferCard = ({ column, handleClick }) => {
   };
   return (
     <Wrapper onClick={selectColumn}>
-      <PopUpItemName>{column.title}</PopUpItemName>
+      <Box>
+        <PopUpItemName>{column.title}</PopUpItemName>
       <PopUpItemBtn>
         <IconSvg>
           <use href={icon + '#icon-arrow-circle-broken-right'}></use>
         </IconSvg>
-      </PopUpItemBtn>
+        </PopUpItemBtn>
+      </Box>
+      
     </Wrapper>
   );
 };

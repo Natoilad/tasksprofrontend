@@ -48,6 +48,11 @@ export const dark = {
     sidebarIcon2: 'rgba(255, 255, 255, 1)',
     columIconPlusStroke: 'rgba(18, 18, 18, 1)',
     columIconPlusFill: 'rgba(255, 255, 255, 1)',
+    transferBg: 'rgba(31, 31, 31, 1)',
+    transferPrimary: 'rgba(255, 255, 255, 0.5)',
+    transferAccent: 'rgba(190, 219, 176, 1)',
+    logOut: 'rgba(190, 219, 176, 1)',
+    logOutAccent:'rgba(157, 200, 136, 1)',
   },
 };
 
@@ -101,6 +106,11 @@ export const light = {
     sidebarIcon2: 'rgba(255, 255, 255, 1)',
     columIconPlusStroke: 'rgba(255, 255, 255, 1)',
     columIconPlusFill: 'rgba(22, 22, 22, 1)',
+    transferBg: 'rgba(252, 252, 252, 1)',
+    transferPrimary: 'rgba(22, 22, 22, 1)',
+    transferAccent: 'rgba(190, 219, 176, 1)',
+    logOut: 'rgba(190, 219, 176, 1)',
+    logOutAccent:'rgba(157, 200, 136, 1)',
     },
 };
 
@@ -154,5 +164,10 @@ export const violet = {
     sidebarIcon2: 'rgba(82, 85, 188, 1)',
     columIconPlusStroke: 'rgba(255, 255, 255, 1)',
     columIconPlusFill: 'rgba(82, 85, 188, 1)',
+    transferBg: 'rgba(252, 252, 252, 1)',
+    transferPrimary: 'rgba(22, 22, 22, 1)',
+    transferAccent: 'rgba(82, 85, 188, 1)',
+    logOut: 'rgba(255, 255, 255, 1)',
+    logOutAccent:'rgba(184, 188, 253, 1)',
   },
 };
