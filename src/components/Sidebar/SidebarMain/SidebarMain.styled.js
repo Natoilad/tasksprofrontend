@@ -15,6 +15,10 @@ export const SidebarWrapper = styled.section`
   top: 0;
   left: -100%; */
 
+  @media screen and (min-width: 320px) {
+    /* visibility: hidden; */
+  }
+
   @media screen and (min-width: 768px) {
     width: 260px;
     padding: 24px;

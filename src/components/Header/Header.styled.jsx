@@ -2,52 +2,23 @@ import styled from 'styled-components';
 
 export const HeaderComponent = styled.header`
   background-color: ${({ theme }) => theme.colors.secondaryBg};
-  font-size: 14px;
-
-  padding-top: 14px;
-  padding-bottom: 14px;
 
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  line-height: 21px;
+  line-height: 1.5;
   letter-spacing: -0.02em;
-  text-align: left;
 
-  @media screen and (min-width: 768px) {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
-`;
-
-export const HeaderBox = styled.div`
-  box-sizing: border-box;
+  padding: 14px 20px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding-left: 20px;
-  padding-right: 20px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-
   @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
-
-  @media screen and (min-width: 1440px) {
-    width: 100%;
-    justify-content: flex-end;
-
-    padding-left: 24px;
-    padding-right: 24px;
+  @media screen and (min-width: 1280px) {
+    padding: 18px 24px;
   }
 `;
 
@@ -145,7 +116,11 @@ export const BurgerMenuBtn = styled.button`
   background-color: transparent;
   cursor: pointer;
 
-  @media screen and (min-width: 1440px) {
-    display: none;
+  @media screen and (min-width: 1280px) {
+    visibility: hidden;
   }
+`;
+
+export const BurgerSvg = styled.svg`
+  stroke: ${({ theme }) => theme.colors.btnIcon};
 `;
