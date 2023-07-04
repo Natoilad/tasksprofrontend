@@ -18,7 +18,6 @@ export const HelpText = styled.p`
   color: ${({ theme }) => theme.colors.barPrimaryText};
   margin-top: 14px;
   margin-bottom: 18px;
-  
 `;
 
 export const HelpSpan = styled.span`
@@ -41,4 +40,5 @@ export const HelpButton = styled.button`
 export const HelpIcon = styled.svg`
   width: 20px;
   height: 20px;
+  stroke: ${({ theme }) => theme.colors.barPrimaryText};
 `;

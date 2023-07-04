@@ -19,7 +19,7 @@ export const PopUpTransfer = styled.div`
   z-index: 5000;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.cardBg};
+  background-color: ${({ theme }) => theme.colors.transferBg};
   border-radius: 8px;
   // outline: 2px solid red;
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);

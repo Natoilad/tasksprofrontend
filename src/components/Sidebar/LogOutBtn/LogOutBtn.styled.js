@@ -16,4 +16,11 @@ export const LogOutBox = styled.button`
 export const LogOutIcon = styled.svg`
   width: 32px;
   height: 32px;
+  stroke: ${({ theme }) => theme.colors.barBtnBg};
+  /* &:focus {
+    background: ${({ theme }) => theme.colors.btnFocus}
+      }; */
+  &:hover {
+    stroke: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;
