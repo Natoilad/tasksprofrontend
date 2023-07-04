@@ -111,9 +111,9 @@ export const authUpdateUser = createAsyncThunk(
     try {
       const data = await updateUser(user);
 
-      if (data.status === 'success') {
-        toast.success('User has been updated successfully!');
-      }
+      // if (data.status === 200) {
+      //   toast.success('User has been updated successfully!');
+      // }
 
       return data;
     } catch (error) {
@@ -128,9 +128,9 @@ export const authUpdateUserAvatar = createAsyncThunk(
     try {
       const data = await updateUserAvatar(user);
 
-      if (data.status === 'success') {
-        toast.success('User has been updated successfully!');
-      }
+      // if (data.status === 200) {
+      //   toast.success('User has been updated successfully!');
+      // }
 
       return data;
     } catch (error) {
