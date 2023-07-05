@@ -9,16 +9,44 @@ export const HeaderComponent = styled.header`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  padding: 14px 20px;
-  margin: 0 auto;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  /* margin: 0 auto; */
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+
+  @media screen and (min-width: 768px) {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+`;
+
+export const HeaderBox = styled.div`
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
 
   @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
+
   @media screen and (min-width: 1280px) {
-    padding: 18px 24px;
+    width: 100%;
+    /* justify-content: flex-end; */
+    padding-left: 24px;
+    padding-right: 24px;
   }
 `;
 
