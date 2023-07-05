@@ -16,14 +16,18 @@ import {
   // ChevronIcon,
   Radio,
 } from './CardModal.styled';
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTasks } from 'redux/tasks/tasks-operations';
 import PickerWithButtonField from 'components/ButtonDatePicker/ButtonDatePicer';
+import { useTheme } from 'styled-components';
+
 const CardModal = ({ board, handleClose, title, butName, columnId }) => {
   const [date, setDate] = useState(Date.now());
   const [value, setValue] = useState('1');
   const dispatch = useDispatch();
+  const theme = useTheme();
 
   const setDeadline = value => {
     setDate(value);
@@ -89,6 +93,7 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
                 onChange={chengeValue}
               />
               <Radio
+                theme={theme}
                 type="radio"
                 name="priority"
                 value="none"

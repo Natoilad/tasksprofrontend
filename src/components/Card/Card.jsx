@@ -19,10 +19,17 @@ import { useContext } from 'react';
 import EditCardModal from 'components/Modals/CardModal/EditCardModal';
 import { useDispatch } from 'react-redux';
 import { removeTask } from 'redux/tasks/tasks-operations';
+
+import { useTheme } from 'styled-components';
+
 const DAY_MS = 86400000;
+
 const Card = ({ task, columns, columnId }) => {
   const { title, priority, description, _id: id, deadline } = task;
   const { openModal, closeModal } = useContext(ModalContext);
+
+  const theme = useTheme();
+
   const editCardModal = () => {
     openModal({
       children: (
@@ -57,7 +64,7 @@ const Card = ({ task, columns, columnId }) => {
   };
 
   return (
-    <Conteiner priority={priority}>
+    <Conteiner theme={theme} priority={priority}>
       <Title>{title}</Title>
       <Descriptions>{description}</Descriptions>
       <SettingsBlock>
