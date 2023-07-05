@@ -8,7 +8,7 @@ export const Conteiner = styled.div`
   width: 335px;
   padding: 18px 20px;
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.primaryBg};
+  background: ${({ theme }) => theme.colors.cardBg};
 `;
 
 export const ColumnName = styled.p`
