@@ -52,7 +52,10 @@ export const dark = {
     transferPrimary: 'rgba(255, 255, 255, 0.5)',
     transferAccent: 'rgba(190, 219, 176, 1)',
     logOut: 'rgba(190, 219, 176, 1)',
-    logOutAccent:'rgba(157, 200, 136, 1)',
+    logOutAccent: 'rgba(157, 200, 136, 1)',
+    filterLine: 'rgba(255, 255, 255, 0.1)',
+    filterText: 'rgba(255, 255, 255, 0.5)',  
+    mainBorder: 'rgba(190, 219, 176, 1)',
   },
 };
 
@@ -110,7 +113,10 @@ export const light = {
     transferPrimary: 'rgba(22, 22, 22, 1)',
     transferAccent: 'rgba(190, 219, 176, 1)',
     logOut: 'rgba(190, 219, 176, 1)',
-    logOutAccent:'rgba(157, 200, 136, 1)',
+    logOutAccent: 'rgba(157, 200, 136, 1)',
+    filterLine: 'rgba(22, 22, 22, 0.1)',
+    filterText: 'rgba(22, 22, 22, 0.5)',
+    mainBorder: 'rgba(190, 219, 176, 1)',
     },
 };
 
@@ -168,6 +174,9 @@ export const violet = {
     transferPrimary: 'rgba(22, 22, 22, 1)',
     transferAccent: 'rgba(82, 85, 188, 1)',
     logOut: 'rgba(255, 255, 255, 1)',
-    logOutAccent:'rgba(184, 188, 253, 1)',
+    logOutAccent: 'rgba(184, 188, 253, 1)',
+    filterLine: 'rgba(22, 22, 22, 0.1)',
+    filterText: 'rgba(22, 22, 22, 0.5)',
+    mainBorder: 'rgba(255, 255, 255, 1)',
   },
 };

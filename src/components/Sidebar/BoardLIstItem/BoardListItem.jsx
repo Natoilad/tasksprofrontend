@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { removeBoard } from 'redux/content/content-operations';
 import icon from '../../../images/sprite.svg';
-import {
+import {Box,
   // BoardHero,
-  BoardIcon,
+  // BoardIcon,
   // BoarLink,
   BoardItem,
-  BtnIcon,
+  // BtnIcon,
   BoardBtnBox,
   BoardBtn,
 } from './BoardListItem.styled';
@@ -51,27 +51,27 @@ export const BoardListItem = ({ board }) => {
     dispatch(removeBoard(board._id));
   };
   return (
-    <>
+    <Box>
       <BoardItem to={`/home/${board.title}`}>
         {/* <BoardHero> */}
-        <BoardIcon>
+        <svg className='main'>
           <use href={icon + `#${board.icon}`}></use>
-        </BoardIcon>
+        </svg>
         <p>{board.title}</p>
         {/* </BoardHero> */}
       </BoardItem>
       <BoardBtnBox>
         <BoardBtn type="button" onClick={editBoardModal}>
-          <BtnIcon>
+          <svg className='btn'>
             <use href={icon + '#icon-pencil'}></use>
-          </BtnIcon>
+          </svg>
         </BoardBtn>
         <BoardBtn type="button" onClick={onDelete}>
-          <BtnIcon>
+          <svg className='btn'>
             <use href={icon + '#icon-trash'}></use>
-          </BtnIcon>
+          </svg>
         </BoardBtn>
       </BoardBtnBox>
-    </>
+    </Box>
   );
 };
