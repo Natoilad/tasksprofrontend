@@ -1,14 +1,11 @@
 import icon from '../../../images/sprite.svg';
 import React from 'react';
-import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
 import { useTheme } from 'styled-components';
 
 import {
-  Form,
   FieldSvg,
   Wrap,
   CloseBtn,
@@ -21,13 +18,11 @@ import {
   Box,
   Svg,
   ImgContainer,
+  FormFilter,
 } from './FilterModal.styled';
 import { setFilter } from 'redux/filter/filter-slice';
 import BgComponent from '../AddBoard/bgComponent';
 import { updateBoardEl } from 'redux/content/content-operations';
-// import { ThemeProvider } from 'styled-components';
-
-const initialFormValues = {};
 
 export const FilterModal = ({
   handleClose,
@@ -36,19 +31,15 @@ export const FilterModal = ({
   boardBgr,
   boardTitle,
 }) => {
-  const [bground, setBground] = useState(boardBgr);
   const dispatch = useDispatch();
   const theme = useTheme();
 
   const onClickOnBg = value => {
-    setBground(value);
-
     const data = {
       title: boardTitle,
-      background: bground,
+      background: value,
     };
 
-    console.log(data);
     dispatch(updateBoardEl({ boardId, data }));
   };
 
@@ -56,30 +47,26 @@ export const FilterModal = ({
     dispatch(setFilter(e.target.value));
   };
 
-  // const bgChange = event => {
-  //   const data = {
-  //     title: boardTitle,
-  //     background: bground,
-  //   };
-
-  //   dispatch(updateBoardEl({ boardId, data }));
-  // };
-
   return (
     <>
-      {/* <ThemeProvider theme={theme}> */}
+    
       <Wrap>
         <Title>{title}</Title>
-        <Formik initialValues={initialFormValues} onSubmit={() => {}}>
-          <Form autoComplete="off">
+       
+          <FormFilter autoComplete="off">
             <Text>Backgrounds</Text>
-            <ImgContainer role="group" aria-labelledby="bgimg-group">
+            <ImgContainer
+              role="group"
+              aria-labelledby="bgimg-group"
+            >
               <label>
                 <FieldSvg
                   type="radio"
                   name="radio"
                   value="649f40cdcaf11c74bb222222"
-                  onClick={e => onClickOnBg(e.target.value)}
+                onClick={e => {
+                  onClickOnBg(e.target.value)
+                }}
                 />
                 <Svg>
                   <use href={icon + '#icon-block'}></use>
@@ -92,13 +79,13 @@ export const FilterModal = ({
                       key={bg._id}
                       bg={bg}
                       _id={bg._id}
-                      // onChange={onClickOnBg}
                       onClick={onClickOnBg}
                     />
                   </>
                 );
               })}
             </ImgContainer>
+
             <Box>
               <Text name="labelPriority">Label color</Text>
               <ShowAll>
@@ -155,15 +142,13 @@ export const FilterModal = ({
                 High
               </label>
             </LabelContainer>
-          </Form>
-        </Formik>
+          </FormFilter>
         <CloseBtn onClick={handleClose}>
           <CloseIcon>
             <use href={icon + '#icon-close'}></use>
           </CloseIcon>
         </CloseBtn>
       </Wrap>
-      {/* </ThemeProvider> */}
     </>
   );
 };

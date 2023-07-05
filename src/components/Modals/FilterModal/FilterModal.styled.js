@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Form as FormikForm, Field as FormikField } from 'formik';
+// import { Form as FormikForm, Field as FormikField } from 'formik';
 import {
   // white100,
   // white50,
@@ -22,7 +22,7 @@ export const Wrap = styled.div`
   font-family: 'Poppins', sans-serif;
 `;
 
-export const Form = styled(FormikForm)`
+export const FormFilter = styled.form`
   display: flex;
   flex-direction: column;
 `;
@@ -68,7 +68,7 @@ export const Svg = styled.svg`
   }
 `;
 
-export const FieldSvg = styled(FormikField)`
+export const FieldSvg = styled.input`
   opacity: 0;
   position: absolute;
   cursor: pointer;
