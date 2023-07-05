@@ -81,13 +81,15 @@ export const authRefresh = createAsyncThunk(
       const data = await currentUser();
       return data;
     } catch (error) {
-      // if (error.response.status === 401) {
-      //   const refreshtoken = state.auth.token;
-      //   token.set(refreshtoken);
-      //   const response = await currentUser();
-      //   console.log(response);
-      //   return logoutUser();
-      // }
+      console.log(error);
+      if (error.response.status === 401) {
+        // const refreshtoken = state.auth.token;
+        // token.set(null);
+        await logoutUser();
+        token.unSet();
+        // const response = await currentUser();
+        console.log(token);
+      }
       return rejectWithValue(error.message);
     }
   }
