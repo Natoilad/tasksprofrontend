@@ -9,7 +9,7 @@ export const Wrap = styled.div`
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
 
-   @media (min-width: 375px) {
+  @media (min-width: 375px) {
     width: 335px;
   }
   @media (min-width: 768px) {
@@ -114,15 +114,15 @@ export const Button = styled.button`
     background: ${({ theme }) => theme.colors.btnFocus}
       }; */
   &:hover {
-    background: ${({ theme }) => theme.colors.btnFocus}
-  };
+    background: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;
 
 export const IconPlus = styled.svg`
   border-radius: 8px;
   fill: ${({ theme }) => theme.colors.iconPlusFill};
   stroke: ${({ theme }) => theme.colors.iconPlusStroke};
-  `;
+`;
 
 export const InputSvg = styled.input`
   display: none;
@@ -152,6 +152,12 @@ export const InputBlockSvg = styled.input`
 export const LabelBlockSvg = styled.label`
   cursor: pointer;
   height: 28px;
+  position: relative;
+
+  input {
+    display: none;
+    position: absolute;
+  }
 `;
 
 export const BlockSvg = styled.svg`

@@ -15,7 +15,6 @@ import {
   LabelSvg,
   LabelBlockSvg,
   InputSvg,
-  InputBlockSvg,
   SSvg,
   BlockSvg,
   Bgpriority,
@@ -65,6 +64,8 @@ const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
   function chengeValue(event) {
     setValue(event.target.value);
   }
+
+  console.log(bground);
 
   return (
     <Wrap>
@@ -190,15 +191,13 @@ const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
         <Label id="my-radio-groupImage">
           Background
           <Bgpriority role="group" aria-labelledby="my-radio-groupImage">
-            <InputBlockSvg
-              id="block"
-              type="radio"
-              name="radio"
-              value="10"
-              // checked={value === '10' ? true : false}
-              onChange={chengeValue}
-            />
-            <LabelBlockSvg htmlFor="block">
+            <LabelBlockSvg>
+              <input
+                type="radio"
+                name="radio"
+                value="649f40cdcaf11c74bb222222"
+                onClick={e => onClickOnBg(e.target.value)}
+              />
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>

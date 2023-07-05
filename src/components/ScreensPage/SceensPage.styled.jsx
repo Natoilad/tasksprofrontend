@@ -4,18 +4,27 @@ import backgrounds from '../../images/bgFolder/backgrounds.json';
 const mobile = props => {
   const id = props.board.background[0];
   const result = backgrounds.find(background => background._id === id);
+  if (!result) {
+    return;
+  }
   return result.mobile;
 };
 
 const tablet = props => {
   const id = props.board.background[0];
   const result = backgrounds.find(background => background._id === id);
+  if (!result) {
+    return;
+  }
   return result.tablet;
 };
 
 const desktop = props => {
   const id = props.board.background[0];
   const result = backgrounds.find(background => background._id === id);
+  if (!result) {
+    return;
+  }
   return result.desktop;
 };
 

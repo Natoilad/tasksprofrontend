@@ -13,7 +13,6 @@ import {
   LabelSvg,
   LabelBlockSvg,
   InputSvg,
-  InputBlockSvg,
   SSvg,
   BlockSvg,
   Bgpriority,
@@ -27,7 +26,7 @@ import BgComponent from './bgComponent';
 
 const AddBoard = ({ handleClose, title, background, icon, butName }) => {
   const [value, setValue] = useState('icon-dashbordicon1');
-  const [bground, setBground] = useState(null);
+  const [bground, setBground] = useState('649f40cdcaf11c74bb222222');
 
   const dispatch = useDispatch();
 
@@ -179,15 +178,12 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
         <Label id="my-radio-groupImage">
           Background
           <Bgpriority role="group" aria-labelledby="my-radio-groupImage">
-            <InputBlockSvg
-              id="block"
-              type="radio"
-              name="radio"
-              value="10"
-              // checked={value === '10' ? true : false}
-              onChange={chengeValue}
-            />
             <LabelBlockSvg htmlFor="block">
+              <Field
+                type="radio"
+                name="radio"
+                value="649f40cdcaf11c74bb222222"
+              />
               <BlockSvg width="28" height="28">
                 <use href={sprite + '#icon-block'}></use>
               </BlockSvg>
