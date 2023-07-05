@@ -15,6 +15,17 @@ export const ScrollBlock = styled(OverlayScrollbarsComponent)`
   margin-right: -15px;
 `;
 
+export const Wrap = styled.div`
+  margin: 20px 0px;
+  margin-right: -15px;
+  ${prop => {
+    if (prop.hasScroll) {
+      return `heigth: 475px`;
+    }
+    return `heigth: auto`;
+  }}
+`;
+
 export const CardList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -22,7 +33,6 @@ export const CardList = styled.ul`
   list-style: none;
   padding: 0px;
   margin: 0px;
-  max-height: window.innerHeight;
 `;
 
 export const Btn = styled.button`
@@ -46,8 +56,8 @@ export const Btn = styled.button`
     background: ${({ theme }) => theme.colors.btnFocus}
       }; */
   &:hover {
-    background: ${({ theme }) => theme.colors.btnFocus}
-  };
+    background: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;
 
 export const IconPlus = styled.svg`

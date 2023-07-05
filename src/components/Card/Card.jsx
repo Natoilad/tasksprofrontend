@@ -22,9 +22,12 @@ import { removeTask } from 'redux/tasks/tasks-operations';
 
 import { useTheme } from 'styled-components';
 
+const DAY_MS = 86400000;
+
 const Card = ({ task, columns, columnId }) => {
   const { title, priority, description, _id: id, deadline } = task;
   const { openModal, closeModal } = useContext(ModalContext);
+
   const theme = useTheme();
 
   const editCardModal = () => {
@@ -76,6 +79,11 @@ const Card = ({ task, columns, columnId }) => {
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
+          {dayjs(deadline) - dayjs() <= DAY_MS && (
+            <IconSvg>
+              <use href={icon + '#icon-bell'}></use>
+            </IconSvg>
+          )}
           <Button onClick={transferCardModal}>
             <IconSvg>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
