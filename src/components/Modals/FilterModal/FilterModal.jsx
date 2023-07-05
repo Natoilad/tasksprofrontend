@@ -28,7 +28,6 @@ export const FilterModal = ({
   handleClose,
   title,
   boardId,
-  boardBgr,
   boardTitle,
 }) => {
   const dispatch = useDispatch();
