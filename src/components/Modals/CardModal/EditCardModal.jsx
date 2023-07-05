@@ -12,8 +12,8 @@ import {
   CloseBtn,
   IconPlus,
   Priority,
-  ButPiker,
-  ChevronIcon,
+  // ButPiker,
+  // ChevronIcon,
   Radio,
 } from './CardModal.styled';
 import React, { useState } from 'react';
