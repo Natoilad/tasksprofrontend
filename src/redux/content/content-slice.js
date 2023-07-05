@@ -1,4 +1,5 @@
 import {
+  // sendEmail,
   addBoards,
   addColumns,
   getBoardById,
@@ -109,6 +110,9 @@ const contentSlice = createSlice({
         );
         state.boards[index].columns[columnIndex].title = payload.inputValue;
       });
+    // .addCase(sendEmail.pending, handleIfPending)
+    // .addCase(sendEmail.rejected, handleIfReject)
+    // .addCase(sendEmail.fulfilled, (state, { payload }) => {});
   },
 });
 

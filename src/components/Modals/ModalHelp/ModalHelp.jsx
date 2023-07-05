@@ -11,13 +11,30 @@ import {
   Field,
   CloseIcon,
 } from './ModalHelp.styled';
+import { SendHelpEmail } from 'service/content-service';
 
 export const ModalHelp = ({ handleClose, title, butName }) => {
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    const data = {
+      email: evt.currentTarget.elements.title.value,
+      comment: evt.currentTarget.elements.comment.value,
+    };
+    SendHelpEmail(data);
+
+    handleClose();
+  };
+
   return (
     <Wrap>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Title>{title}</Title>
-        <Field id="title" type="text" name="title" placeholder="Email address" />
+        <Field
+          id="title"
+          type="text"
+          name="email"
+          placeholder="Email address"
+        />
         <Comment
           id="comment"
           type="text"

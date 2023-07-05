@@ -59,3 +59,8 @@ export const RemoveCol = async (boardId, columnId) => {
   );
   return data;
 };
+
+export const SendHelpEmail = async email => {
+  const { data } = await backendAPI.post('api/help', email);
+  return data;
+};
