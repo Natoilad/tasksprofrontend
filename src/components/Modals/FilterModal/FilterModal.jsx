@@ -2,6 +2,7 @@ import icon from '../../../images/sprite.svg';
 import React from 'react';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
 import {
@@ -18,18 +19,45 @@ import {
   Box,
   Svg,
   ImgContainer,
-  BgImg,
 } from './FilterModal.styled';
 import { setFilter } from 'redux/filter/filter-slice';
+import BgComponent from '../AddBoard/bgComponent';
+import { updateBoardEl } from 'redux/content/content-operations';
 
-const initialFormValues = { title: '' };
+const initialFormValues = {};
 
-export const FilterModal = ({ handleClose, title }) => {
+export const FilterModal = ({
+  handleClose,
+  title,
+  boardId,
+  boardBgr,
+  boardTitle,
+}) => {
+  const [bground, setBground] = useState(boardBgr);
   const dispatch = useDispatch();
+
+  const onClickOnBg = value => {
+    setBground(value);
+    const data = {
+      title: boardTitle,
+      background: bground,
+    };
+    console.log(data);
+    dispatch(updateBoardEl({ boardId, data }));
+  };
+
   const onFilter = e => {
-    // console.log(e.target.value);
     dispatch(setFilter(e.target.value));
   };
+
+  // const bgChange = event => {
+  //   const data = {
+  //     title: boardTitle,
+  //     background: bground,
+  //   };
+
+  //   dispatch(updateBoardEl({ boardId, data }));
+  // };
 
   return (
     <>
@@ -45,12 +73,19 @@ export const FilterModal = ({ handleClose, title }) => {
                   <use href={icon + '#icon-block'}></use>
                 </Svg>
               </label>
-              {backgrounds.map(({ _id, bgIcons }) => (
-                <label key={_id}>
-                  <Field type="radio" name="bgicon" value="" />
-                  <BgImg src={bgIcons} alt="" />
-                </label>
-              ))}
+              {backgrounds.map(bg => {
+                return (
+                  <>
+                    <BgComponent
+                      key={bg._id}
+                      bg={bg}
+                      _id={bg._id}
+                      // onChange={onClickOnBg}
+                      onClick={onClickOnBg}
+                    />
+                  </>
+                );
+              })}
             </ImgContainer>
             <Box>
               <Text name="labelPriority">Label color</Text>

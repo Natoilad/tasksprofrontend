@@ -69,8 +69,6 @@ export const updateBoard = createAsyncThunk(
   'api/updateBoard',
   async ({ boardId, data }, thunkAPI) => {
     try {
-      console.log(boardId);
-      console.log(data);
       const response = await PutUpdate(boardId, data);
       return response;
     } catch (error) {
@@ -81,9 +79,9 @@ export const updateBoard = createAsyncThunk(
 
 export const updateBoardEl = createAsyncThunk(
   'api/updateBoardEl',
-  async ({ id, data }, thunkAPI) => {
+  async ({ boardId, data }, thunkAPI) => {
     try {
-      const response = await PatchUpdate(id, data);
+      const response = await PatchUpdate(boardId, data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
