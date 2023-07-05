@@ -16,7 +16,7 @@
 // };
 // import icon from '../../images/sprite.svg';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import * as React from 'react';
 import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
@@ -24,6 +24,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Btn } from './ButtonDatePicker.styled';
+import './buttonDatePicker.css';
 function ButtonField(props) {
   const {
     setOpen,
@@ -49,10 +50,12 @@ function ButtonField(props) {
 
 function ButtonDatePicker(props) {
   const [open, setOpen] = React.useState(false);
-
   return (
     <DatePicker
-      slots={{ field: ButtonField, ...props.slots }}
+      slots={{
+        field: ButtonField,
+        ...props.slots,
+      }}
       slotProps={{ field: { setOpen } }}
       {...props}
       open={open}
@@ -64,6 +67,7 @@ function ButtonDatePicker(props) {
 
 export default function PickerWithButtonField({ setDeadline, date }) {
   const [value, setValue] = React.useState(null);
+
   const setDate = newValue => {
     if (dayjs(newValue) < Date.now()) {
       toast.warning('Please select a date in future', {
