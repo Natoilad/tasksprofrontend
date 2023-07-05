@@ -67,7 +67,7 @@ export const Svg = styled.svg`
   }
 `;
 
-export const Field = styled(FormikField)`
+export const FieldSvg = styled(FormikField)`
   opacity: 0;
   position: absolute;
   cursor: pointer;

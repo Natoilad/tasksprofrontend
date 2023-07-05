@@ -9,7 +9,6 @@ import {
   AddColumn,
   UpdateCol,
   RemoveCol,
-  SendHelpEmail,
 } from 'service/content-service';
 import { token } from 'service/auth-service';
 
@@ -122,18 +121,6 @@ export const removeColumn = createAsyncThunk(
     try {
       await RemoveCol(boardId, columnId);
       return { boardId, columnId };
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const sendEmail = createAsyncThunk(
-  'api/help',
-  async (email, thunkAPI) => {
-    try {
-      const response = await SendHelpEmail(email);
-      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

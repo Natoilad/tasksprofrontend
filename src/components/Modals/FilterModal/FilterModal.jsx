@@ -7,7 +7,7 @@ import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
 import {
   Form,
-  Field,
+  FieldSvg,
   Wrap,
   CloseBtn,
   CloseIcon,
@@ -38,10 +38,12 @@ export const FilterModal = ({
 
   const onClickOnBg = value => {
     setBground(value);
+
     const data = {
       title: boardTitle,
       background: bground,
     };
+
     console.log(data);
     dispatch(updateBoardEl({ boardId, data }));
   };
@@ -68,7 +70,12 @@ export const FilterModal = ({
             <Text>Backgrounds</Text>
             <ImgContainer role="group" aria-labelledby="bgimg-group">
               <label>
-                <Field type="radio" name="bgicon" value="default" />
+                <FieldSvg
+                  type="radio"
+                  name="radio"
+                  value="649f40cdcaf11c74bb222222"
+                  onClick={e => onClickOnBg(e.target.value)}
+                />
                 <Svg>
                   <use href={icon + '#icon-block'}></use>
                 </Svg>
