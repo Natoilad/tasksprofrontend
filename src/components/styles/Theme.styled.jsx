@@ -5,6 +5,7 @@ export const dark = {
     additionalAccent: 'rgba(190, 219, 176, 1)',
 
     pageBg: 'rgba(31, 31, 31, 1)',
+    modalBg: 'rgba(21, 21, 21, 1)',
 
     primaryBg: 'rgba(18, 18, 18, 1)',
     secondaryBg: 'rgba(22, 22, 22, 1)',
@@ -54,7 +55,7 @@ export const dark = {
     logOut: 'rgba(190, 219, 176, 1)',
     logOutAccent: 'rgba(157, 200, 136, 1)',
     filterLine: 'rgba(255, 255, 255, 0.1)',
-    filterText: 'rgba(255, 255, 255, 0.5)',  
+    filterText: 'rgba(255, 255, 255, 0.5)',
     mainBorder: 'rgba(190, 219, 176, 1)',
   },
 };
@@ -66,6 +67,7 @@ export const light = {
     additionalAccent: 'rgba(190, 219, 176, 1)',
 
     pageBg: 'rgba(246, 246, 247, 1)',
+    modalBg: 'rgba(252, 252, 252, 1)',
 
     primaryBg: 'rgba(255, 255, 255, 1)',
     secondaryBg: 'rgba(252, 252, 252, 1)',
@@ -88,7 +90,7 @@ export const light = {
     btnText: 'rgba(22, 22, 22, 1)',
     btnIcon: 'rgba(255, 255, 255, 1)',
 
-    taskWithoutPriority: 'rgba(255, 255, 255, 0.3)',
+    taskWithoutPriority: 'rgba(22, 22, 22, 0.5)',
     taskLowPriority: 'rgba(143, 161, 208, 1)',
     taskMediumPriority: 'rgba(224, 156, 181, 1)',
     taskHighPrority: 'rgba(190, 219, 176, 1)',
@@ -117,7 +119,7 @@ export const light = {
     filterLine: 'rgba(22, 22, 22, 0.1)',
     filterText: 'rgba(22, 22, 22, 0.5)',
     mainBorder: 'rgba(190, 219, 176, 1)',
-    },
+  },
 };
 
 export const violet = {
@@ -127,6 +129,7 @@ export const violet = {
     additionalAccent: 'rgba(236, 237, 253, 1)',
 
     pageBg: 'rgba(236, 237, 253, 1)',
+    modalBg: 'rgba(252, 252, 252, 1)',
 
     primaryBg: 'rgba(82, 85, 188, 1)',
     secondaryBg: 'rgba(255, 255, 255, 1)',
@@ -149,7 +152,7 @@ export const violet = {
     btnText: 'rgba(255, 255, 255, 1)',
     btnIcon: 'rgba(22, 22, 22, 1)',
 
-    taskWithoutPriority: 'rgba(255, 255, 255, 0.3)',
+    taskWithoutPriority: 'rgba(22, 22, 22, 0.5)',
     taskLowPriority: 'rgba(143, 161, 208, 1)',
     taskMediumPriority: 'rgba(224, 156, 181, 1)',
     taskHighPrority: 'rgba(255, 255, 255, 0.3)',
