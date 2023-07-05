@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { darkGray } from 'variables/variables';
 
 export const BoardItem = styled(NavLink)`
+
   /* background-color: ${darkGray}; */
   text-decoration: none;
   display: flex;
@@ -28,6 +29,7 @@ export const BoardItem = styled(NavLink)`
 // `;
 
 export const BoardIcon = styled.svg`
+
   width: 18px;
   height: 18px;
   stroke: ${({ theme }) => theme.colors.barSecondaryText};

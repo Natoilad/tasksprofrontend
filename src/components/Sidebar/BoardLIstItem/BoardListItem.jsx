@@ -34,7 +34,10 @@ export const BoardListItem = ({ board }) => {
   };
   return (
     <>
-      <BoardItem to={`/home/${board.title}`}>
+      <BoardItem
+        
+        to={`/home/${board.title}`}
+      >
         {/* <BoardHero> */}
         <BoardIcon>
           <use href={icon + `#${board.icon}`}></use>
