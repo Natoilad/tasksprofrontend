@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
+import { useTheme } from 'styled-components';
+
 import {
   Form,
   FieldSvg,
@@ -23,6 +25,7 @@ import {
 import { setFilter } from 'redux/filter/filter-slice';
 import BgComponent from '../AddBoard/bgComponent';
 import { updateBoardEl } from 'redux/content/content-operations';
+// import { ThemeProvider } from 'styled-components';
 
 const initialFormValues = {};
 
@@ -35,6 +38,7 @@ export const FilterModal = ({
 }) => {
   const [bground, setBground] = useState(boardBgr);
   const dispatch = useDispatch();
+  const theme = useTheme();
 
   const onClickOnBg = value => {
     setBground(value);
@@ -63,6 +67,7 @@ export const FilterModal = ({
 
   return (
     <>
+      {/* <ThemeProvider theme={theme}> */}
       <Wrap>
         <Title>{title}</Title>
         <Formik initialValues={initialFormValues} onSubmit={() => {}}>
@@ -110,6 +115,7 @@ export const FilterModal = ({
             <LabelContainer role="group" aria-labelledby="label-group">
               <label>
                 <input
+                  theme={theme}
                   type="radio"
                   value="none"
                   name="labelPriority"
@@ -157,6 +163,7 @@ export const FilterModal = ({
           </CloseIcon>
         </CloseBtn>
       </Wrap>
+      {/* </ThemeProvider> */}
     </>
   );
 };

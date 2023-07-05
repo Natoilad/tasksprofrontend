@@ -12,15 +12,16 @@ import {
   CloseBtn,
   IconPlus,
   Priority,
-  ButPiker,
-  ChevronIcon,
+  // ButPiker,
+  // ChevronIcon,
   Radio,
 } from './CardModal.styled';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTask } from 'redux/tasks/tasks-operations';
+import PickerWithButtonField from 'components/ButtonDatePicker/ButtonDatePicer';
 const EditCardModal = ({
-  task: { title, description, priority, _id: id },
+  task: { title, description, deadline, priority, _id: id },
   modalTitle,
   handleClose,
   columnId,
@@ -29,11 +30,14 @@ const EditCardModal = ({
   const [taskTitle, setTaskTitle] = useState(title);
   const [taskDescription, setTaskDescription] = useState(description);
   const [raidoValue, setRadioValue] = useState(priority);
+  const [taskDeadline, setTaskDeadline] = useState(deadline);
   const dispatch = useDispatch();
   function chengeValue(event) {
     setRadioValue(event.target.value);
   }
-
+  const setNewDeadline = value => {
+    setTaskDeadline(value);
+  };
   const handleChange = evt => {
     switch (evt.target.name) {
       case 'title':
@@ -55,7 +59,7 @@ const EditCardModal = ({
       title: taskTitle,
       description: taskDescription,
       priority: raidoValue,
-      // deadline: deadline.value,
+      deadline: taskDeadline.$d,
     };
     dispatch(updateTask({ id, task }));
     handleClose();
@@ -119,12 +123,16 @@ const EditCardModal = ({
           </Label>
           <Label>
             Deadline
-            <ButPiker style={{ marginTop: '4px' }}>
+            <PickerWithButtonField
+              date={taskDeadline}
+              setDeadline={setNewDeadline}
+            />
+            {/* <ButPiker style={{ marginTop: '4px' }}>
               Today, March 8
               <ChevronIcon>
                 <use href={icon + '#icon-chevron-down'}></use>
               </ChevronIcon>
-            </ButPiker>
+            </ButPiker> */}
           </Label>
         </SettingsBlock>
 

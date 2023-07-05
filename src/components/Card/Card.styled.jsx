@@ -4,7 +4,7 @@ import {
   lowPriority,
   mediumPriority,
   highPriority,
-  white30,
+  // white30,
 } from 'variables/variables';
 
 export const Conteiner = styled.div`
@@ -15,6 +15,8 @@ export const Conteiner = styled.div`
   flex-direction: column;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.cardBg};
+  overflow: hidden;
+
   &::before {
     top: 0;
     left: 0;
@@ -24,10 +26,10 @@ export const Conteiner = styled.div`
     width: 4px;
     border-radius: 4px 0px 0px 4px;
 
-    ${({ priority }) => {
+    ${({ priority, theme }) => {
       switch (priority) {
         case 'none':
-          return `background: ${white30}`;
+          return `background: ${theme.colors.taskWithoutPriority}`;
         case 'low':
           return `background: ${lowPriority}`;
         case 'medium':
@@ -124,10 +126,10 @@ export const Priority = styled.p`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    ${({ priority }) => {
+    ${({ priority, theme }) => {
       switch (priority) {
         case 'none':
-          return `background: ${white30}`;
+          return `background: ${theme.colors.taskWithoutPriority}`;
         case 'low':
           return `background: ${lowPriority}`;
         case 'medium':

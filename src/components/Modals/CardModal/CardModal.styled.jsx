@@ -5,17 +5,17 @@ import {
   highPriority,
   lowPriority,
   mediumPriority,
-  white30,
+  // white30,
 } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;
-   /* height: 221px; */
+  /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
 
-   @media (min-width: 375px) {
+  @media (min-width: 375px) {
     width: 335px;
   }
   @media (min-width: 768px) {
@@ -153,7 +153,7 @@ export const Radio = styled.input`
         case 'high':
           return `background-color: ${highPriority} `;
         case 'none':
-          return `background-color: ${white30}`;
+          return `background-color: ${props.theme.colors.taskWithoutPriority}`;
         default:
           return;
       }
@@ -195,7 +195,7 @@ export const Radio = styled.input`
             case 'high':
               return `border-color: ${highPriority} `;
             case 'none':
-              return `border-color: ${white30}`;
+              return `border-color:  ${props.theme.colors.taskWithoutPriority}`;
             default:
               return;
           }
@@ -257,6 +257,6 @@ export const Button = styled.button`
     background: ${({ theme }) => theme.colors.btnFocus}
       }; */
   &:hover {
-    background: ${({ theme }) => theme.colors.btnFocus}
-  };
+    background: ${({ theme }) => theme.colors.btnFocus};
+  }
 `;

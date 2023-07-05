@@ -19,9 +19,16 @@ import { useContext } from 'react';
 import EditCardModal from 'components/Modals/CardModal/EditCardModal';
 import { useDispatch } from 'react-redux';
 import { removeTask } from 'redux/tasks/tasks-operations';
+
+import { useTheme } from 'styled-components';
+
+const DAY_MS = 86400000;
+
 const Card = ({ task, columns, columnId }) => {
   const { title, priority, description, _id: id, deadline } = task;
   const { openModal, closeModal } = useContext(ModalContext);
+
+  const theme = useTheme();
 
   const editCardModal = () => {
     openModal({
@@ -57,7 +64,7 @@ const Card = ({ task, columns, columnId }) => {
   };
 
   return (
-    <Conteiner priority={priority}>
+    <Conteiner theme={theme} priority={priority}>
       <Title>{title}</Title>
       <Descriptions>{description}</Descriptions>
       <SettingsBlock>
@@ -72,6 +79,11 @@ const Card = ({ task, columns, columnId }) => {
           </Label>
         </PriorDeadLinWrapper>
         <BtnWrapper>
+          {dayjs(deadline) - dayjs() <= DAY_MS && (
+            <IconSvg>
+              <use href={icon + '#icon-bell'}></use>
+            </IconSvg>
+          )}
           <Button onClick={transferCardModal}>
             <IconSvg>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
