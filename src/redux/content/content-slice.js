@@ -73,8 +73,10 @@ const contentSlice = createSlice({
       .addCase(updateBoardEl.pending, handleIfPending)
       .addCase(updateBoardEl.rejected, handleIfReject)
       .addCase(updateBoardEl.fulfilled, (state, { payload }) => {
-        // const index = state.boards.findIndex(board => board.id === payload.id);
-        // state.contacts.splice(index, 1, payload);
+        const index = state.boards.findIndex(
+          board => board._id === payload._id
+        );
+        state.boards[index] = payload;
       })
       .addCase(addColumns.pending, handleIfPending)
       .addCase(addColumns.rejected, handleIfReject)

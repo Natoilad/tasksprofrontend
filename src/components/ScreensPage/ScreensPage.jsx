@@ -49,22 +49,25 @@ const ScreensPage = () => {
   // };
 
   return (
-    
-      <>
-        {boards.length === 0 ? (
-          <BoardIsNotYet />
-        ) : (
-          <>
-            {board && (
-              <Container board={board}>
-                <HeaderDashboard title={boardName} />
-                <MainDashboard board={board} columns={board.columns} />
-              </Container>
-            )}
-          </>
-        )}
-      </>
-  
+    <>
+      {boards.length === 0 ? (
+        <BoardIsNotYet />
+      ) : (
+        <>
+          {board && (
+            <Container board={board}>
+              <HeaderDashboard
+                title={boardName}
+                boardId={board._id}
+                boardBgr={board.background[0]}
+                boardTitle={board.title}
+              />
+              <MainDashboard board={board} columns={board.columns} />
+            </Container>
+          )}
+        </>
+      )}
+    </>
   );
 };
 export default ScreensPage;

@@ -67,15 +67,6 @@ export const Svg = styled.svg`
   }
 `;
 
-export const BgImg = styled.img`
-  border-radius: 6px;
-  transition: transform 0.25s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
 export const Field = styled(FormikField)`
   opacity: 0;
   position: absolute;
