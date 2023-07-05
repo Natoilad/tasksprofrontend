@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
+import { useTheme } from 'styled-components';
+
 import {
   Form,
-  Field,
+  FieldSvg,
   Wrap,
   CloseBtn,
   CloseIcon,
@@ -23,6 +25,7 @@ import {
 import { setFilter } from 'redux/filter/filter-slice';
 import BgComponent from '../AddBoard/bgComponent';
 import { updateBoardEl } from 'redux/content/content-operations';
+// import { ThemeProvider } from 'styled-components';
 
 const initialFormValues = {};
 
@@ -35,13 +38,16 @@ export const FilterModal = ({
 }) => {
   const [bground, setBground] = useState(boardBgr);
   const dispatch = useDispatch();
+  const theme = useTheme();
 
   const onClickOnBg = value => {
     setBground(value);
+
     const data = {
       title: boardTitle,
       background: bground,
     };
+
     console.log(data);
     dispatch(updateBoardEl({ boardId, data }));
   };
@@ -61,6 +67,7 @@ export const FilterModal = ({
 
   return (
     <>
+      {/* <ThemeProvider theme={theme}> */}
       <Wrap>
         <Title>{title}</Title>
         <Formik initialValues={initialFormValues} onSubmit={() => {}}>
@@ -68,7 +75,12 @@ export const FilterModal = ({
             <Text>Backgrounds</Text>
             <ImgContainer role="group" aria-labelledby="bgimg-group">
               <label>
-                <Field type="radio" name="bgicon" value="default" />
+                <FieldSvg
+                  type="radio"
+                  name="radio"
+                  value="649f40cdcaf11c74bb222222"
+                  onClick={e => onClickOnBg(e.target.value)}
+                />
                 <Svg>
                   <use href={icon + '#icon-block'}></use>
                 </Svg>
@@ -103,6 +115,7 @@ export const FilterModal = ({
             <LabelContainer role="group" aria-labelledby="label-group">
               <label>
                 <input
+                  theme={theme}
                   type="radio"
                   value="none"
                   name="labelPriority"
@@ -150,6 +163,7 @@ export const FilterModal = ({
           </CloseIcon>
         </CloseBtn>
       </Wrap>
+      {/* </ThemeProvider> */}
     </>
   );
 };

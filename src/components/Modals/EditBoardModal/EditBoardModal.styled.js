@@ -137,6 +137,12 @@ export const InputBlockSvg = styled.input`
 export const LabelBlockSvg = styled.label`
   cursor: pointer;
   height: 28px;
+  position: relative;
+  input {
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+  }
 `;
 
 export const BlockSvg = styled.svg`
