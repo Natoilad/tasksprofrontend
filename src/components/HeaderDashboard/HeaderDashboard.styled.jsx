@@ -47,21 +47,17 @@ export const FilterBtn = styled.button`
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
-  transition: all 0.5s ease-in-out;
-
-  &:hover,
-  &:focus {
-    color: ${({ theme }) => theme.colors.accent};
+  /* transition: all 0.5s ease-in-out; */
+ svg {
+  width: 16px;
+height: 16px; 
+stroke: ${({ theme }) => theme.colors.tertiaryText};
+}
+&:hover {
+  color: ${({ theme }) => theme.colors.accent};
   svg {
-    width: 16px;
-    height: 16px;
-    stroke: ${({ theme }) => theme.colors.tertiaryText};
-  }
-  &:hover {
-    color: ${({ theme }) => theme.colors.accent};
-    svg {
-      stroke: ${({ theme }) => theme.colors.accent};
-    }
+    stroke: ${({ theme }) => theme.colors.accent};
+  };
+};
+   `;
 
-  }
-`;
