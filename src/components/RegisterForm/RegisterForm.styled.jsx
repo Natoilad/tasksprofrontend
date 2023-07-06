@@ -24,10 +24,10 @@ export const Wrap = styled.div`
   border-radius: 8px;
   background: #151515;
 
-   @media screen and (min-width: 768px) {
-  width: 424px;
-  height: 395px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 424px;
+    height: 395px;
+  }
 `;
 
 export const LinkWrap = styled.div`
@@ -37,8 +37,8 @@ export const LinkWrap = styled.div`
   gap: 14px;
 
   @media screen and (min-width: 768px) {
-  margin: 40px 0 40px 40px;
-    }
+    margin: 40px 0 40px 40px;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -77,8 +77,8 @@ export const Field = styled(Input)`
   padding: 14px 0 14px 18px;
 
   @media screen and (min-width: 768px) {
-   width: 344px;
-    }
+    width: 344px;
+  }
 
   // &:not(:last-child) {
   //   margin-bottom: 14px;
@@ -103,8 +103,8 @@ export const FieldPassword = styled(Input)`
   padding: 14px 0 14px 18px;
 
   @media screen and (min-width: 768px) {
-   width: 344px;
-    }
+    width: 344px;
+  }
 `;
 
 export const Button = styled.button`
@@ -119,8 +119,8 @@ export const Button = styled.button`
   color: #161616;
   margin-bottom: 24px;
   margin-top: 10px;
-font-family: Poppins;
-line-height: 21px;
+  font-family: Poppins;
+  line-height: 21px;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
@@ -132,9 +132,9 @@ line-height: 21px;
     font-size: 16px;
   }
 
-   @media screen and (min-width: 768px) {
-   width: 344px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
 `;
 
 export const ErrorWrap = styled.div`
@@ -163,4 +163,11 @@ export const EyeButton = styled.button`
   display: flex;
 
   justify-content: center;
+
+  opacity: 0.4000000059604645;
+  stroke: ${({ theme }) => theme.colors.primaryText};
+
+  &:hover {
+    opacity: 1;
+  }
 `;
