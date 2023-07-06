@@ -3,13 +3,11 @@ import 'variables/variables';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 export const Conteiner = styled.div`
-  /* position: relative; */
   display: flex;
   gap: 34px;
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
-  // height: 812px;
   padding-left: 20px;
   padding-right: 20px;
   height: 85vh;
@@ -17,7 +15,6 @@ export const ScrollBlock = styled(OverlayScrollbarsComponent)`
     padding-left: 32px;
     padding-right: 32px;
     min-width: 704px;
-    // max-height: 640px;
   }
 
   @media (min-width: 1440px) {

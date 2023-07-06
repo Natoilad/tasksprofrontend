@@ -12,8 +12,6 @@ import {
   CloseBtn,
   IconPlus,
   Priority,
-  // ButPiker,
-  // ChevronIcon,
   Radio,
 } from './CardModal.styled';
 import React, { useState } from 'react';
@@ -24,8 +22,6 @@ const EditCardModal = ({
   task: { title, description, deadline, priority, _id: id },
   modalTitle,
   handleClose,
-  columnId,
-  // btnName,
 }) => {
   const [taskTitle, setTaskTitle] = useState(title);
   const [taskDescription, setTaskDescription] = useState(description);
@@ -53,8 +49,6 @@ const EditCardModal = ({
 
   const handleUpdate = event => {
     event.preventDefault();
-    // const title = event.currentTarget.elements.title.value
-    // const { title, description, priority } = event.currentTarget.elements;
     const task = {
       title: taskTitle,
       description: taskDescription,
@@ -127,12 +121,6 @@ const EditCardModal = ({
               date={taskDeadline}
               setDeadline={setNewDeadline}
             />
-            {/* <ButPiker style={{ marginTop: '4px' }}>
-              Today, March 8
-              <ChevronIcon>
-                <use href={icon + '#icon-chevron-down'}></use>
-              </ChevronIcon>
-            </ButPiker> */}
           </Label>
         </SettingsBlock>
 
@@ -141,7 +129,6 @@ const EditCardModal = ({
             <use href={icon + '#icon-plus'}></use>
           </IconPlus>
           Edit
-          {/* {btnName} */}
         </Button>
 
         <CloseBtn onClick={handleClose}>

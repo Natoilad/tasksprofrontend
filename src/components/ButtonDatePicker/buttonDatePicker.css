@@ -1,4 +1,3 @@
-/* {({ theme }) => theme.color.accent} */
 .css-1yllih9-MuiPaper-root-MuiPickersPopper-paper {
   background-color: var(--bgColor) !important;
   border: 1px solid var(--lightBlack) !important;

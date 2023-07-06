@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import 'variables/variables';
-import {
-  highPriority,
-  lowPriority,
-  mediumPriority,
-  // white30,
-} from 'variables/variables';
+import { highPriority, lowPriority, mediumPriority } from 'variables/variables';
 
 export const Wrap = styled.div`
   position: relative;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { highPriority } from 'variables/variables';
 
 export const List = styled.ul`
   overflow-y: auto;

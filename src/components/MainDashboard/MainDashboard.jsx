@@ -12,12 +12,7 @@ import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
 
-// import { useSelector } from 'react-redux';
-// import { selectContent, selectColumns } from 'redux/content/content-selectors';
 const MainDashboard = ({ board, columns }) => {
-  // const boards = useSelector(selectContent);
-  // console.log(board._id);
-  // const columns = useSelector(selectColumns);
   const { openModal, closeModal } = useContext(ModalContext);
 
   const addColumnModal = () => {
@@ -65,7 +60,9 @@ const MainDashboard = ({ board, columns }) => {
         <Btn onClick={addColumnModal}>
           <IconPlus width="28" height="28">
             <use href={icon + '#icon-plus-black'}></use>
-          </IconPlus>Add another column</Btn>
+          </IconPlus>
+          Add another column
+        </Btn>
       </Conteiner>
     </ScrollBlock>
   );

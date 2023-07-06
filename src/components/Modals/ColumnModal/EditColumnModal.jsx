@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import icon from '../../../images/sprite.svg';
-// import { Formik } from 'formik';
 
 import {
   Form,
@@ -13,8 +12,6 @@ import {
   IconPlus,
 } from './ColumnModal.styled';
 import { useDispatch } from 'react-redux';
-// useSelector
-// import { selectCurrentBoard } from 'redux/content/content-selectors';
 import { updateColumn } from 'redux/content/content-operations';
 const EditColumnModal = ({
   boardId,
@@ -24,7 +21,6 @@ const EditColumnModal = ({
   butName,
   titleColumn,
 }) => {
-  // const board = useSelector(selectCurrentBoard);
   const [inputValue, setInputValue] = useState(titleColumn);
   const handleInputChange = event => {
     setInputValue(event.target.value);
@@ -32,16 +28,13 @@ const EditColumnModal = ({
   const dispatch = useDispatch();
   const handleSumbit = evt => {
     evt.preventDefault();
-    // const data = evt.currentTarget.elements.title.value;
-  
+
     dispatch(updateColumn({ boardId, columnId, inputValue }));
     handleClose();
   };
-  // const initialFormValues = { title: '' };
 
   return (
     <Wrap>
-      {/* <Formik initialValues={initialFormValues} onSubmit={handleSumbit}> */}
       <Form onSubmit={handleSumbit} autoComplete="off">
         <Title>{title}</Title>
         <Field
@@ -62,7 +55,6 @@ const EditColumnModal = ({
           </CloseIcon>
         </CloseBtn>
       </Form>
-      {/* </Formik> */}
     </Wrap>
   );
 };

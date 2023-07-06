@@ -5,7 +5,6 @@ import {
   CreateBoardIcon,
   TextBox,
 } from './BoardCreateBtn.styled';
-// import { CreateBoardModal } from 'components/Modals/CreateBoardModal/CreateBoardModal';
 import { ModalContext } from '../../../contexts/index';
 import AddBoard from 'components/Modals/AddBoard/AddBoard';
 
@@ -14,13 +13,15 @@ export const BoardCreateBtn = () => {
 
   const addBoardModal = () => {
     openModal({
-      children: <AddBoard
-              title={'New Board'}
-              butName={'Create'}
-              handleClose={closeModal}
-            />
+      children: (
+        <AddBoard
+          title={'New Board'}
+          butName={'Create'}
+          handleClose={closeModal}
+        />
+      ),
     });
-  }
+  };
 
   return (
     <>

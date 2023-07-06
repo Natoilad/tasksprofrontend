@@ -81,14 +81,9 @@ export const authRefresh = createAsyncThunk(
       const data = await currentUser();
       return data;
     } catch (error) {
-      console.log(error);
       if (error.response.status === 401) {
-        // const refreshtoken = state.auth.token;
-        // token.set(null);
         await logoutUser();
         token.unSet();
-        // const response = await currentUser();
-        console.log(token);
       }
       return rejectWithValue(error.message);
     }
@@ -122,10 +117,6 @@ export const authUpdateUser = createAsyncThunk(
     try {
       const data = await updateUser(user);
 
-      // if (data.status === 200) {
-      //   toast.success('User has been updated successfully!');
-      // }
-
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -139,10 +130,6 @@ export const authUpdateUserAvatar = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const data = await updateUserAvatar(user);
-
-      // if (data.status === 200) {
-      //   toast.success('User has been updated successfully!');
-      // }
 
       return data;
     } catch (error) {

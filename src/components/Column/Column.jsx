@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/tasks-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 import { useScrollbar } from 'hooks/useScrollbar';
-// import { useMatchMedia } from 'hooks/useMatchMedia';
 import { useRef } from 'react';
 
 const Column = ({ columns, board, title, id }) => {
@@ -18,7 +17,6 @@ const Column = ({ columns, board, title, id }) => {
   const { openModal, closeModal } = useContext(ModalContext);
   const filter = useSelector(getFilter);
   const wrapper = useRef(null);
-  // const { isMobile } = useMatchMedia();
   const hasScroll = tasks.length > 3;
   useScrollbar(wrapper, hasScroll);
   const addCardModal = () => {

@@ -10,25 +10,13 @@ import BoardIsNotYet from 'components/BoardIsNotYet/BoardIsNotYet';
 import { useEffect } from 'react';
 
 import { Container } from 'components/ScreensPage/SceensPage.styled';
-// import backgrounds from '../../images/bgFolder/backgrounds.json';
-
-// import { useState } from 'react';
 
 const ScreensPage = () => {
   const boards = useSelector(selectContent);
   const navigate = useNavigate();
   const { boardName } = useParams();
-  // const [idBackground, setIdBackground] = useState();
 
   const board = boards.find(board => board.title === boardName);
-
-  // console.log(boards.map(board => console.log(board.background)));
-
-  // const trueBackground = backgrounds.find(
-  //   background => background._id === board.background[0]
-  // );
-
-  // console.log(trueBackground);
 
   useEffect(() => {
     if (!boardName && boards.length > 0) {
@@ -38,15 +26,6 @@ const ScreensPage = () => {
       navigate(`/home`, { replace: true });
     }
   }, [boardName, boards, navigate]);
-
-  // const findBgId = async () => {
-  //   if (!board.background) return;
-  //   const trueBackground = await backgrounds.find(
-  //     background => background._id === board.background[0]
-  //   );
-  //   console.log(trueBackground);
-  //   return trueBackground;
-  // };
 
   return (
     <>

@@ -4,7 +4,6 @@ import 'variables/variables';
 export const Wrap = styled.div`
   position: relative;
   width: 350px;
-  /* height: 221px; */
   padding: 24px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secondaryBg};
@@ -61,9 +60,7 @@ export const Field = styled.input`
   color: ${({ theme }) => theme.colors.primaryText};
   padding: 14px 0 14px 18px;
 
-  &::placeholder {
-    /* padding: 14px; */
-  }
+
 
   &:focus {
     outline: 0;

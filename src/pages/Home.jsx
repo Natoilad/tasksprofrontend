@@ -15,17 +15,13 @@ import { light, dark, violet } from '../components/styles/Theme.styled';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
 import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
-// import { Outlet } from 'react-router-dom';
 const { Header } = require('components/Header/Header');
 const { SidebarMain } = require('components/Sidebar/SidebarMain/SidebarMain');
 
 const HomePage = () => {
   const [state, setState] = useState({ left: false });
-  // const [isOpen, setIsOpen] = useState(true);
   const [matches, setMatches] = useState(false);
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
   const { user } = useAuth();
 
   const themes = {
@@ -64,7 +60,6 @@ const HomePage = () => {
   return (
     <ThemeProvider theme={themes[user.theme]}>
       <HomeWrapper>
-        {/* {isLoading && error} */}
         {matches ? (
           <SidebarMain />
         ) : (

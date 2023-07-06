@@ -12,8 +12,6 @@ import {
   CloseBtn,
   IconPlus,
   Priority,
-  // ButPiker,
-  // ChevronIcon,
   Radio,
 } from './CardModal.styled';
 
@@ -105,13 +103,6 @@ const CardModal = ({ board, handleClose, title, butName, columnId }) => {
           <Label>
             Deadline
             <PickerWithButtonField date={date} setDeadline={setDeadline} />
-            {/* <ButPiker style={{ marginTop: '4px' }}>
-              {`Today, ${dayjs(date).format('MMMM DD')}`}
-
-              <ChevronIcon>
-                <use href={icon + '#icon-chevron-down'}></use>
-              </ChevronIcon>
-            </ButPiker> */}
           </Label>
         </SettingsBlock>
 

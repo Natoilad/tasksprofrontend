@@ -65,8 +65,6 @@ const EditBoard = ({ handleClose, title, boardTitle, boardId, boardBgr }) => {
     setValue(event.target.value);
   }
 
-  console.log(bground);
-
   return (
     <Wrap>
       <Form onSubmit={hundleSubmit}>

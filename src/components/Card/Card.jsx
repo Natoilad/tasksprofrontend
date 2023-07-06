@@ -56,7 +56,6 @@ const Card = ({ task, columns, columnId }) => {
       ),
     });
   };
-  // console.log(priority);
   const dispatch = useDispatch();
   const handleRemove = evt => {
     evt.preventDefault();
