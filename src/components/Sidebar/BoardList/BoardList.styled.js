@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const List = styled.ul`
   overflow-y: auto;
   height: 200px;
-  width: 260px;
+  width: 275px;
   margin: 0 -24px;
   &::-webkit-scrollbar { background: inherit;}
   }
