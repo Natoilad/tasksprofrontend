@@ -42,7 +42,7 @@ export const Container = styled.div`
     background-image: url(${tablet});
   }
   @media (min-width: 1280px) {
-    max-width: 1150px;
+    // max-width: 1280px;
     background-image: url(${desktop});
   }
 `;
