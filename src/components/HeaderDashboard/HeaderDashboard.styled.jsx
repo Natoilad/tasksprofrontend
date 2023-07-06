@@ -29,15 +29,17 @@ export const Header = styled.div`
 `;
 
 export const BoardName = styled.h4`
+  text-shadow: 0px 0px 1px #ffffff;
   display: flex;
   color: ${({ theme }) => theme.colors.primaryText};
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   font-family: 'Poppins';
   letter-spacing: -0.28px;
 `;
 
 export const FilterBtn = styled.button`
+  text-shadow: 0px 0px 1px #ffffff;
   cursor: pointer;
   background-color: transparent;
   padding: none;
@@ -48,16 +50,15 @@ export const FilterBtn = styled.button`
   font-weight: 500;
   letter-spacing: -0.28px;
   /* transition: all 0.5s ease-in-out; */
- svg {
-  width: 16px;
-height: 16px; 
-stroke: ${({ theme }) => theme.colors.tertiaryText};
-}
-&:hover {
-  color: ${({ theme }) => theme.colors.accent};
   svg {
-    stroke: ${({ theme }) => theme.colors.accent};
-  };
-};
-   `;
-
+    width: 16px;
+    height: 16px;
+    stroke: ${({ theme }) => theme.colors.tertiaryText};
+  }
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+    svg {
+      stroke: ${({ theme }) => theme.colors.accent};
+    }
+  }
+`;
