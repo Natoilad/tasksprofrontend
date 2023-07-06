@@ -11,7 +11,19 @@ import icon from '../../images/sprite.svg';
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
 import ColumnModal from 'components/Modals/ColumnModal/ColumnModal';
-
+// import { useScrollbar } from 'hooks/useScrollbar';
+// import { useSelector } from 'react-redux';
+// import { selectContent, selectColumns } from 'redux/content/content-selectors';
+const options = {
+  overflow: {
+    x: 'scroll',
+    y: 'hidden',
+  },
+  scrollbars: {
+    pointers: ['mouse', 'touch'],
+    dragScroll: true,
+  },
+};
 const MainDashboard = ({ board, columns }) => {
   const { openModal, closeModal } = useContext(ModalContext);
 
@@ -29,19 +41,7 @@ const MainDashboard = ({ board, columns }) => {
   };
 
   return (
-    <ScrollBlock
-      element="div"
-      options={{
-        overflow: {
-          x: 'scroll',
-          y: 'hidden',
-        },
-        scrollbars: {
-          pointers: ['mouse', 'touch'],
-          dragScroll: true,
-        },
-      }}
-    >
+    <ScrollBlock element="div" options={options}>
       <Conteiner>
         {columns && (
           <ColumnList>
