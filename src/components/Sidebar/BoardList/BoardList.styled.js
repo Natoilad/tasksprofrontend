@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const List = styled.ul`
   overflow-y: auto;
   height: 200px;
+  width: 260px;
   margin: 0 -24px;
   &::-webkit-scrollbar { background: inherit;}
   }
@@ -20,7 +21,17 @@ export const Li = styled.li`
   padding-left:24px;
   &.active{
    background: ${({ theme }) => theme.colors.tertiaryBg};
-  
+  p {
+      color: ${({ theme }) => theme.colors.barPrimaryText};
+    }
+    svg.main {
+      stroke: ${({ theme }) => theme.colors.barPrimaryText};
+      fill: ${({ theme }) => theme.colors.barPrimaryText};
+    }
+    svg.btn {
+      stroke: ${({ theme }) => theme.colors.barSecondaryText};
+      fill: ${({ theme }) => theme.colors.barSecondaryText};
+    }
 
    &::after {
     top: 0;
