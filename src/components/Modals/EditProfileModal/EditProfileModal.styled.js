@@ -166,8 +166,7 @@ export const SendBtn = styled.button`
   padding-bottom: 14px;
 
   margin-top: 24px;
-  /* cursor: pointer; */
-  pointer-events: none;
+  cursor: pointer;
 
   display: flex;
   justify-content: center;
