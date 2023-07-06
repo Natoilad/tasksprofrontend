@@ -76,6 +76,12 @@ export const AvatarBox = styled.div`
     top: 0;
     left: 0;
   }
+
+  &:hover {
+    .btnBox {
+      background: ${({ theme }) => theme.colors.btnFocus};
+    }
+  }
 `;
 
 export const AddBtnBox = styled.div`
@@ -179,9 +185,9 @@ export const SendBtn = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02;
 
-  &:hover {
+  /* &:hover {
     background: ${({ theme }) => theme.colors.btnFocus};
-  }
+  } */
 `;
 
 export const ErrorBox = styled.div`
