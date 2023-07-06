@@ -100,7 +100,7 @@ export const EditProfileModal = ({ handleClose }) => {
                   </svg>
                 )}
                 <DropzoneBox setUploadImg={setUploadImg} setImg={setImg} />
-                <AddBtnBox>
+                <AddBtnBox className="btnBox">
                   <svg width="10" height="10">
                     <use href={icon + '#icon-plus-fill'}></use>
                   </svg>

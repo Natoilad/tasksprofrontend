@@ -142,6 +142,13 @@ export const EyeButton = styled.button`
   display: flex;
 
   justify-content: center;
+
+  opacity: 0.4000000059604645;
+  stroke: ${({ theme }) => theme.colors.primaryText};
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const ErrorWrap = styled.div`
