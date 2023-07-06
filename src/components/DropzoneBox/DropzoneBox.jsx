@@ -1,7 +1,7 @@
 import Dropzone from 'react-dropzone';
 import styles from './DropzoneBox.module.css';
 
-const KILOBYTE = 1024;
+// const KILOBYTE = 1024;
 
 export const DropzoneBox = ({ setImg, setUploadImg, maxFileSize = 10 }) => {
   const handleDrop = acceptedFiles => {
@@ -24,7 +24,7 @@ export const DropzoneBox = ({ setImg, setUploadImg, maxFileSize = 10 }) => {
           <div
             className={styles.input_box}
             {...getRootProps()}
-            maxSize={maxFileSize * KILOBYTE}
+            // maxSize={maxFileSize * KILOBYTE}
           >
             <input {...getInputProps()} />
           </div>

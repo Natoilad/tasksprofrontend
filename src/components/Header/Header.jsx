@@ -25,6 +25,28 @@ export const Header = ({ toggleDrawer }) => {
   const themeListRef = useRef(null);
   const anchor = 'left';
 
+  const changeRootTheme = theme => {
+    switch (theme) {
+      case 'dark':
+        document.documentElement.style.setProperty('--accentColor', '#bedbb0');
+        document.documentElement.style.setProperty('--bgColor', '#121212');
+        document.documentElement.style.setProperty('--textColor', '#fff');
+        break;
+      case 'light':
+        document.documentElement.style.setProperty('--accentColor', '#bedbb0');
+        document.documentElement.style.setProperty('--bgColor', '#FFF');
+        document.documentElement.style.setProperty('--textColor', '#000');
+        break;
+      case 'violet':
+        document.documentElement.style.setProperty('--accentColor', '#5255BC');
+        document.documentElement.style.setProperty('--bgColor', '#fff');
+        document.documentElement.style.setProperty('--textColor', '#000');
+        break;
+      default:
+        return;
+    }
+  };
+
   const { user } = useAuth();
 
   const handleOpen = () => {
@@ -39,6 +61,7 @@ export const Header = ({ toggleDrawer }) => {
 
   const HandleThemeChange = theme => {
     dispatch(updateTheme(theme));
+    changeRootTheme(theme);
   };
 
   useEffect(() => {
