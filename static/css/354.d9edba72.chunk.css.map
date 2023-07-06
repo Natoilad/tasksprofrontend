@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/354.d9edba72.chunk.css","mappings":"AAAA,8BAKE,kBAAmB,CADnB,WAAY,CAFZ,iBAAkB,CAClB,UAAW,CAFX,SAKF","sources":["components/DropzoneBox/DropzoneBox.module.css"],"sourcesContent":[".input_box {\n  z-index: 2;\n  position: relative;\n  width: 100%;\n  height: 100%;\n  border-radius: 10px;\n}\n"],"names":[],"sourceRoot":""}
