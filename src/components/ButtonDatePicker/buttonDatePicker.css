@@ -1,34 +1,34 @@
 /* {({ theme }) => theme.color.accent} */
 .css-1yllih9-MuiPaper-root-MuiPickersPopper-paper {
-  background-color: rgba(18, 18, 18, 1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: var(--bgColor) !important;
+  border: 1px solid var(--lightBlack) !important;
   border-radius: 10px !important;
-  color: #ffffff !important;
+  color: var(--textColor) !important;
 }
 
 .css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
-  color: #fff !important;
+  color: var(--textColor) !important;
 }
 
 .css-nk89i7-MuiPickersCalendarHeader-root {
-  color: #fff !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--textColor) !important;
+  border-bottom: 1px solid var(--lightBlack) !important;
 }
 
 .css-1vooibu-MuiSvgIcon-root {
-  fill: #fff !important;
+  fill: var(--textColor) !important;
 }
 
 .css-qa7bje-MuiButtonBase-root-MuiPickersDay-root {
-  color: #fff !important;
+  color: var(--textColor) !important;
 }
 
 .css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  color: #fff !important;
+  background-color: var(--lightBlack) !important;
+  color: var(--textColor) !important;
 }
 
 .css-qa7bje-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
-  background-color: rgba(190, 219, 176, 1) !important;
-  color: #000 !important;
+  background-color: var(--accentColor) !important;
+  color: var(--activeTextColor) !important;
 }

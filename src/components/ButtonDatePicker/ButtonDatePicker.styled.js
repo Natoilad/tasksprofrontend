@@ -1,29 +1,6 @@
 import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-// import { styled } from '@mui/material/styles';
-// export const Btn = styled(Button)({
-//   display: 'flex',
-//   justifyContent: 'flex-start',
-//   fontSize: '14px',
-//   fontFamily: 'Poppins',
-//   fontWeight: '500',
-//   letterSpacing: '-0.28px',
-//   textAlign: 'left',
-//   backgroundColor: 'transparent',
-//   color: `${({ theme }) => theme.color.accent}`,
-//     background: 'none',
-//     border: 'none',
-//     cursor: 'pointer',
-//     padding: '0',
-//     color: `${({ theme }) => theme.colors.accent}`,
-// });
-export const Conteiner = styled(LocalizationProvider)`
-  &.css-1yllih9-MuiPaper-root-MuiPickersPopper-paper {
-    background-color: #010101;
-  }
-`;
 export const Btn = styled(Button)`
   display: flex;
   align-items: center;
