@@ -56,7 +56,6 @@ const RegisterForm = () => {
     };
 
     dispatch(authRegister(user));
-    // console.log(`Successfully ${values.email} register!`);
 
     resetForm();
   };

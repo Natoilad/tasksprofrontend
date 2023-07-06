@@ -38,7 +38,6 @@ const LogInForm = () => {
     };
 
     dispatch(authLogin(user));
-    // console.log(`Successfully ${values.email} login!`);
     resetForm();
   };
 

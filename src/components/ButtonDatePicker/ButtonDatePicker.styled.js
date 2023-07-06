@@ -21,4 +21,3 @@ export const ChevronIcon = styled.svg`
   height: 18px;
   fill: rgba(190, 219, 176, 1);
 `;
-//   fill: ${({ theme }) => theme.colors.accent}

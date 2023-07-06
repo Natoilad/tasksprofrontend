@@ -11,8 +11,6 @@ import {
   Wrap,
 } from './HeaderColumn.styled';
 import { useDispatch } from 'react-redux';
-// useSelector
-// import { selectCurrentBoard } from 'redux/content/content-selectors';
 import { removeColumn } from 'redux/content/content-operations';
 
 const HeaderColumn = ({ boardId, title, columnId }) => {
@@ -31,13 +29,10 @@ const HeaderColumn = ({ boardId, title, columnId }) => {
         />
       ),
     });
-  }
+  };
 
   const dispatch = useDispatch();
-  // const board = useSelector(selectCurrentBoard);
   const handleRemove = () => {
-    // const boardId = board._id;
-    console.log(columnId);
     dispatch(removeColumn({ boardId, columnId }));
   };
 

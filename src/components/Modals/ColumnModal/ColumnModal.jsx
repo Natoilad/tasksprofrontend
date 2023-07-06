@@ -10,11 +10,8 @@ import {
   IconPlus,
 } from './ColumnModal.styled';
 import { useDispatch } from 'react-redux';
-// useSelector
-// import { selectCurrentBoard } from 'redux/content/content-selectors';
 import { addColumns } from 'redux/content/content-operations';
 const ColumnModal = ({ boardId, handleClose, title, butName }) => {
-  // const board = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
   const handleSumbit = evt => {
     evt.preventDefault();

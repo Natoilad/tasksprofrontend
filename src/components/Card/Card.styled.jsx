@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import 'variables/variables';
-import {
-  lowPriority,
-  mediumPriority,
-  highPriority,
-  // white30,
-} from 'variables/variables';
+import { lowPriority, mediumPriority, highPriority } from 'variables/variables';
 
 export const Conteiner = styled.div`
   position: relative;

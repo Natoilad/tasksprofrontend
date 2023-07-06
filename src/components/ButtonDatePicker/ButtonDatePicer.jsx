@@ -1,4 +1,3 @@
-
 import { toast } from 'react-toastify';
 import * as React from 'react';
 import dayjs from 'dayjs';
@@ -55,7 +54,6 @@ export default function PickerWithButtonField({ setDeadline, date }) {
       toast.warning('Please select a date in future', {
         position: 'top-center',
       });
-      // alert('Please select a date in future');
       return;
     }
     setValue(newValue);

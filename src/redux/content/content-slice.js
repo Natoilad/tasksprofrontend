@@ -11,16 +11,6 @@ import {
 } from './content-operations';
 const { createSlice } = require('@reduxjs/toolkit');
 
-// const initialState = {
-//   title: '',
-//   icon: '',
-//   background: '',
-//   owner: {},
-//   columns: [],
-//   isLoading: false,
-//   error: null,
-// };
-
 const handleIfPending = state => {
   state.isLoading = true;
 };

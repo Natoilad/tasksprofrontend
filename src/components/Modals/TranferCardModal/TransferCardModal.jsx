@@ -10,7 +10,6 @@ const TransferCardModal = ({ columns, taskId: id, handleClose }) => {
   const dispatch = useDispatch();
 
   const handleTransfer = columnId => {
-    // console.log(id);
     dispatch(transferTask({ id, columnId }));
     handleClose();
   };

@@ -30,8 +30,6 @@ const AddBoard = ({ handleClose, title, background, icon, butName }) => {
 
   const dispatch = useDispatch();
 
-  // const { backgrounds } = useBg();
-
   const hundleSubmit = event => {
     event.preventDefault();
 

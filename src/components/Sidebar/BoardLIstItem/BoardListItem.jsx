@@ -2,20 +2,11 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { removeBoard } from 'redux/content/content-operations';
 import icon from '../../../images/sprite.svg';
-import {Box,
-  // BoardHero,
-  // BoardIcon,
-  // BoarLink,
-  BoardItem,
-  // BtnIcon,
-  BoardBtnBox,
-  BoardBtn,
-} from './BoardListItem.styled';
+import { Box, BoardItem, BoardBtnBox, BoardBtn } from './BoardListItem.styled';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../../../contexts/index';
 import EditBoard from 'components/Modals/EditBoardModal/EditBoardModal';
-// import { getBoardById } from 'redux/content/content-operations';
 export const BoardListItem = ({ board }) => {
   const { openModal, closeModal } = useContext(ModalContext);
 
@@ -35,12 +26,6 @@ export const BoardListItem = ({ board }) => {
   };
 
   const { boardName } = useParams();
-  // const handleSelectBoard = (evt) => {
-  //   if (evt.currentTarget === evt.target) {
-  //     return;
-  //   };
-  //   // dispatch(getBoardById(board._id));
-  // };
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onDelete = () => {
@@ -53,21 +38,19 @@ export const BoardListItem = ({ board }) => {
   return (
     <Box>
       <BoardItem to={`/home/${board.title}`}>
-        {/* <BoardHero> */}
-        <svg className='main'>
+        <svg className="main">
           <use href={icon + `#${board.icon}`}></use>
         </svg>
         <p>{board.title}</p>
-        {/* </BoardHero> */}
       </BoardItem>
       <BoardBtnBox>
         <BoardBtn type="button" onClick={editBoardModal}>
-          <svg className='btn'>
+          <svg className="btn">
             <use href={icon + '#icon-pencil'}></use>
           </svg>
         </BoardBtn>
         <BoardBtn type="button" onClick={onDelete}>
-          <svg className='btn'>
+          <svg className="btn">
             <use href={icon + '#icon-trash'}></use>
           </svg>
         </BoardBtn>
