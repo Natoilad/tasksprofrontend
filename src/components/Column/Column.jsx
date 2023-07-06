@@ -18,9 +18,17 @@ const Column = ({ columns, board, title, id }) => {
   const { openModal, closeModal } = useContext(ModalContext);
   const filter = useSelector(getFilter);
   const wrapper = useRef(null);
+  const options = {
+    scrollbars: {
+      scrollbars: { autoHide: 'scroll' },
+      overflow: {
+        x: 'hidden',
+      },
+    },
+  };
   // const { isMobile } = useMatchMedia();
   const hasScroll = tasks.length > 3;
-  useScrollbar(wrapper, hasScroll);
+  useScrollbar(wrapper, hasScroll, options);
   const addCardModal = () => {
     openModal({
       children: (
