@@ -1,5 +1,7 @@
 import icon from '../../../images/sprite.svg';
 import React from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   Wrap,
@@ -21,6 +23,7 @@ export const ModalHelp = ({ handleClose, title, butName }) => {
       comment: evt.currentTarget.elements.comment.value,
     };
     SendHelpEmail(data);
+    toast.success('Message send successful!');
 
     handleClose();
   };
@@ -34,6 +37,8 @@ export const ModalHelp = ({ handleClose, title, butName }) => {
           type="text"
           name="email"
           placeholder="Email address"
+          required
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
         />
         <Comment
           id="comment"
