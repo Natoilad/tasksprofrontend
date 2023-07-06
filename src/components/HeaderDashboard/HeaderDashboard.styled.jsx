@@ -9,14 +9,14 @@ export const Header = styled.div`
   margin-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  max-width: 375px;
+  // max-width: 375px;
 
   @media (min-width: 768px) {
     margin-top: 26px;
     margin-bottom: 26px;
     padding-left: 32px;
     padding-right: 32px;
-    max-width: 705px;
+    // max-width: 705px;
   }
 
   @media (min-width: 1280px) {
@@ -24,7 +24,7 @@ export const Header = styled.div`
     margin-bottom: 10px;
     padding-left: 24px;
     padding-right: 24px;
-    max-width: 1080px;
+    // max-width: 1080px;
   }
 `;
 
@@ -47,10 +47,24 @@ export const FilterBtn = styled.button`
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
+<<<<<<< Updated upstream
   transition: all 0.5s ease-in-out;
 
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.accent};
+=======
+  /* transition: all 0.5s ease-in-out; */
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: ${({ theme }) => theme.colors.tertiaryText};
+  }
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+    svg {
+      stroke: ${({ theme }) => theme.colors.accent};
+    }
+>>>>>>> Stashed changes
   }
 `;
