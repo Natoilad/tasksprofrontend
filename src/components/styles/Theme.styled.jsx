@@ -1,6 +1,7 @@
 export const dark = {
   name: 'dark',
   colors: {
+    bgactive: 'rgba(190, 219, 176, 1)',
     accent: 'rgba(190, 219, 176, 1)',
     additionalAccent: 'rgba(190, 219, 176, 1)',
 
@@ -64,6 +65,7 @@ export const dark = {
 export const light = {
   name: 'light',
   colors: {
+    bgactive: 'rgba(190, 219, 176, 1)',
     accent: 'rgba(190, 219, 176, 1)',
     additionalAccent: 'rgba(190, 219, 176, 1)',
 
@@ -127,6 +129,7 @@ export const light = {
 export const violet = {
   name: 'violet',
   colors: {
+    bgactive: 'rgba(255, 255, 255, 1)',
     accent: 'rgba(82, 85, 188, 1)',
     additionalAccent: 'rgba(236, 237, 253, 1)',
 

@@ -9,7 +9,6 @@ export const Conteiner = styled.div`
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
-  /* max-width: 375px; */
   // height: 812px;
   padding-left: 20px;
   padding-right: 20px;
@@ -17,14 +16,14 @@ export const ScrollBlock = styled(OverlayScrollbarsComponent)`
   @media (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
-    /* max-width: 704px; */
+    min-width: 704px;
     // max-height: 640px;
   }
 
   @media (min-width: 1440px) {
     padding-left: 24px;
     padding-right: 24px;
-    max-width: 1080px;
+    max-width: 1150px;
     // max-height: 478px;
   }
 `;
@@ -60,4 +59,4 @@ export const IconPlus = styled.svg`
   border-radius: 8px;
   fill: ${({ theme }) => theme.colors.columIconPlusFill};
   stroke: ${({ theme }) => theme.colors.columIconPlusStroke};
-  `;
+`;
