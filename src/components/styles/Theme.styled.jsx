@@ -41,6 +41,7 @@ export const dark = {
     inputBorder: 'rgba(190, 219, 176, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
+    userIconFill: 'rgba(21, 21, 21, 1)',
 
     btnFocus: 'rgba(157, 200, 136, 1)',
     iconPlusStroke: 'rgba(255, 255, 255, 1)',
@@ -103,6 +104,7 @@ export const light = {
     inputBorder: 'rgba(190, 219, 176, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
+    userIconFill: 'rgba(255, 255, 255, 1)',
 
     btnFocus: 'rgba(157, 200, 136, 1)',
     iconPlusStroke: 'rgba(255, 255, 255, 1)',
@@ -165,6 +167,7 @@ export const violet = {
     inputBorder: 'rgba(82, 85, 188, 1)',
     inputShadow: 'rgba(22, 22, 22, 0.08)',
     boxShadow: 'rgba(17, 17, 17, 0.1)',
+    userIconFill: 'rgba(255, 255, 255, 1)',
 
     btnFocus: 'rgba(123, 126, 222, 1)',
     iconPlusStroke: 'rgba(22, 22, 22, 1)',

@@ -133,7 +133,7 @@ export const AvatarBox = styled.div`
   border-radius: 8px;
 
   background-color: ${({ theme }) => theme.colors.pageBg};
-  fill: ${({ theme }) => theme.colors.secondaryBg};
+  fill: ${({ theme }) => theme.colors.userIconFill};
 `;
 
 export const BurgerMenuBtn = styled.button`
@@ -150,5 +150,5 @@ export const BurgerMenuBtn = styled.button`
 `;
 
 export const BurgerSvg = styled.svg`
-  stroke: ${({ theme }) => theme.colors.btnIcon};
+  stroke: ${({ theme }) => theme.colors.primaryText};
 `;
