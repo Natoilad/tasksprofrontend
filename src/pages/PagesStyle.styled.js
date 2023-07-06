@@ -17,7 +17,7 @@ export const HomeWrapper = styled.div`
 export const Box = styled.div`
   width: 100%;
   // height: 100%;
-  min-width: 1020px;
+  // min-width: 1020px;
   background-color: ${({ theme }) => theme.colors.pageBg};
   position: relative;
 `;

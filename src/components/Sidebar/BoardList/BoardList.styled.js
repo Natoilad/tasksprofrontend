@@ -11,21 +11,13 @@ export const List = styled.ul`
 
 export const Li = styled.li`
   position: relative;
-<<<<<<< Updated upstream
-  padding: 20px 24px;
-
   display: flex;
-  align-items: center;
   align-content: center;
   justify-content: space-between;
   margin-bottom: 4px;
-=======
   padding-right:20px; 
-  display: flex;
   align-content: center;
-  justify-content: space-between; */
   cursor: pointer;
-  // margin-left: -24px;
   padding-left:24px;
   &.active{
    background: ${({ theme }) => theme.colors.tertiaryBg};
@@ -41,5 +33,5 @@ export const Li = styled.li`
     border-radius: 4px 0px 0px 4px;
     background-color:${({ theme }) => theme.colors.bgactive};
   }
->>>>>>> Stashed changes
+  
 `;

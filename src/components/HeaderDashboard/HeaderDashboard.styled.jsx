@@ -47,14 +47,11 @@ export const FilterBtn = styled.button`
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
-<<<<<<< Updated upstream
   transition: all 0.5s ease-in-out;
 
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.accent};
-=======
-  /* transition: all 0.5s ease-in-out; */
   svg {
     width: 16px;
     height: 16px;
@@ -65,6 +62,6 @@ export const FilterBtn = styled.button`
     svg {
       stroke: ${({ theme }) => theme.colors.accent};
     }
->>>>>>> Stashed changes
+
   }
 `;

@@ -1,13 +1,7 @@
 import Card from 'components/Card/Card';
 import icon from '../../images/sprite.svg';
 import HeaderColumn from 'components/HeaderColumn/HeaderColumn';
-import {
-  Btn,
-  Conteiner,
-  ScrollBlock,
-  CardList,
-  IconPlus,
-} from './Column.styled';
+import { Btn, Conteiner, CardList, IconPlus, Wrap } from './Column.styled';
 
 import { ModalContext } from '../../contexts/index';
 import { useContext } from 'react';
@@ -15,23 +9,18 @@ import CardModal from 'components/Modals/CardModal/CardModal';
 import { useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/tasks-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
-const options = {
-  scrollbars: {
-    scrollbars: { autoHide: 'scroll' },
-    overflow: {
-      x: 'hidden',
-    },
-  },
-};
+import { useScrollbar } from 'hooks/useScrollbar';
+// import { useMatchMedia } from 'hooks/useMatchMedia';
+import { useRef } from 'react';
 
 const Column = ({ columns, board, title, id }) => {
-  // console.log(id);
   const { tasks } = useSelector(selectTasks);
-  // console.log(realTasks);
-  // const tasks = ['1', '2', '3'];
   const { openModal, closeModal } = useContext(ModalContext);
   const filter = useSelector(getFilter);
-
+  const wrapper = useRef(null);
+  // const { isMobile } = useMatchMedia();
+  const hasScroll = tasks.length > 3;
+  useScrollbar(wrapper, hasScroll);
   const addCardModal = () => {
     openModal({
       children: (
@@ -56,7 +45,7 @@ const Column = ({ columns, board, title, id }) => {
   return (
     <Conteiner>
       <HeaderColumn boardId={board._id} title={title} columnId={id} />
-      <ScrollBlock defer element="div" options={options}>
+      <Wrap ref={wrapper} hasScroll={hasScroll}>
         <CardList>
           {filterPriority().map(item => (
             <li key={item._id}>
@@ -64,7 +53,7 @@ const Column = ({ columns, board, title, id }) => {
             </li>
           ))}
         </CardList>
-      </ScrollBlock>
+      </Wrap>
 
       <Btn onClick={addCardModal}>
         <IconPlus>

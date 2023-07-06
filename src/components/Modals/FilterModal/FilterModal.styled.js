@@ -1,15 +1,16 @@
 import styled from 'styled-components';
-import { Form as FormikForm, Field as FormikField } from 'formik';
+
+// import { Form as FormikForm, Field as FormikField } from 'formik';
 import {
-  white100,
-  white50,
-  darkModal,
-  white10,
+  // white100,
+  // white50,
+  // darkModal,
+  // white10,
   lowPriority,
   mediumPriority,
   highPriority,
-  white30,
-  darkGray,
+  // white30,
+  // darkGray,
 } from 'variables/variables';
 
 export const Wrap = styled.div`
@@ -17,23 +18,23 @@ export const Wrap = styled.div`
   width: 300px;
   padding: 24px;
   border-radius: 8px;
-  background: ${darkModal};
+  background: ${({ theme }) => theme.colors.secondaryBg};
   font-family: 'Poppins', sans-serif;
 `;
 
-export const Form = styled(FormikForm)`
+export const FormFilter = styled.form`
   display: flex;
   flex-direction: column;
 `;
 
 export const Title = styled.h4`
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.36px;
   margin-right: auto;
   padding-bottom: 14px;
-  border-bottom: 1px solid ${white10};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.filterLine};
   margin-bottom: 14px;
 `;
 
@@ -41,7 +42,7 @@ export const ImgContainer = styled.div`
   margin-top: 14px;
   margin-bottom: 24px;
   padding-bottom: 14px;
-  border-bottom: 1px solid ${white10};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.filterLine};
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -58,7 +59,7 @@ export const ImgContainer = styled.div`
 export const Svg = styled.svg`
   width: 28px;
   height: 28px;
-  fill: ${darkGray};
+  fill: ${({ theme }) => theme.colors.pageBg};
   border-radius: 6px;
   transition: transform 0.25s ease;
 
@@ -67,16 +68,7 @@ export const Svg = styled.svg`
   }
 `;
 
-export const BgImg = styled.img`
-  border-radius: 6px;
-  transition: transform 0.25s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
-export const Field = styled(FormikField)`
+export const FieldSvg = styled.input`
   opacity: 0;
   position: absolute;
   cursor: pointer;
@@ -86,7 +78,7 @@ export const Text = styled.h4`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-  color: ${white100};
+  color: ${({ theme }) => theme.colors.primaryText};
 `;
 
 export const Box = styled.div`
@@ -100,12 +92,12 @@ export const ShowAll = styled.label`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: ${white50};
+  color: ${({ theme }) => theme.colors.secondaryText};
   cursor: pointer;
   text-decoration: underline;
   &:hover,
   &:focus {
-    color: ${white100};
+    color: ${({ theme }) => theme.colors.primaryText};
   }
   input {
     opacity: 0;
@@ -128,7 +120,7 @@ export const Span = styled.span`
     } else if (props.value === 'high') {
       return `${highPriority}`;
     } else if (props.value === 'without') {
-      return `${white30}`;
+      return `${props.theme.colors.taskWithoutPriority}`;
     } else {
       return;
     }
@@ -144,7 +136,7 @@ export const Span = styled.span`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    border: 2px solid ${darkModal};
+    border: 2px solid ${({ theme }) => theme.colors.modalBg};
     opacity: 0;
   }
 `;
@@ -161,11 +153,11 @@ export const LabelContainer = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
-    color: ${white50};
+    color: ${({ theme }) => theme.colors.secondaryText};
     cursor: pointer;
     &:hover,
     &:focus {
-      color: ${white100};
+      color: ${({ theme }) => theme.colors.primaryText};
     }
   }
 

@@ -9,7 +9,6 @@ export const Conteiner = styled.div`
 `;
 
 export const ScrollBlock = styled(OverlayScrollbarsComponent)`
-  // max-width: 375px;
   // height: 812px;
   padding-left: 20px;
   padding-right: 20px;

@@ -1,12 +1,12 @@
 import icon from '../../../images/sprite.svg';
 import React from 'react';
-import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import backgrounds from '../../../images/bgFolder/backgrounds.json';
 
+import { useTheme } from 'styled-components';
+
 import {
-  Form,
-  Field,
+  FieldSvg,
   Wrap,
   CloseBtn,
   CloseIcon,
@@ -18,40 +18,73 @@ import {
   Box,
   Svg,
   ImgContainer,
-  BgImg,
+  FormFilter,
 } from './FilterModal.styled';
 import { setFilter } from 'redux/filter/filter-slice';
+import BgComponent from '../AddBoard/bgComponent';
+import { updateBoardEl } from 'redux/content/content-operations';
 
-const initialFormValues = { title: '' };
-
-export const FilterModal = ({ handleClose, title }) => {
+export const FilterModal = ({
+  handleClose,
+  title,
+  boardId,
+  boardTitle,
+}) => {
   const dispatch = useDispatch();
+  const theme = useTheme();
+
+  const onClickOnBg = value => {
+    const data = {
+      title: boardTitle,
+      background: value,
+    };
+
+    dispatch(updateBoardEl({ boardId, data }));
+  };
+
   const onFilter = e => {
-    // console.log(e.target.value);
     dispatch(setFilter(e.target.value));
   };
 
   return (
     <>
+    
       <Wrap>
         <Title>{title}</Title>
-        <Formik initialValues={initialFormValues} onSubmit={() => {}}>
-          <Form autoComplete="off">
+       
+          <FormFilter autoComplete="off">
             <Text>Backgrounds</Text>
-            <ImgContainer role="group" aria-labelledby="bgimg-group">
+            <ImgContainer
+              role="group"
+              aria-labelledby="bgimg-group"
+            >
               <label>
-                <Field type="radio" name="bgicon" value="default" />
+                <FieldSvg
+                  type="radio"
+                  name="radio"
+                  value="649f40cdcaf11c74bb222222"
+                onClick={e => {
+                  onClickOnBg(e.target.value)
+                }}
+                />
                 <Svg>
                   <use href={icon + '#icon-block'}></use>
                 </Svg>
               </label>
-              {backgrounds.map(({ _id, bgIcons }) => (
-                <label key={_id}>
-                  <Field type="radio" name="bgicon" value="" />
-                  <BgImg src={bgIcons} alt="" />
-                </label>
-              ))}
+              {backgrounds.map(bg => {
+                return (
+                  <>
+                    <BgComponent
+                      key={bg._id}
+                      bg={bg}
+                      _id={bg._id}
+                      onClick={onClickOnBg}
+                    />
+                  </>
+                );
+              })}
             </ImgContainer>
+
             <Box>
               <Text name="labelPriority">Label color</Text>
               <ShowAll>
@@ -68,6 +101,7 @@ export const FilterModal = ({ handleClose, title }) => {
             <LabelContainer role="group" aria-labelledby="label-group">
               <label>
                 <input
+                  theme={theme}
                   type="radio"
                   value="none"
                   name="labelPriority"
@@ -107,8 +141,7 @@ export const FilterModal = ({ handleClose, title }) => {
                 High
               </label>
             </LabelContainer>
-          </Form>
-        </Formik>
+          </FormFilter>
         <CloseBtn onClick={handleClose}>
           <CloseIcon>
             <use href={icon + '#icon-close'}></use>
